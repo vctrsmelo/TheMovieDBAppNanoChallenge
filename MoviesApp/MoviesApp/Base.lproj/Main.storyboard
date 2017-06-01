@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Fnl-eQ-Dfj">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--MY WATCHLIST-->
+        <scene sceneID="zdq-CU-8X7">
+            <objects>
+                <viewController id="TUJ-uW-mFd" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="R2b-qo-XhG"/>
+                        <viewControllerLayoutGuide type="bottom" id="FMO-mw-cB1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OGS-ik-vzy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="MY WATCHLIST" id="kfj-nq-V4O"/>
+                    <connections>
+                        <segue destination="XVY-IF-9bw" kind="show" identifier="myWatchlistToDetails" id="hMy-Qx-eZZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0SZ-wf-t8Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1880.8" y="-142.57871064467767"/>
+        </scene>
+        <!--NOW PLAYING-->
+        <scene sceneID="nxJ-ih-pHE">
+            <objects>
+                <viewController id="OJ6-l3-8cH" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="opz-TE-mWx"/>
+                        <viewControllerLayoutGuide type="bottom" id="n2O-zD-1Ow"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rqd-D6-aK8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="NOW PLAYING" id="rhp-Sm-m7l"/>
+                    <connections>
+                        <segue destination="XVY-IF-9bw" kind="show" identifier="nowPlayingToDetails" id="EDs-TS-HyK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nd0-LS-tIo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1880.8" y="-797.45127436281871"/>
+        </scene>
+        <!--MOVIE DETAILS-->
+        <scene sceneID="yrS-2j-2cP">
+            <objects>
+                <viewController id="XVY-IF-9bw" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JSn-NU-F79"/>
+                        <viewControllerLayoutGuide type="bottom" id="WxB-T0-xoe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PHn-gI-jsA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="MOVIE DETAILS" id="zkc-1o-kPW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Brz-jw-jbd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2798" y="-469"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="jj2-iI-gCX">
+            <objects>
+                <tabBarController id="Fnl-eQ-Dfj" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="lmw-Wb-WSp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="i1W-xe-Kij" kind="relationship" relationship="viewControllers" id="RMD-9D-3UZ"/>
+                        <segue destination="l0Q-wp-pm5" kind="relationship" relationship="viewControllers" id="Vmv-p4-Lqg"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BJn-WA-Pp2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-10" y="-469"/>
+        </scene>
+        <!--NOW PLAYING-->
+        <scene sceneID="o82-KC-bbq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="i1W-xe-Kij" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="NOW PLAYING" id="3Zf-fu-3la"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nTG-U4-fnf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OJ6-l3-8cH" kind="relationship" relationship="rootViewController" id="L57-LJ-ULb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yzc-nO-TgL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="941.60000000000002" y="-797.45127436281871"/>
+        </scene>
+        <!--MY WATCHLIST-->
+        <scene sceneID="dWJ-Yo-BhM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="l0Q-wp-pm5" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="MY WATCHLIST" id="qU5-3D-6RB"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="F6v-C2-1kj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="TUJ-uW-mFd" kind="relationship" relationship="rootViewController" id="vBY-Ty-ygh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ecs-Hb-veP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="941.60000000000002" y="-142.57871064467767"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="EDs-TS-HyK"/>
+    </inferredMetricsTieBreakers>
+</document>
