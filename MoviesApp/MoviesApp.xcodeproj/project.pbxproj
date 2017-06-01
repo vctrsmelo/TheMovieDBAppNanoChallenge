@@ -18,8 +18,11 @@
 		5781C47B1EE0881F0037C7CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5781C47A1EE0881F0037C7CB /* Assets.xcassets */; };
 		5781C47E1EE0881F0037C7CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5781C47C1EE0881F0037C7CB /* LaunchScreen.storyboard */; };
 		EE7E0A851EE0946D0029874C /* TmdbAPIAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7E0A841EE0946D0029874C /* TmdbAPIAccess.swift */; };
+		FC3516B91EE0D4BB00E6A724 /* MovieDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3516B81EE0D4BB00E6A724 /* MovieDAO.swift */; };
+		FC3516BB1EE0DBFC00E6A724 /* RealmsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3516BA1EE0DBFC00E6A724 /* RealmsConfig.swift */; };
 		FC59E30B1EE0C80100157142 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC59E3091EE0C80100157142 /* Realm.framework */; };
 		FC59E30C1EE0C80100157142 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC59E30A1EE0C80100157142 /* RealmSwift.framework */; };
+		FC59E30F1EE0CAF600157142 /* UserDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC59E30E1EE0CAF600157142 /* UserDAO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +39,11 @@
 		5781C47D1EE0881F0037C7CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5781C47F1EE0881F0037C7CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE7E0A841EE0946D0029874C /* TmdbAPIAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TmdbAPIAccess.swift; sourceTree = "<group>"; };
+		FC3516B81EE0D4BB00E6A724 /* MovieDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDAO.swift; sourceTree = "<group>"; };
+		FC3516BA1EE0DBFC00E6A724 /* RealmsConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmsConfig.swift; sourceTree = "<group>"; };
 		FC59E3091EE0C80100157142 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		FC59E30A1EE0C80100157142 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		FC59E30E1EE0CAF600157142 /* UserDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDAO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +132,7 @@
 				EE7E0A831EE0940C0029874C /* APIAccess */,
 				5781C4731EE0881F0037C7CB /* AppDelegate.swift */,
 				5781C4751EE0881F0037C7CB /* ViewController.swift */,
+				FC3516BC1EE0DE1700E6A724 /* Storage */,
 				5781C4771EE0881F0037C7CB /* Main.storyboard */,
 				5781C47A1EE0881F0037C7CB /* Assets.xcassets */,
 				5781C47C1EE0881F0037C7CB /* LaunchScreen.storyboard */,
@@ -148,6 +155,16 @@
 				EE7E0A841EE0946D0029874C /* TmdbAPIAccess.swift */,
 			);
 			name = APIAccess;
+			sourceTree = "<group>";
+		};
+		FC3516BC1EE0DE1700E6A724 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				FC59E30E1EE0CAF600157142 /* UserDAO.swift */,
+				FC3516B81EE0D4BB00E6A724 /* MovieDAO.swift */,
+				FC3516BA1EE0DBFC00E6A724 /* RealmsConfig.swift */,
+			);
+			name = Storage;
 			sourceTree = "<group>";
 		};
 		FC59E3081EE0C80100157142 /* Frameworks */ = {
@@ -254,11 +271,16 @@
 				EE7E0A851EE0946D0029874C /* TmdbAPIAccess.swift in Sources */,
 				5781C4761EE0881F0037C7CB /* ViewController.swift in Sources */,
 				290F46611EE0AF5A00E509E3 /* MovieTags.swift in Sources */,
+				FC3516B91EE0D4BB00E6A724 /* MovieDAO.swift in Sources */,
+				FC59E30F1EE0CAF600157142 /* UserDAO.swift in Sources */,
 				5781C4741EE0881F0037C7CB /* AppDelegate.swift in Sources */,
 				290F465F1EE0A88B00E509E3 /* Movie.swift in Sources */,
 				290F465D1EE0A85100E509E3 /* User.swift in Sources */,
 				5721A13C1EE1CF9300E1C95B /* UIViewExtension.swift in Sources */,
 				577A01311EE09600005CC233 /* MovieDetailsViewController.swift in Sources */,
+				290F465F1EE0A88B00E509E3 /* Movie.swift in Sources */,
+				290F465D1EE0A85100E509E3 /* User.swift in Sources */,
+				FC3516BB1EE0DBFC00E6A724 /* RealmsConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
