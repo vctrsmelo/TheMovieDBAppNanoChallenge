@@ -17,6 +17,7 @@
 		5781C4791EE0881F0037C7CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5781C4771EE0881F0037C7CB /* Main.storyboard */; };
 		5781C47B1EE0881F0037C7CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5781C47A1EE0881F0037C7CB /* Assets.xcassets */; };
 		5781C47E1EE0881F0037C7CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5781C47C1EE0881F0037C7CB /* LaunchScreen.storyboard */; };
+		EE7E0A851EE0946D0029874C /* TmdbAPIAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7E0A841EE0946D0029874C /* TmdbAPIAccess.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		5781C47A1EE0881F0037C7CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5781C47D1EE0881F0037C7CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5781C47F1EE0881F0037C7CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE7E0A841EE0946D0029874C /* TmdbAPIAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TmdbAPIAccess.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 		5781C4721EE0881F0037C7CB /* MoviesApp */ = {
 			isa = PBXGroup;
 			children = (
+				EE7E0A831EE0940C0029874C /* APIAccess */,
 				5781C4731EE0881F0037C7CB /* AppDelegate.swift */,
 				5781C4751EE0881F0037C7CB /* ViewController.swift */,
 				5781C4771EE0881F0037C7CB /* Main.storyboard */,
@@ -128,6 +131,14 @@
 				5721A13B1EE1CF9300E1C95B /* UIViewExtension.swift */,
 			);
 			path = MoviesApp;
+			sourceTree = "<group>";
+		};
+		EE7E0A831EE0940C0029874C /* APIAccess */ = {
+			isa = PBXGroup;
+			children = (
+				EE7E0A841EE0946D0029874C /* TmdbAPIAccess.swift */,
+			);
+			name = APIAccess;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,7 +173,7 @@
 				TargetAttributes = {
 					5781C46F1EE0881F0037C7CB = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = VXAGBDYAT9;
+						DevelopmentTeam = Y93HUJS49V;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -203,6 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE7E0A851EE0946D0029874C /* TmdbAPIAccess.swift in Sources */,
 				5781C4761EE0881F0037C7CB /* ViewController.swift in Sources */,
 				290F46611EE0AF5A00E509E3 /* MovieTags.swift in Sources */,
 				5781C4741EE0881F0037C7CB /* AppDelegate.swift in Sources */,
@@ -334,10 +346,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = VXAGBDYAT9;
+				DEVELOPMENT_TEAM = Y93HUJS49V;
 				INFOPLIST_FILE = MoviesApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mafoltz.MoviesApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.victormelo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -347,10 +359,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = VXAGBDYAT9;
+				DEVELOPMENT_TEAM = Y93HUJS49V;
 				INFOPLIST_FILE = MoviesApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mafoltz.MoviesApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.victormelo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
