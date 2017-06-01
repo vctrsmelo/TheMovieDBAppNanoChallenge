@@ -18,6 +18,8 @@
 		5781C47B1EE0881F0037C7CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5781C47A1EE0881F0037C7CB /* Assets.xcassets */; };
 		5781C47E1EE0881F0037C7CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5781C47C1EE0881F0037C7CB /* LaunchScreen.storyboard */; };
 		EE7E0A851EE0946D0029874C /* TmdbAPIAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7E0A841EE0946D0029874C /* TmdbAPIAccess.swift */; };
+		FC59E30B1EE0C80100157142 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC59E3091EE0C80100157142 /* Realm.framework */; };
+		FC59E30C1EE0C80100157142 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC59E30A1EE0C80100157142 /* RealmSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		5781C47D1EE0881F0037C7CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5781C47F1EE0881F0037C7CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE7E0A841EE0946D0029874C /* TmdbAPIAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TmdbAPIAccess.swift; sourceTree = "<group>"; };
+		FC59E3091EE0C80100157142 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		FC59E30A1EE0C80100157142 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +45,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC59E30B1EE0C80100157142 /* Realm.framework in Frameworks */,
+				FC59E30C1EE0C80100157142 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +108,7 @@
 			children = (
 				5781C4721EE0881F0037C7CB /* MoviesApp */,
 				5781C4711EE0881F0037C7CB /* Products */,
+				FC59E3081EE0C80100157142 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,6 +150,15 @@
 			name = APIAccess;
 			sourceTree = "<group>";
 		};
+		FC59E3081EE0C80100157142 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FC59E3091EE0C80100157142 /* Realm.framework */,
+				FC59E30A1EE0C80100157142 /* RealmSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -153,6 +169,7 @@
 				5781C46C1EE0881F0037C7CB /* Sources */,
 				5781C46D1EE0881F0037C7CB /* Frameworks */,
 				5781C46E1EE0881F0037C7CB /* Resources */,
+				FC59E30D1EE0C80D00157142 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -175,7 +192,7 @@
 				TargetAttributes = {
 					5781C46F1EE0881F0037C7CB = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = VXAGBDYAT9;
+						DevelopmentTeam = 2RF2ZQGYFL;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -210,6 +227,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		FC59E30D1EE0C80D00157142 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5781C46C1EE0881F0037C7CB /* Sources */ = {
@@ -348,7 +383,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = VXAGBDYAT9;
+				DEVELOPMENT_TEAM = 2RF2ZQGYFL;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MoviesApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.victormelo;
@@ -361,7 +400,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = VXAGBDYAT9;
+				DEVELOPMENT_TEAM = 2RF2ZQGYFL;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MoviesApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.victormelo;
