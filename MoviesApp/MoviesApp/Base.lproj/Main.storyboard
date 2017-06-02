@@ -821,8 +821,20 @@
                     </view>
                     <navigationItem key="navigationItem" title="MOVIE DETAILS" id="zkc-1o-kPW"/>
                     <connections>
+                        <outlet property="favoriteButton" destination="1oC-g5-ybW" id="wMN-EB-8Kc"/>
+                        <outlet property="movieGenre" destination="lau-Ns-uTz" id="f8a-nu-Yuq"/>
+                        <outlet property="movieImage" destination="hxE-z6-2Z1" id="uAo-Hy-UA8"/>
+                        <outlet property="movieOverview" destination="hxr-Z2-EoY" id="3rK-er-AmV"/>
+                        <outlet property="movieTime" destination="6lY-IB-d6d" id="vkc-Ry-OIu"/>
                         <outlet property="movieTitle" destination="OSz-ys-lZq" id="MgV-RJ-21d"/>
                         <outlet property="movieYear" destination="TEz-2V-5Ci" id="sEh-KR-U9J"/>
+                        <outlet property="rating1Button" destination="oT7-UF-ElI" id="pRi-6p-g7d"/>
+                        <outlet property="rating2Button" destination="64m-rX-Fd5" id="ydz-nj-qSB"/>
+                        <outlet property="rating3Button" destination="IP4-7W-s9g" id="nM6-LU-STD"/>
+                        <outlet property="rating4Button" destination="SRU-YT-F2U" id="ATD-mo-szx"/>
+                        <outlet property="rating5Button" destination="zfp-qH-Nmg" id="Hzt-ql-LP9"/>
+                        <outlet property="viewPhotoButton" destination="3lR-gI-7gG" id="m4P-ap-eKF"/>
+                        <outlet property="watchlistButton" destination="3fS-h3-gJg" id="mqr-15-oRc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Brz-jw-jbd" userLabel="First Responder" sceneMemberID="firstResponder"/>
