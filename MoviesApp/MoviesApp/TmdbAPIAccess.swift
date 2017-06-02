@@ -143,15 +143,42 @@ class TmdbAPIAccess: NSObject {
     
     }
     
-    public static func getMovie(title: String, succeeded: @escaping ([Movie]) -> Void){
+    public static func getMovieBy(title: String, succeeded: @escaping ([Movie]) -> Void){
         
         
         
     }
     
-    public static func getMovie(id: CUnsignedLong, succeeded: @escaping ([Movie]) -> Void){
+    public static func getMovieBy(id: CUnsignedLong, succeeded: @escaping ([Movie]) -> Void){
         
-        
+        if let url = URL(string:"http://api.themoviedb.org/3/movie/157336?api_key="+(id as? String)){
+            
+            
+            let request = URLRequest(url: url)
+            let session = URLSession.shared
+            
+            session.dataTask(with: request) { (data, response, error) in
+                
+                do{
+                    let json = try JSONSerialization.jsonObject(with: data!, options: [])
+                    
+                    if let movie = json as? [String:AnyObject]{
+                
+                        moviesArray.append(getMovieFrom(movieDictionary: movie))
+                        
+                    }
+                    
+                    succeeded(moviesArray)
+                    
+                } catch let error{
+                    
+                    print(error)
+                    
+                }
+                
+            }.resume()
+            
+        }
         
     }
     
