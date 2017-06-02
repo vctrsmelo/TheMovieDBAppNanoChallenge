@@ -41,6 +41,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		290F46621EE1E70300E509E3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				290F46671EE1E75300E509E3 /* Persistence */,
+				290F46661EE1E74100E509E3 /* Comms */,
+				290F46631EE1E71000E509E3 /* Entity */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		290F46631EE1E71000E509E3 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				290F465C1EE0A85100E509E3 /* User.swift */,
+				290F465E1EE0A88B00E509E3 /* Movie.swift */,
+				290F46601EE0AF5A00E509E3 /* MovieTags.swift */,
+			);
+			name = Entity;
+			sourceTree = "<group>";
+		};
+		290F46641EE1E72000E509E3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		290F46651EE1E72C00E509E3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		290F46661EE1E74100E509E3 /* Comms */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Comms;
+			sourceTree = "<group>";
+		};
+		290F46671EE1E75300E509E3 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Persistence;
+			sourceTree = "<group>";
+		};
 		5781C4671EE0881F0037C7CB = {
 			isa = PBXGroup;
 			children = (
@@ -66,9 +114,9 @@
 				5781C47A1EE0881F0037C7CB /* Assets.xcassets */,
 				5781C47C1EE0881F0037C7CB /* LaunchScreen.storyboard */,
 				5781C47F1EE0881F0037C7CB /* Info.plist */,
-				290F465C1EE0A85100E509E3 /* User.swift */,
-				290F465E1EE0A88B00E509E3 /* Movie.swift */,
-				290F46601EE0AF5A00E509E3 /* MovieTags.swift */,
+				290F46641EE1E72000E509E3 /* View */,
+				290F46651EE1E72C00E509E3 /* ViewModel */,
+				290F46621EE1E70300E509E3 /* Model */,
 			);
 			path = MoviesApp;
 			sourceTree = "<group>";
