@@ -9,23 +9,47 @@
 import Foundation
 import UIKit.UIImage
 
+protocol MovieDelegate: class{
+    
+    func updatedPosterImage(_ posterImage: UIImage?)
+    
+}
+
 public class Movie: Hashable, Equatable {
 	
 	public let id: String
 	public let title: String?
-	public let genre: [String]?
-	public let poster: UIImage?
+    public let originalTitle: String?
+	public let genres: [String]?
+	public var poster: UIImage?
+    public let runtime: Int?
+    public let overview: String?
+    public let releaseDateString: String?
 	public var hashValue: Int {
 		return id.hashValue
 	}
-	
-	init(id: String, title: String, genre: [String], poster: UIImage) {
+    
+    weak var delegate: MovieDelegate?
+
+    init(id: String, title: String?, originalTitle: String?, genres: [String]?, runtime: Int?, releaseDateString: String?, overview: String?, poster: UIImage? = nil) {
 		self.id = id
 		self.title = title
-		self.genre = genre
+		self.genres = genres
 		self.poster = poster
+        self.runtime = runtime
+        self.releaseDateString = releaseDateString
+        self.overview = overview
+        self.originalTitle = originalTitle
+        
 	}
-	
+    
+    public func set(poster: UIImage){
+        
+        self.poster = poster
+        delegate?.updatedPosterImage(self.poster)
+        
+    }
+    
 	public static func ==(lhs: Movie, rhs: Movie) -> Bool {
 		return lhs.hashValue == rhs.hashValue
 	}
