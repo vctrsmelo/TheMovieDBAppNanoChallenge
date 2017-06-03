@@ -72,6 +72,9 @@
 		290F46631EE1E71000E509E3 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				290F465C1EE0A85100E509E3 /* User.swift */,
+				290F465E1EE0A88B00E509E3 /* Movie.swift */,
+				290F46601EE0AF5A00E509E3 /* MovieTags.swift */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -79,6 +82,8 @@
 		290F46641EE1E72000E509E3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				577A01301EE09600005CC233 /* MovieDetailsViewController.swift */,
+				5721A13B1EE1CF9300E1C95B /* UIViewExtension.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -127,21 +132,16 @@
 		5781C4721EE0881F0037C7CB /* MoviesApp */ = {
 			isa = PBXGroup;
 			children = (
+				290F46621EE1E70300E509E3 /* Model */,
+				290F46651EE1E72C00E509E3 /* ViewModel */,
+				290F46641EE1E72000E509E3 /* View */,
 				EE7E0A831EE0940C0029874C /* APIAccess */,
 				5781C4731EE0881F0037C7CB /* AppDelegate.swift */,
 				5781C4751EE0881F0037C7CB /* ViewController.swift */,
 				5781C4771EE0881F0037C7CB /* Main.storyboard */,
-				5781C47A1EE0881F0037C7CB /* Assets.xcassets */,
 				5781C47C1EE0881F0037C7CB /* LaunchScreen.storyboard */,
 				5781C47F1EE0881F0037C7CB /* Info.plist */,
-				290F465C1EE0A85100E509E3 /* User.swift */,
-				290F465E1EE0A88B00E509E3 /* Movie.swift */,
-				290F46601EE0AF5A00E509E3 /* MovieTags.swift */,
-				577A01301EE09600005CC233 /* MovieDetailsViewController.swift */,
-				290F46641EE1E72000E509E3 /* View */,
-				290F46651EE1E72C00E509E3 /* ViewModel */,
-				290F46621EE1E70300E509E3 /* Model */,
-				5721A13B1EE1CF9300E1C95B /* UIViewExtension.swift */,
+				5781C47A1EE0881F0037C7CB /* Assets.xcassets */,
 			);
 			path = MoviesApp;
 			sourceTree = "<group>";
