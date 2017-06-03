@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		290F465D1EE0A85100E509E3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290F465C1EE0A85100E509E3 /* User.swift */; };
-		290F465F1EE0A88B00E509E3 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290F465E1EE0A88B00E509E3 /* Movie.swift */; };
 		290F46611EE0AF5A00E509E3 /* MovieTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290F46601EE0AF5A00E509E3 /* MovieTags.swift */; };
 		5721A13C1EE1CF9300E1C95B /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5721A13B1EE1CF9300E1C95B /* UIViewExtension.swift */; };
 		577A01311EE09600005CC233 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577A01301EE09600005CC233 /* MovieDetailsViewController.swift */; };
@@ -17,6 +15,8 @@
 		5781C4791EE0881F0037C7CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5781C4771EE0881F0037C7CB /* Main.storyboard */; };
 		5781C47B1EE0881F0037C7CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5781C47A1EE0881F0037C7CB /* Assets.xcassets */; };
 		5781C47E1EE0881F0037C7CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5781C47C1EE0881F0037C7CB /* LaunchScreen.storyboard */; };
+		E7966EE81EE26EB500AF3B6C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290F465C1EE0A85100E509E3 /* User.swift */; };
+		E7966EE91EE26EB500AF3B6C /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290F465E1EE0A88B00E509E3 /* Movie.swift */; };
 		EE7E0A851EE0946D0029874C /* TmdbAPIAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7E0A841EE0946D0029874C /* TmdbAPIAccess.swift */; };
 		FC3516B91EE0D4BB00E6A724 /* MovieDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3516B81EE0D4BB00E6A724 /* MovieDAO.swift */; };
 		FC3516BB1EE0DBFC00E6A724 /* RealmsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3516BA1EE0DBFC00E6A724 /* RealmsConfig.swift */; };
@@ -72,9 +72,6 @@
 		290F46631EE1E71000E509E3 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				290F465C1EE0A85100E509E3 /* User.swift */,
-				290F465E1EE0A88B00E509E3 /* Movie.swift */,
-				290F46601EE0AF5A00E509E3 /* MovieTags.swift */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -82,8 +79,6 @@
 		290F46641EE1E72000E509E3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				577A01301EE09600005CC233 /* MovieDetailsViewController.swift */,
-				5721A13B1EE1CF9300E1C95B /* UIViewExtension.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -260,18 +255,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7966EE81EE26EB500AF3B6C /* User.swift in Sources */,
+				E7966EE91EE26EB500AF3B6C /* Movie.swift in Sources */,
 				EE7E0A851EE0946D0029874C /* TmdbAPIAccess.swift in Sources */,
 				5781C4761EE0881F0037C7CB /* ViewController.swift in Sources */,
 				290F46611EE0AF5A00E509E3 /* MovieTags.swift in Sources */,
 				FC3516B91EE0D4BB00E6A724 /* MovieDAO.swift in Sources */,
 				FC59E30F1EE0CAF600157142 /* UserDAO.swift in Sources */,
 				5781C4741EE0881F0037C7CB /* AppDelegate.swift in Sources */,
-				290F465F1EE0A88B00E509E3 /* Movie.swift in Sources */,
-				290F465D1EE0A85100E509E3 /* User.swift in Sources */,
 				5721A13C1EE1CF9300E1C95B /* UIViewExtension.swift in Sources */,
 				577A01311EE09600005CC233 /* MovieDetailsViewController.swift in Sources */,
-				290F465F1EE0A88B00E509E3 /* Movie.swift in Sources */,
-				290F465D1EE0A85100E509E3 /* User.swift in Sources */,
 				FC3516BB1EE0DBFC00E6A724 /* RealmsConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
