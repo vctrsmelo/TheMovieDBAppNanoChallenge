@@ -34,7 +34,7 @@ class MovieDAO : Object {
 	}
 	
 	static func getMovies() {
-		let movies = RealmsConfig.getTemporaryRealm().objects(MovieDAO.self)
+		//let movies = RealmsConfig.getTemporaryRealm().objects(MovieDAO.self)
 		
 		//return movies
 	}
