@@ -36,7 +36,9 @@ import UIKit
     @IBInspectable var cornerRadius:CGFloat {
         set {
             layer.cornerRadius = newValue
-            clipsToBounds = newValue > 0
+            if (self as? UITableViewCell) == nil {
+                clipsToBounds = newValue > 0
+            }
         }
         get {
             return layer.cornerRadius

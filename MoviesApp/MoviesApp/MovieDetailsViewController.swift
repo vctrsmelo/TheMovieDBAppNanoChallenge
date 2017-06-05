@@ -28,25 +28,28 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 2
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if (tableView.cellForRow(at: indexPath) as? MainInformationsTableViewCell) != nil {
+        switch indexPath.row {
+        case 0:
             return 237
-        } else if let currentCell = tableView.cellForRow(at: indexPath) as? MainInformationsTableViewCell {
-            return 72 + currentCell
-        } else {
+        case 1:
+            return 172
+        default:
             return 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //if indexPath == 0 {
-            let cell = contentTableView.dequeueReusableCell(withIdentifier: "mainInformationsCell") as! MainInformationsTableViewCell
-        //}
-        
-        
-        return cell
+        switch indexPath.row {
+        case 0:
+            return contentTableView.dequeueReusableCell(withIdentifier: "mainInformationsCell") as! MainInformationsTableViewCell
+        case 1:
+            return contentTableView.dequeueReusableCell(withIdentifier: "overviewCell") as! OverviewTableViewCell
+        default:
+            return contentTableView.dequeueReusableCell(withIdentifier: "mainInformationsCell") as! MainInformationsTableViewCell
+        }
     }
 }
