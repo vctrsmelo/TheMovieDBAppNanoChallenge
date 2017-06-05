@@ -10,18 +10,30 @@
 		290F465D1EE0A85100E509E3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290F465C1EE0A85100E509E3 /* User.swift */; };
 		290F465F1EE0A88B00E509E3 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290F465E1EE0A88B00E509E3 /* Movie.swift */; };
 		290F46611EE0AF5A00E509E3 /* MovieTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290F46601EE0AF5A00E509E3 /* MovieTags.swift */; };
+		290F46611EE0AF5A00E509E3 /* MovieTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290F46601EE0AF5A00E509E3 /* MovieTags.swift */; };
+		5721A13C1EE1CF9300E1C95B /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5721A13B1EE1CF9300E1C95B /* UIViewExtension.swift */; };
+		577A01311EE09600005CC233 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577A01301EE09600005CC233 /* MovieDetailsViewController.swift */; };
 		5781C4741EE0881F0037C7CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781C4731EE0881F0037C7CB /* AppDelegate.swift */; };
 		5781C4761EE0881F0037C7CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781C4751EE0881F0037C7CB /* ViewController.swift */; };
 		5781C4791EE0881F0037C7CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5781C4771EE0881F0037C7CB /* Main.storyboard */; };
 		5781C47B1EE0881F0037C7CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5781C47A1EE0881F0037C7CB /* Assets.xcassets */; };
 		5781C47E1EE0881F0037C7CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5781C47C1EE0881F0037C7CB /* LaunchScreen.storyboard */; };
+		E7966EE81EE26EB500AF3B6C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290F465C1EE0A85100E509E3 /* User.swift */; };
+		E7966EE91EE26EB500AF3B6C /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290F465E1EE0A88B00E509E3 /* Movie.swift */; };
 		EE7E0A851EE0946D0029874C /* TmdbAPIAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7E0A841EE0946D0029874C /* TmdbAPIAccess.swift */; };
+		FC3516B91EE0D4BB00E6A724 /* MovieDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3516B81EE0D4BB00E6A724 /* MovieDAO.swift */; };
+		FC3516BB1EE0DBFC00E6A724 /* RealmsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3516BA1EE0DBFC00E6A724 /* RealmsConfig.swift */; };
+		FC59E30B1EE0C80100157142 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC59E3091EE0C80100157142 /* Realm.framework */; };
+		FC59E30C1EE0C80100157142 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC59E30A1EE0C80100157142 /* RealmSwift.framework */; };
+		FC59E30F1EE0CAF600157142 /* UserDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC59E30E1EE0CAF600157142 /* UserDAO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		290F465C1EE0A85100E509E3 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		290F465E1EE0A88B00E509E3 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		290F46601EE0AF5A00E509E3 /* MovieTags.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieTags.swift; sourceTree = "<group>"; };
+		5721A13B1EE1CF9300E1C95B /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		577A01301EE09600005CC233 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		5781C4701EE0881F0037C7CB /* MoviesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5781C4731EE0881F0037C7CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5781C4751EE0881F0037C7CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -30,6 +42,11 @@
 		5781C47D1EE0881F0037C7CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5781C47F1EE0881F0037C7CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE7E0A841EE0946D0029874C /* TmdbAPIAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TmdbAPIAccess.swift; sourceTree = "<group>"; };
+		FC3516B81EE0D4BB00E6A724 /* MovieDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDAO.swift; sourceTree = "<group>"; };
+		FC3516BA1EE0DBFC00E6A724 /* RealmsConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmsConfig.swift; sourceTree = "<group>"; };
+		FC59E3091EE0C80100157142 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		FC59E30A1EE0C80100157142 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		FC59E30E1EE0CAF600157142 /* UserDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDAO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +54,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC59E30B1EE0C80100157142 /* Realm.framework in Frameworks */,
+				FC59E30C1EE0C80100157142 /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +85,8 @@
 		290F46641EE1E72000E509E3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				577A01301EE09600005CC233 /* MovieDetailsViewController.swift */,
+				5721A13B1EE1CF9300E1C95B /* UIViewExtension.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -87,6 +108,9 @@
 		290F46671EE1E75300E509E3 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				FC59E30E1EE0CAF600157142 /* UserDAO.swift */,
+				FC3516B81EE0D4BB00E6A724 /* MovieDAO.swift */,
+				FC3516BA1EE0DBFC00E6A724 /* RealmsConfig.swift */,
 			);
 			name = Persistence;
 			sourceTree = "<group>";
@@ -96,6 +120,7 @@
 			children = (
 				5781C4721EE0881F0037C7CB /* MoviesApp */,
 				5781C4711EE0881F0037C7CB /* Products */,
+				FC59E3081EE0C80100157142 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,16 +135,16 @@
 		5781C4721EE0881F0037C7CB /* MoviesApp */ = {
 			isa = PBXGroup;
 			children = (
+				290F46621EE1E70300E509E3 /* Model */,
+				290F46651EE1E72C00E509E3 /* ViewModel */,
+				290F46641EE1E72000E509E3 /* View */,
 				EE7E0A831EE0940C0029874C /* APIAccess */,
 				5781C4731EE0881F0037C7CB /* AppDelegate.swift */,
 				5781C4751EE0881F0037C7CB /* ViewController.swift */,
 				5781C4771EE0881F0037C7CB /* Main.storyboard */,
-				5781C47A1EE0881F0037C7CB /* Assets.xcassets */,
 				5781C47C1EE0881F0037C7CB /* LaunchScreen.storyboard */,
 				5781C47F1EE0881F0037C7CB /* Info.plist */,
-				290F46641EE1E72000E509E3 /* View */,
-				290F46651EE1E72C00E509E3 /* ViewModel */,
-				290F46621EE1E70300E509E3 /* Model */,
+				5781C47A1EE0881F0037C7CB /* Assets.xcassets */,
 			);
 			path = MoviesApp;
 			sourceTree = "<group>";
@@ -132,6 +157,15 @@
 			name = APIAccess;
 			sourceTree = "<group>";
 		};
+		FC59E3081EE0C80100157142 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FC59E3091EE0C80100157142 /* Realm.framework */,
+				FC59E30A1EE0C80100157142 /* RealmSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -142,6 +176,7 @@
 				5781C46C1EE0881F0037C7CB /* Sources */,
 				5781C46D1EE0881F0037C7CB /* Frameworks */,
 				5781C46E1EE0881F0037C7CB /* Resources */,
+				FC59E30D1EE0C80D00157142 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -164,7 +199,7 @@
 				TargetAttributes = {
 					5781C46F1EE0881F0037C7CB = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = Y93HUJS49V;
+						DevelopmentTeam = 2RF2ZQGYFL;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -200,17 +235,40 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		FC59E30D1EE0C80D00157142 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5781C46C1EE0881F0037C7CB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7966EE81EE26EB500AF3B6C /* User.swift in Sources */,
+				E7966EE91EE26EB500AF3B6C /* Movie.swift in Sources */,
 				EE7E0A851EE0946D0029874C /* TmdbAPIAccess.swift in Sources */,
 				5781C4761EE0881F0037C7CB /* ViewController.swift in Sources */,
 				290F46611EE0AF5A00E509E3 /* MovieTags.swift in Sources */,
+				FC3516B91EE0D4BB00E6A724 /* MovieDAO.swift in Sources */,
+				FC59E30F1EE0CAF600157142 /* UserDAO.swift in Sources */,
 				5781C4741EE0881F0037C7CB /* AppDelegate.swift in Sources */,
-				290F465F1EE0A88B00E509E3 /* Movie.swift in Sources */,
-				290F465D1EE0A85100E509E3 /* User.swift in Sources */,
+				5721A13C1EE1CF9300E1C95B /* UIViewExtension.swift in Sources */,
+				577A01311EE09600005CC233 /* MovieDetailsViewController.swift in Sources */,
+				FC3516BB1EE0DBFC00E6A724 /* RealmsConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,7 +393,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Y93HUJS49V;
+				DEVELOPMENT_TEAM = 2RF2ZQGYFL;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MoviesApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.victormelo;
@@ -348,7 +410,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Y93HUJS49V;
+				DEVELOPMENT_TEAM = 2RF2ZQGYFL;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MoviesApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.victormelo;
