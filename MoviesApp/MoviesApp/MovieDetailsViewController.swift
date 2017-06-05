@@ -28,7 +28,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -36,7 +36,9 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
         case 0:
             return 237
         case 1:
-            return 172
+            return 132
+        case 2:
+            return 63
         default:
             return 0
         }
@@ -48,6 +50,8 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
             return contentTableView.dequeueReusableCell(withIdentifier: "mainInformationsCell") as! MainInformationsTableViewCell
         case 1:
             return contentTableView.dequeueReusableCell(withIdentifier: "overviewCell") as! OverviewTableViewCell
+        case 2:
+            return contentTableView.dequeueReusableCell(withIdentifier: "selectionCell") as! SelectionTableViewCell
         default:
             return contentTableView.dequeueReusableCell(withIdentifier: "mainInformationsCell") as! MainInformationsTableViewCell
         }

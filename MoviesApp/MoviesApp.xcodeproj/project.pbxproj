@@ -22,6 +22,7 @@
 		5781C47E1EE0881F0037C7CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5781C47C1EE0881F0037C7CB /* LaunchScreen.storyboard */; };
 		579097C31EE5DBD9004D72CA /* MainInformationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579097C21EE5DBD9004D72CA /* MainInformationsTableViewCell.swift */; };
 		579097C51EE5EEF0004D72CA /* OverviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579097C41EE5EEF0004D72CA /* OverviewTableViewCell.swift */; };
+		579097C81EE60938004D72CA /* SelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579097C71EE60938004D72CA /* SelectionTableViewCell.swift */; };
 		E7966EE81EE26EB500AF3B6C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290F465C1EE0A85100E509E3 /* User.swift */; };
 		E7966EE91EE26EB500AF3B6C /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290F465E1EE0A88B00E509E3 /* Movie.swift */; };
 		EE7E0A851EE0946D0029874C /* TmdbAPIAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7E0A841EE0946D0029874C /* TmdbAPIAccess.swift */; };
@@ -52,6 +53,7 @@
 		5781C47F1EE0881F0037C7CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		579097C21EE5DBD9004D72CA /* MainInformationsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainInformationsTableViewCell.swift; sourceTree = "<group>"; };
 		579097C41EE5EEF0004D72CA /* OverviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewTableViewCell.swift; sourceTree = "<group>"; };
+		579097C71EE60938004D72CA /* SelectionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionTableViewCell.swift; sourceTree = "<group>"; };
 		EE7E0A841EE0946D0029874C /* TmdbAPIAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TmdbAPIAccess.swift; sourceTree = "<group>"; };
 		FC3516B81EE0D4BB00E6A724 /* MovieDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDAO.swift; sourceTree = "<group>"; };
 		FC3516BA1EE0DBFC00E6A724 /* RealmsConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmsConfig.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			children = (
 				579097C21EE5DBD9004D72CA /* MainInformationsTableViewCell.swift */,
 				579097C41EE5EEF0004D72CA /* OverviewTableViewCell.swift */,
+				579097C71EE60938004D72CA /* SelectionTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				294EC4B61EE5D85100528C40 /* WatchlistViewController.swift in Sources */,
 				FC59E30F1EE0CAF600157142 /* UserDAO.swift in Sources */,
 				5781C4741EE0881F0037C7CB /* AppDelegate.swift in Sources */,
+				579097C81EE60938004D72CA /* SelectionTableViewCell.swift in Sources */,
 				5721A13C1EE1CF9300E1C95B /* UIViewExtension.swift in Sources */,
 				29DDC4F41EE73D5D003069CF /* CustomNavigationBar.swift in Sources */,
 				577A01311EE09600005CC233 /* MovieDetailsViewController.swift in Sources */,

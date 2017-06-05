@@ -226,15 +226,15 @@
                                 <rect key="frame" x="12" y="64" width="351" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell alpha="0.0" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="mainInformationsCell" rowHeight="237" id="npg-T8-G3r" userLabel="Main Informations Table View Cell" customClass="MainInformationsTableViewCell" customModule="MoviesApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="351" height="237"/>
+                                    <tableViewCell alpha="0.0" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="mainInformationsCell" rowHeight="91" id="npg-T8-G3r" userLabel="Main Informations Table View Cell" customClass="MainInformationsTableViewCell" customModule="MoviesApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="351" height="91"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="npg-T8-G3r" id="hDh-U8-oGi">
-                                            <rect key="frame" x="0.0" y="0.0" width="351" height="237"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="351" height="91"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WGr-z7-27X" userLabel="Background View">
-                                                    <rect key="frame" x="0.0" y="10" width="351" height="227"/>
+                                                    <rect key="frame" x="0.0" y="10" width="351" height="81"/>
                                                     <color key="backgroundColor" red="0.10110349208116531" green="0.12944775819778442" blue="0.13375258445739746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="images" translatesAutoresizingMaskIntoConstraints="NO" id="hxE-z6-2Z1">
@@ -760,11 +760,11 @@
                                             <outlet property="watchlistButton" destination="3fS-h3-gJg" id="TYW-dw-apC"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="overviewCell" id="zlB-bl-qdI" userLabel="Overview Table View Cell" customClass="OverviewTableViewCell" customModule="MoviesApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="265" width="351" height="237"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="overviewCell" rowHeight="84" id="zlB-bl-qdI" userLabel="Overview Table View Cell" customClass="OverviewTableViewCell" customModule="MoviesApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="119" width="351" height="84"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zlB-bl-qdI" id="3CV-0G-jaD">
-                                            <rect key="frame" x="0.0" y="0.0" width="351" height="237"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="351" height="84"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OVERVIEW" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCR-8i-2vJ">
@@ -787,7 +787,7 @@
                                                     </variation>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxr-Z2-EoY">
-                                                    <rect key="frame" x="23" y="52" width="303" height="165"/>
+                                                    <rect key="frame" x="23" y="52" width="303" height="12"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     <variation key="heightClass=regular-widthClass=compact">
@@ -847,6 +847,69 @@
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="movieOverview" destination="hxr-Z2-EoY" id="g3E-hZ-t0N"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="selectionCell" rowHeight="63" id="FHK-3P-1Vq" userLabel="Selection Table View Cell" customClass="SelectionTableViewCell" customModule="MoviesApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="203" width="351" height="63"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FHK-3P-1Vq" id="b6h-OC-s1V">
+                                            <rect key="frame" x="0.0" y="0.0" width="351" height="63"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cek-dQ-KSy">
+                                                    <rect key="frame" x="0.0" y="19" width="175.5" height="30"/>
+                                                    <state key="normal" title="VIDEOS">
+                                                        <color key="titleColor" red="0.0020610084757208824" green="0.82179480791091919" blue="0.46594417095184326" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="videosPressed:" destination="FHK-3P-1Vq" eventType="touchUpInside" id="jXy-Gg-kho"/>
+                                                    </connections>
+                                                </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P59-hz-TsU" userLabel="Videos Selected">
+                                                    <rect key="frame" x="0.0" y="61" width="175.5" height="2"/>
+                                                    <color key="backgroundColor" red="0.0020610084759999999" green="0.82179480790000003" blue="0.46594417100000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="2" id="sjW-HJ-T9I"/>
+                                                    </constraints>
+                                                </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KSH-fP-aGo">
+                                                    <rect key="frame" x="175.5" y="19" width="175.5" height="30"/>
+                                                    <state key="normal" title="CASTING">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="castingPressed:" destination="FHK-3P-1Vq" eventType="touchUpInside" id="PcM-6i-Prf"/>
+                                                    </connections>
+                                                </button>
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A8l-p7-ig8" userLabel="Casting Selected">
+                                                    <rect key="frame" x="175.5" y="61" width="175.5" height="2"/>
+                                                    <color key="backgroundColor" red="0.0020610084759999999" green="0.82179480790000003" blue="0.46594417100000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="2" id="7To-ib-Ifi"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.1011034921" green="0.12944775820000001" blue="0.13375258449999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="KSH-fP-aGo" firstAttribute="width" secondItem="cek-dQ-KSy" secondAttribute="width" id="3BE-fp-240"/>
+                                                <constraint firstItem="cek-dQ-KSy" firstAttribute="top" secondItem="b6h-OC-s1V" secondAttribute="top" constant="19" id="66H-lR-w0M"/>
+                                                <constraint firstItem="KSH-fP-aGo" firstAttribute="leading" secondItem="cek-dQ-KSy" secondAttribute="trailing" id="9aA-fK-Lti"/>
+                                                <constraint firstAttribute="bottom" secondItem="A8l-p7-ig8" secondAttribute="bottom" id="G5n-YI-ook"/>
+                                                <constraint firstAttribute="trailing" secondItem="KSH-fP-aGo" secondAttribute="trailing" id="Qpc-kT-x7p"/>
+                                                <constraint firstItem="A8l-p7-ig8" firstAttribute="leading" secondItem="KSH-fP-aGo" secondAttribute="leading" id="Uzg-gh-tWf"/>
+                                                <constraint firstItem="cek-dQ-KSy" firstAttribute="leading" secondItem="b6h-OC-s1V" secondAttribute="leading" id="V1f-S3-GVd"/>
+                                                <constraint firstItem="A8l-p7-ig8" firstAttribute="trailing" secondItem="KSH-fP-aGo" secondAttribute="trailing" id="Vp9-hf-uHH"/>
+                                                <constraint firstAttribute="bottom" secondItem="P59-hz-TsU" secondAttribute="bottom" id="fwD-wB-KaZ"/>
+                                                <constraint firstItem="KSH-fP-aGo" firstAttribute="top" secondItem="cek-dQ-KSy" secondAttribute="top" id="ge1-5s-haL"/>
+                                                <constraint firstItem="P59-hz-TsU" firstAttribute="leading" secondItem="cek-dQ-KSy" secondAttribute="leading" id="nDA-Zd-ACq"/>
+                                                <constraint firstItem="P59-hz-TsU" firstAttribute="trailing" secondItem="cek-dQ-KSy" secondAttribute="trailing" id="vDU-xj-0Dy"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="castingButton" destination="KSH-fP-aGo" id="scs-CY-i26"/>
+                                            <outlet property="castingSelectedLabel" destination="A8l-p7-ig8" id="dBa-ov-PRC"/>
+                                            <outlet property="videosButton" destination="cek-dQ-KSy" id="OYF-ht-LAH"/>
+                                            <outlet property="videosSelectedLabel" destination="P59-hz-TsU" id="pn1-La-T7K"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
