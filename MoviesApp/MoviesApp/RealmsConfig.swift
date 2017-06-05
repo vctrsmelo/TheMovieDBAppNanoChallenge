@@ -10,6 +10,16 @@ import Foundation
 import os.log
 import RealmSwift
 
+class RealmString : Object {
+	dynamic var value = ""
+	
+	convenience init(_ value : String) {
+		self.init()
+		
+		self.value = value
+	}
+}
+
 class RealmsConfig {
 	// MARK: Private Properties
 	private static let inMemoryID = "InMemoryRealm"
@@ -76,4 +86,37 @@ class RealmsConfig {
 	static func getTemporaryRealm() -> Realm {
 		return instance.temporaryRealm
 	}
+	
+	static func save(_ object : Object, temporary : Bool, update : Bool = false) -> Bool {
+		var result = false
+		
+		let realm = temporary ? instance.temporaryRealm! : instance.defaultRealm!
+		
+		try! realm.write {
+			realm.add(object, update: update)
+			result = true
+		}
+		
+		return result
+	}
+	
+//	static func load<K>(_ objectType : Object.Type, withKey key : K? = nil) -> Results<Object>? {
+//		var results : Results<Object>? = nil
+//		
+//		
+//		result = instance.temporaryRealm.object(ofType: objectType, forPrimaryKey: key)
+//		if let realm = getRealm(location) {
+//			result = realm.objects(objectType)
+//			
+//			if filter != nil {
+//				result = result!.filter(filter!)
+//			}
+//			
+//			if result!.isEmpty {
+//				result = nil
+//			}
+//		}
+//		
+//		return result
+//	}
 }
