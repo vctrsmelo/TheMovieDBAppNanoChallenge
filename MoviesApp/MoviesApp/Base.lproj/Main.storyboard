@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Fnl-eQ-Dfj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Fnl-eQ-Dfj">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,18 +12,155 @@
         <!--MY WATCHLIST-->
         <scene sceneID="zdq-CU-8X7">
             <objects>
-                <viewController id="TUJ-uW-mFd" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="TUJ-uW-mFd" customClass="WatchlistViewController" customModule="MoviesApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="R2b-qo-XhG"/>
                         <viewControllerLayoutGuide type="bottom" id="FMO-mw-cB1"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="OGS-ik-vzy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KtZ-Ox-3To">
+                                <rect key="frame" x="0.0" y="96" width="375" height="438"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="438" id="5Mb-TG-TKz"/>
+                                    <constraint firstAttribute="height" constant="438" id="gMz-Dk-Uv4"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="r3L-Tc-I4L">
+                                    <size key="itemSize" width="146" height="213"/>
+                                    <size key="headerReferenceSize" width="20" height="50"/>
+                                    <size key="footerReferenceSize" width="20" height="50"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="movieCell" id="JmX-Pn-zse" customClass="WatchlistCollectionViewCell" customModule="MoviesApp" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="0.0" width="146" height="213"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="146" height="213"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aq5-Xn-QPu">
+                                                    <rect key="frame" x="7" y="7" width="132" height="197"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l2j-my-A4q">
+                                                            <rect key="frame" x="0.0" y="0.0" width="132" height="197"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="4"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="l2j-my-A4q" firstAttribute="top" secondItem="aq5-Xn-QPu" secondAttribute="top" id="W65-y6-3QN"/>
+                                                        <constraint firstItem="l2j-my-A4q" firstAttribute="leading" secondItem="aq5-Xn-QPu" secondAttribute="leading" id="jGe-8v-7Tl"/>
+                                                        <constraint firstAttribute="bottom" secondItem="l2j-my-A4q" secondAttribute="bottom" id="kA7-WW-SQB"/>
+                                                        <constraint firstAttribute="trailing" secondItem="l2j-my-A4q" secondAttribute="trailing" id="mBz-M9-NHC"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="4"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="aq5-Xn-QPu" secondAttribute="bottom" constant="9" id="Vj1-ma-R3y"/>
+                                            <constraint firstAttribute="trailing" secondItem="aq5-Xn-QPu" secondAttribute="trailing" constant="7" id="gxc-ae-ki6"/>
+                                            <constraint firstItem="aq5-Xn-QPu" firstAttribute="top" secondItem="JmX-Pn-zse" secondAttribute="top" constant="7" id="nIG-g0-WON"/>
+                                            <constraint firstItem="aq5-Xn-QPu" firstAttribute="leading" secondItem="JmX-Pn-zse" secondAttribute="leading" constant="7" id="sNA-No-TaB"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="posterImageView" destination="l2j-my-A4q" id="YY7-Xm-c4K"/>
+                                            <outlet property="shadowView" destination="aq5-Xn-QPu" id="UwW-wU-d6k"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="beginningHeader" id="c0W-2s-uJF">
+                                    <rect key="frame" x="0.0" y="0.0" width="20" height="438"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionReusableView>
+                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="endHeader" id="rtg-yR-hf1">
+                                    <rect key="frame" x="166" y="0.0" width="20" height="438"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionReusableView>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="gMz-Dk-Uv4"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="gMz-Dk-Uv4"/>
+                                    </mask>
+                                </variation>
+                            </collectionView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sLt-vu-Ej0">
+                                <rect key="frame" x="47" y="569" width="281" height="28"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="TyM-3h-HoT"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="11.9" id="P9S-7C-2hk">
+                                    <size key="itemSize" width="21" height="28"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="letterCell" id="53T-Gf-xCm" customClass="WatchlistAlphabetCollectionViewCell" customModule="MoviesApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="21" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="21" height="28"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="W" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hiN-zB-G9n">
+                                                    <rect key="frame" x="0.0" y="0.0" width="21" height="28"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                                                    <color key="textColor" red="0.031372549019607843" green="0.10980392156862745" blue="0.14117647058823529" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="hiN-zB-G9n" firstAttribute="top" secondItem="53T-Gf-xCm" secondAttribute="top" id="DaF-Hp-tTo"/>
+                                            <constraint firstItem="hiN-zB-G9n" firstAttribute="leading" secondItem="53T-Gf-xCm" secondAttribute="leading" id="Grl-m8-jBP"/>
+                                            <constraint firstAttribute="bottom" secondItem="hiN-zB-G9n" secondAttribute="bottom" id="PWT-dh-70S"/>
+                                            <constraint firstAttribute="trailing" secondItem="hiN-zB-G9n" secondAttribute="trailing" id="fcd-l6-Ry3"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="letterLabel" destination="hiN-zB-G9n" id="f6Z-sK-P8i"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KtZ-Ox-3To" firstAttribute="leading" secondItem="OGS-ik-vzy" secondAttribute="leading" id="JDL-mH-6o1"/>
+                            <constraint firstAttribute="trailing" secondItem="KtZ-Ox-3To" secondAttribute="trailing" id="Txi-SM-98F"/>
+                            <constraint firstItem="sLt-vu-Ej0" firstAttribute="leading" secondItem="OGS-ik-vzy" secondAttribute="leading" constant="47" id="cnz-HP-OVS"/>
+                            <constraint firstItem="FMO-mw-cB1" firstAttribute="top" secondItem="sLt-vu-Ej0" secondAttribute="bottom" constant="21" id="gAl-a8-CW8"/>
+                            <constraint firstAttribute="trailing" secondItem="sLt-vu-Ej0" secondAttribute="trailing" constant="47" id="hcK-r8-y8q"/>
+                            <constraint firstItem="KtZ-Ox-3To" firstAttribute="top" secondItem="R2b-qo-XhG" secondAttribute="bottom" constant="32" id="tpt-Yr-Bik"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="MY WATCHLIST" id="kfj-nq-V4O"/>
+                    <navigationItem key="navigationItem" title="MY WATCHLIST" id="kfj-nq-V4O">
+                        <barButtonItem key="rightBarButtonItem" image="ic_search" id="JuL-4A-shv">
+                            <color key="tintColor" red="0.031372549020000001" green="0.10980392160000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="alphabetCollectionView" destination="sLt-vu-Ej0" id="yOU-Nm-DIk"/>
+                        <outlet property="watchlistCollectionView" destination="KtZ-Ox-3To" id="bGD-K5-dce"/>
                         <segue destination="XVY-IF-9bw" kind="show" identifier="myWatchlistToDetails" id="hMy-Qx-eZZ"/>
                     </connections>
                 </viewController>
@@ -40,7 +177,7 @@
                         <viewControllerLayoutGuide type="bottom" id="n2O-zD-1Ow"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Rqd-D6-aK8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ku4-hg-WsY">
@@ -82,7 +219,7 @@
                         <viewControllerLayoutGuide type="bottom" id="WxB-T0-xoe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="PHn-gI-jsA">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VFM-Fj-qsa">
@@ -845,10 +982,12 @@
         <scene sceneID="jj2-iI-gCX">
             <objects>
                 <tabBarController id="Fnl-eQ-Dfj" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="lmw-Wb-WSp">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="lmw-Wb-WSp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.031372549020000001" green="0.10980392160000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.0020610084759999999" green="0.82179480790000003" blue="0.46594417100000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="i1W-xe-Kij" kind="relationship" relationship="viewControllers" id="RMD-9D-3UZ"/>
@@ -859,11 +998,11 @@
             </objects>
             <point key="canvasLocation" x="-10" y="-469"/>
         </scene>
-        <!--NOW PLAYING-->
+        <!--Navigation Controller-->
         <scene sceneID="o82-KC-bbq">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="i1W-xe-Kij" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="NOW PLAYING" id="3Zf-fu-3la"/>
+                    <tabBarItem key="tabBarItem" title="" image="tabbar_general" selectedImage="tabbar_general" id="3Zf-fu-3la"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nTG-U4-fnf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -878,11 +1017,11 @@
             </objects>
             <point key="canvasLocation" x="941.60000000000002" y="-797.45127436281871"/>
         </scene>
-        <!--MY WATCHLIST-->
+        <!--Navigation Controller-->
         <scene sceneID="dWJ-Yo-BhM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="l0Q-wp-pm5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="MY WATCHLIST" id="qU5-3D-6RB"/>
+                    <tabBarItem key="tabBarItem" title="" image="tabbar_watchlist" selectedImage="tabbar_watchlist" id="qU5-3D-6RB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="F6v-C2-1kj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -904,9 +1043,12 @@
         <image name="ic_clock" width="10" height="10"/>
         <image name="ic_heart" width="15" height="14"/>
         <image name="ic_saved" width="12" height="16"/>
+        <image name="ic_search" width="26" height="26"/>
         <image name="images" width="184" height="273"/>
+        <image name="tabbar_general" width="23" height="26"/>
+        <image name="tabbar_watchlist" width="26" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EDs-TS-HyK"/>
+        <segue reference="hMy-Qx-eZZ"/>
     </inferredMetricsTieBreakers>
 </document>
