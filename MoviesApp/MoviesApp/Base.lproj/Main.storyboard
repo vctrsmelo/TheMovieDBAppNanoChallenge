@@ -912,6 +912,78 @@
                                             <outlet property="videosSelectedLabel" destination="P59-hz-TsU" id="pn1-La-T7K"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="videosCell" rowHeight="25" id="eUE-eQ-cmm" userLabel="Videos Table View Cell" customClass="VideosTableViewCell" customModule="MoviesApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="266" width="351" height="25"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eUE-eQ-cmm" id="vef-Dw-Ce5">
+                                            <rect key="frame" x="0.0" y="0.0" width="351" height="25"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SQi-O6-sNe">
+                                                    <rect key="frame" x="0.0" y="45" width="351" height="179"/>
+                                                    <color key="backgroundColor" red="0.10110349208116531" green="0.12944775819778442" blue="0.13375258445739746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="179" id="co9-Jo-Uei"/>
+                                                    </constraints>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="16" minimumInteritemSpacing="16" id="aIE-gF-w01">
+                                                        <size key="itemSize" width="282" height="179"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="22" minY="0.0" maxX="22" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="QVC-sN-TS5">
+                                                            <rect key="frame" x="22" y="0.0" width="282" height="179"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                                <rect key="frame" x="0.0" y="0.0" width="282" height="179"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                            </view>
+                                                        </collectionViewCell>
+                                                    </cells>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="co9-Jo-Uei"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="co9-Jo-Uei"/>
+                                                        </mask>
+                                                    </variation>
+                                                </collectionView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="SQi-O6-sNe" firstAttribute="leading" secondItem="vef-Dw-Ce5" secondAttribute="leading" id="Dzu-cJ-Rv8"/>
+                                                <constraint firstAttribute="trailing" secondItem="SQi-O6-sNe" secondAttribute="trailing" id="Jqm-6h-F63"/>
+                                                <constraint firstItem="SQi-O6-sNe" firstAttribute="top" secondItem="vef-Dw-Ce5" secondAttribute="top" constant="45" id="RCC-W8-Nju"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="Dzu-cJ-Rv8"/>
+                                                    <exclude reference="Jqm-6h-F63"/>
+                                                    <exclude reference="RCC-W8-Nju"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="Dzu-cJ-Rv8"/>
+                                                    <include reference="Jqm-6h-F63"/>
+                                                    <include reference="RCC-W8-Nju"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.10110349208116531" green="0.12944775819778442" blue="0.13375258445739746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="castingCell" id="Amd-Pq-jFy" userLabel="Casting Table View Cell" customClass="CastingTableViewCell" customModule="MoviesApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="291" width="351" height="237"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Amd-Pq-jFy" id="Za7-L8-5LS">
+                                            <rect key="frame" x="0.0" y="0.0" width="351" height="237"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0020610084759999999" green="0.82179480790000003" blue="0.46594417100000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
@@ -941,7 +1013,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="MOVIE DETAILS" id="zkc-1o-kPW"/>
                     <connections>
-                        <outlet property="contentTableView" destination="Yy6-yz-Edp" id="zyg-Pn-23N"/>
+                        <outlet property="tableView" destination="Yy6-yz-Edp" id="8e7-zd-Gts"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Brz-jw-jbd" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -9,18 +9,20 @@
 import UIKit
 
 class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    @IBOutlet weak var contentTableView: UITableView!
+    
+    @IBOutlet weak var tableView: UITableView!
+    var selection: String = "videos"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        contentTableView.dataSource = self
-        contentTableView.delegate = self
+        tableView.dataSource = self
+        tableView.delegate = self
         
-        contentTableView.backgroundColor = UIColor.clear
-        contentTableView.layer.shadowColor = UIColor.darkGray.cgColor
-        contentTableView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
-        contentTableView.layer.shadowOpacity = 0.95
-        contentTableView.layer.shadowRadius = 6.0
+        tableView.backgroundColor = UIColor.clear
+        tableView.layer.shadowColor = UIColor.darkGray.cgColor
+        tableView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        tableView.layer.shadowOpacity = 0.95
+        tableView.layer.shadowRadius = 6.0
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,7 +30,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -39,6 +41,10 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
             return 132
         case 2:
             return 63
+        case 3:
+            return 261
+        case 4:
+            return 265
         default:
             return 0
         }
@@ -47,13 +53,28 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
-            return contentTableView.dequeueReusableCell(withIdentifier: "mainInformationsCell") as! MainInformationsTableViewCell
+            return tableView.dequeueReusableCell(withIdentifier: "mainInformationsCell") as! MainInformationsTableViewCell
+            
         case 1:
-            return contentTableView.dequeueReusableCell(withIdentifier: "overviewCell") as! OverviewTableViewCell
+            return tableView.dequeueReusableCell(withIdentifier: "overviewCell") as! OverviewTableViewCell
+            
         case 2:
-            return contentTableView.dequeueReusableCell(withIdentifier: "selectionCell") as! SelectionTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "selectionCell") as! SelectionTableViewCell
+            cell.root = self
+            return cell
+            
+        case 3:
+            if selection == "videos" {
+                return tableView.dequeueReusableCell(withIdentifier: "videosCell") as! VideosTableViewCell
+            } else {
+                return tableView.dequeueReusableCell(withIdentifier: "castingCell") as! CastingTableViewCell
+            }
+            
+        case 4:
+            return tableView.dequeueReusableCell(withIdentifier: "recommendationsCell") as! RecommendationsTableViewCell
+            
         default:
-            return contentTableView.dequeueReusableCell(withIdentifier: "mainInformationsCell") as! MainInformationsTableViewCell
+            return tableView.dequeueReusableCell(withIdentifier: "mainInformationsCell") as! MainInformationsTableViewCell
         }
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class SelectionTableViewCell: UITableViewCell {
     
-    var selection: String!
+    weak var root: MovieDetailsViewController!
 
     @IBOutlet weak var videosButton: UIButton!
     @IBOutlet weak var castingButton: UIButton!
@@ -28,26 +28,26 @@ class SelectionTableViewCell: UITableViewCell {
     }
     
     @IBAction func videosPressed(_ sender: UIButton) {
-        selection = "videos"
+        root.selection = "videos"
         
         videosButton.titleLabel?.textColor = videosSelectedLabel.backgroundColor
         videosSelectedLabel.isHidden = false
         
         castingButton.titleLabel?.textColor = UIColor.white
         castingSelectedLabel.isHidden = true
+        
+        root.tableView.reloadData()
     }
     
     @IBAction func castingPressed(_ sender: UIButton) {
-        selection = "casting"
+        root.selection = "casting"
         
         videosButton.titleLabel?.textColor = UIColor.white
         videosSelectedLabel.isHidden = true
         
         castingButton.titleLabel?.textColor = castingSelectedLabel.backgroundColor
         castingSelectedLabel.isHidden = false
-    }
-    
-    func getSelection() -> String {
-        return selection
+        
+        root.tableView.reloadData()
     }
 }
