@@ -24,7 +24,7 @@ class MovieDAO : Object {
 		return "id"
 	}
 	
-	private convenience init(_ movie : Movie) {
+	convenience init(_ movie : Movie) {
 		self.init()
 		
 		self.id = movie.id
@@ -46,8 +46,8 @@ class MovieDAO : Object {
 		self.releaseDateString = movie.releaseDateString
 	}
 	
-	// MARK: Private Methods
-	private func intoMovie() -> Movie {
+	// MARK: Public Methods
+	func intoMovie() -> Movie {
 		var movieDAOGenres : [String]? = nil
 		
 		if !self.genres.isEmpty {
@@ -65,7 +65,6 @@ class MovieDAO : Object {
 		return Movie(id: self.id, title: self.title, originalTitle: self.originalTitle, genres: movieDAOGenres, runtime: self.runtime.value, releaseDateString: self.releaseDateString, overview: self.overview, poster: movieDAOPoster)
 	}
 	
-	// MARK: Public Methods
 	static func save(_ movie : Movie, temporary : Bool) -> Bool {
 		let movieDAO = MovieDAO(movie)
 		
@@ -79,7 +78,7 @@ class MovieDAO : Object {
 	}
 	
 	static func load(id : String) -> Movie? {
-		let movieDAO = RealmsConfig.load(MovieDAO.self, with: id) as? MovieDAO
+		let movieDAO = RealmsConfig.load(MovieDAO.self, with: id)
 		
 		return movieDAO?.intoMovie()
 	}

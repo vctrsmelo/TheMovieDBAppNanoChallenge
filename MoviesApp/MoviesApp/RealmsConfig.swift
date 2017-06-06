@@ -10,6 +10,18 @@ import Foundation
 import os.log
 import RealmSwift
 
+class RealmDictionaryEntry : Object {
+	dynamic var key = 0
+	dynamic var value : Object?
+	
+	convenience init(key : AnyHashable, value: Object) {
+		self.init()
+		
+		self.key = key.hashValue
+		self.value = value
+	}
+}
+
 class RealmString : Object {
 	dynamic var value = ""
 	
@@ -92,7 +104,7 @@ class RealmsConfig {
 		return result
 	}
 	
-	static func load<KeyType>(_ objectType : Object.Type, with key : KeyType) -> Object? {
+	static func load<KeyType, Obj : Object>(_ objectType : Obj.Type, with key : KeyType) -> Obj? {
 		var result : Object? = nil
 		
 		
@@ -102,7 +114,7 @@ class RealmsConfig {
 			result = instance.defaultRealm.object(ofType: objectType, forPrimaryKey: key)
 		}
 		
-		return result
+		return (result as! Obj)
 	}
 	
 	static func load(_ objectType : Object.Type, with filter : NSPredicate? = nil) -> Results<Object> {
