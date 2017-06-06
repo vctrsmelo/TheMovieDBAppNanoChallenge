@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public struct MovieTags {
 	let user: User
@@ -19,4 +20,5 @@ public struct MovieTags {
 		return false
 	}
 	var userRating: Float
+	var userWatchedPhoto: UIImage
 }
