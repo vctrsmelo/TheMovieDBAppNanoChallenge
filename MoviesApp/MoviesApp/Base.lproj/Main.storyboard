@@ -18,7 +18,7 @@
                         <viewControllerLayoutGuide type="bottom" id="FMO-mw-cB1"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="OGS-ik-vzy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="KtZ-Ox-3To">
@@ -100,13 +100,13 @@
                                     </mask>
                                 </variation>
                             </collectionView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sLt-vu-Ej0">
-                                <rect key="frame" x="49" y="569" width="277" height="28"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sLt-vu-Ej0">
+                                <rect key="frame" x="47" y="569" width="281" height="28"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="TyM-3h-HoT"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="11.9" id="P9S-7C-2hk">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="11.9" id="P9S-7C-2hk">
                                     <size key="itemSize" width="21" height="28"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -120,7 +120,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="21" height="28"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hiN-zB-G9n">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="W" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hiN-zB-G9n">
                                                     <rect key="frame" x="0.0" y="0.0" width="21" height="28"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
                                                     <color key="textColor" red="0.031372549019607843" green="0.10980392156862745" blue="0.14117647058823529" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
@@ -147,9 +147,9 @@
                         <constraints>
                             <constraint firstItem="KtZ-Ox-3To" firstAttribute="leading" secondItem="OGS-ik-vzy" secondAttribute="leading" id="JDL-mH-6o1"/>
                             <constraint firstAttribute="trailing" secondItem="KtZ-Ox-3To" secondAttribute="trailing" id="Txi-SM-98F"/>
-                            <constraint firstItem="sLt-vu-Ej0" firstAttribute="leading" secondItem="OGS-ik-vzy" secondAttribute="leading" constant="49" id="cnz-HP-OVS"/>
+                            <constraint firstItem="sLt-vu-Ej0" firstAttribute="leading" secondItem="OGS-ik-vzy" secondAttribute="leading" constant="47" id="cnz-HP-OVS"/>
                             <constraint firstItem="FMO-mw-cB1" firstAttribute="top" secondItem="sLt-vu-Ej0" secondAttribute="bottom" constant="21" id="gAl-a8-CW8"/>
-                            <constraint firstAttribute="trailing" secondItem="sLt-vu-Ej0" secondAttribute="trailing" constant="49" id="hcK-r8-y8q"/>
+                            <constraint firstAttribute="trailing" secondItem="sLt-vu-Ej0" secondAttribute="trailing" constant="47" id="hcK-r8-y8q"/>
                             <constraint firstItem="KtZ-Ox-3To" firstAttribute="top" secondItem="R2b-qo-XhG" secondAttribute="bottom" constant="32" id="tpt-Yr-Bik"/>
                         </constraints>
                     </view>
@@ -177,7 +177,7 @@
                         <viewControllerLayoutGuide type="bottom" id="n2O-zD-1Ow"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Rqd-D6-aK8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ku4-hg-WsY">
@@ -219,7 +219,7 @@
                         <viewControllerLayoutGuide type="bottom" id="WxB-T0-xoe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="PHn-gI-jsA">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VFM-Fj-qsa">
@@ -982,10 +982,12 @@
         <scene sceneID="jj2-iI-gCX">
             <objects>
                 <tabBarController id="Fnl-eQ-Dfj" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="lmw-Wb-WSp">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="lmw-Wb-WSp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.031372549020000001" green="0.10980392160000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.0020610084759999999" green="0.82179480790000003" blue="0.46594417100000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="i1W-xe-Kij" kind="relationship" relationship="viewControllers" id="RMD-9D-3UZ"/>
@@ -996,11 +998,11 @@
             </objects>
             <point key="canvasLocation" x="-10" y="-469"/>
         </scene>
-        <!--NOW PLAYING-->
+        <!--Navigation Controller-->
         <scene sceneID="o82-KC-bbq">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="i1W-xe-Kij" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="NOW PLAYING" id="3Zf-fu-3la"/>
+                    <tabBarItem key="tabBarItem" title="" image="tabbar_general" selectedImage="tabbar_general" id="3Zf-fu-3la"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nTG-U4-fnf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1015,11 +1017,11 @@
             </objects>
             <point key="canvasLocation" x="941.60000000000002" y="-797.45127436281871"/>
         </scene>
-        <!--MY WATCHLIST-->
+        <!--Navigation Controller-->
         <scene sceneID="dWJ-Yo-BhM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="l0Q-wp-pm5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="MY WATCHLIST" image="tabbar_watchlist" selectedImage="tabbar_watchlist" id="qU5-3D-6RB"/>
+                    <tabBarItem key="tabBarItem" title="" image="tabbar_watchlist" selectedImage="tabbar_watchlist" id="qU5-3D-6RB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="F6v-C2-1kj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1043,6 +1045,7 @@
         <image name="ic_saved" width="12" height="16"/>
         <image name="ic_search" width="26" height="26"/>
         <image name="images" width="184" height="273"/>
+        <image name="tabbar_general" width="23" height="26"/>
         <image name="tabbar_watchlist" width="26" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>

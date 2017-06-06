@@ -20,7 +20,17 @@ public class WatchlistViewModel {
 		self.view = view
 		
 		if let watchlist = user.watchlist {
-			self.watchlist = Array(watchlist)
+			self.watchlist = Array(watchlist).sorted(by: { (movieA, movieB) -> Bool in
+				guard let titleA = movieA.title else {
+					return false
+				}
+				
+				guard let titleB = movieB.title else {
+					return true
+				}
+				
+				return titleA.compare(titleB).rawValue < 0
+			})
 		} else {
 			watchlist = []
 		}

@@ -24,6 +24,7 @@ public class WatchlistViewController: UIViewController, UICollectionViewDataSour
 		self.watchlistCollectionView.delegate = self
 		
 		self.alphabetCollectionView.dataSource = self
+		self.alphabetCollectionView.delegate = self
 	}
 	
 	public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -66,9 +67,10 @@ public class WatchlistViewController: UIViewController, UICollectionViewDataSour
 				}
 				
 				let movieIndex = viewModel.watchlist.index(of: movie)
+				print(movie.title!)
 				
 				if (firstChar == selectedLetter) {
-					collectionView.scrollToItem(at: IndexPath(item:movieIndex! , section: 0), at: .centeredHorizontally, animated: true)
+					watchlistCollectionView.scrollToItem(at: IndexPath(item:movieIndex! , section: 0), at: .centeredHorizontally, animated: true)
 					break
 				}
 			}

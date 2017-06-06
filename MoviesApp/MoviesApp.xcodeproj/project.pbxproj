@@ -7,14 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		290F465D1EE0A85100E509E3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290F465C1EE0A85100E509E3 /* User.swift */; };
-		290F465F1EE0A88B00E509E3 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290F465E1EE0A88B00E509E3 /* Movie.swift */; };
-		290F46611EE0AF5A00E509E3 /* MovieTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290F46601EE0AF5A00E509E3 /* MovieTags.swift */; };
 		290F46611EE0AF5A00E509E3 /* MovieTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290F46601EE0AF5A00E509E3 /* MovieTags.swift */; };
 		294EC4B61EE5D85100528C40 /* WatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294EC4B51EE5D85100528C40 /* WatchlistViewController.swift */; };
 		294EC4B81EE5D87200528C40 /* WatchlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294EC4B71EE5D87200528C40 /* WatchlistViewModel.swift */; };
 		294EC4BA1EE5D9A000528C40 /* WatchlistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294EC4B91EE5D9A000528C40 /* WatchlistCollectionViewCell.swift */; };
 		294EC4BD1EE5DEC000528C40 /* WatchlistAlphabetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294EC4BC1EE5DEC000528C40 /* WatchlistAlphabetCollectionViewCell.swift */; };
+		294EC4BF1EE5F1A600528C40 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294EC4BE1EE5F1A600528C40 /* ShadowView.swift */; };
 		5721A13C1EE1CF9300E1C95B /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5721A13B1EE1CF9300E1C95B /* UIViewExtension.swift */; };
 		577A01311EE09600005CC233 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577A01301EE09600005CC233 /* MovieDetailsViewController.swift */; };
 		5781C4741EE0881F0037C7CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781C4731EE0881F0037C7CB /* AppDelegate.swift */; };
@@ -40,6 +38,7 @@
 		294EC4B71EE5D87200528C40 /* WatchlistViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchlistViewModel.swift; sourceTree = "<group>"; };
 		294EC4B91EE5D9A000528C40 /* WatchlistCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchlistCollectionViewCell.swift; sourceTree = "<group>"; };
 		294EC4BC1EE5DEC000528C40 /* WatchlistAlphabetCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchlistAlphabetCollectionViewCell.swift; sourceTree = "<group>"; };
+		294EC4BE1EE5F1A600528C40 /* ShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		5721A13B1EE1CF9300E1C95B /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		577A01301EE09600005CC233 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		5781C4701EE0881F0037C7CB /* MoviesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +130,7 @@
 				294EC4B51EE5D85100528C40 /* WatchlistViewController.swift */,
 				294EC4B91EE5D9A000528C40 /* WatchlistCollectionViewCell.swift */,
 				294EC4BC1EE5DEC000528C40 /* WatchlistAlphabetCollectionViewCell.swift */,
+				294EC4BE1EE5F1A600528C40 /* ShadowView.swift */,
 			);
 			name = Watchlist;
 			sourceTree = "<group>";
@@ -219,7 +219,7 @@
 				TargetAttributes = {
 					5781C46F1EE0881F0037C7CB = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 2RF2ZQGYFL;
+						DevelopmentTeam = LY74HQDURM;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -290,6 +290,7 @@
 				FC59E30F1EE0CAF600157142 /* UserDAO.swift in Sources */,
 				5781C4741EE0881F0037C7CB /* AppDelegate.swift in Sources */,
 				5721A13C1EE1CF9300E1C95B /* UIViewExtension.swift in Sources */,
+				294EC4BF1EE5F1A600528C40 /* ShadowView.swift in Sources */,
 				577A01311EE09600005CC233 /* MovieDetailsViewController.swift in Sources */,
 				294EC4BD1EE5DEC000528C40 /* WatchlistAlphabetCollectionViewCell.swift in Sources */,
 				FC3516BB1EE0DBFC00E6A724 /* RealmsConfig.swift in Sources */,
@@ -417,7 +418,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 2RF2ZQGYFL;
+				DEVELOPMENT_TEAM = LY74HQDURM;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -434,7 +435,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 2RF2ZQGYFL;
+				DEVELOPMENT_TEAM = LY74HQDURM;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
