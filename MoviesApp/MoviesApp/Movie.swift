@@ -25,6 +25,8 @@ public class Movie: Hashable, Equatable {
     public let runtime: Int?
     public let overview: String?
     public let releaseDateString: String?
+    let cast: [Actor]?
+    
 	public var hashValue: Int {
 		return id.hashValue
 	}
@@ -40,7 +42,7 @@ public class Movie: Hashable, Equatable {
         self.releaseDateString = releaseDateString
         self.overview = overview
         self.originalTitle = originalTitle
-        
+        self.cast = []
 	}
     
     public func set(poster: UIImage){
