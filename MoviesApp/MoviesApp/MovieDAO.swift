@@ -24,7 +24,7 @@ class MovieDAO : Object {
 		return "id"
 	}
 	
-	convenience init(_ movie : Movie) {
+	private convenience init(_ movie : Movie) {
 		self.init()
 		
 		self.id = movie.id
@@ -69,13 +69,13 @@ class MovieDAO : Object {
 	static func save(_ movie : Movie, temporary : Bool) -> Bool {
 		let movieDAO = MovieDAO(movie)
 		
-		return RealmsConfig.save(movieDAO, temporary: temporary, update: false)
+		return RealmsConfig.save(movieDAO, update: false, temporary: temporary)
 	}
 	
 	static func update(_ movie : Movie, temporary : Bool) -> Bool {
 		let movieDAO = MovieDAO(movie)
 		
-		return RealmsConfig.save(movieDAO, temporary: temporary, update: true)
+		return RealmsConfig.save(movieDAO, update: true, temporary: temporary)
 	}
 	
 	static func load(id : String) -> Movie? {

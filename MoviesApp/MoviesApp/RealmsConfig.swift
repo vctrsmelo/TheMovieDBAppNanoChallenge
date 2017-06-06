@@ -79,7 +79,7 @@ class RealmsConfig {
 	}
 		
 	// MARK: Public Methods
-	static func save(_ object : Object, temporary : Bool, update : Bool = false) -> Bool {
+	static func save(_ object : Object, update : Bool, temporary : Bool = false) -> Bool {
 		var result = false
 		
 		let realm = temporary ? instance.temporaryRealm! : instance.defaultRealm!
