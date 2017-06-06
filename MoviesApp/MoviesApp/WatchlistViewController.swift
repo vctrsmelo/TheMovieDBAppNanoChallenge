@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public class WatchlistViewController: UIViewController, UICollectionViewDataSource {
+public class WatchlistViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 	
 	var viewModel: WatchlistViewModel!
 	
@@ -21,19 +21,14 @@ public class WatchlistViewController: UIViewController, UICollectionViewDataSour
 		self.viewModel = WatchlistViewModel(user: User(id: "TEMP"), view: self)
 		
 		self.watchlistCollectionView.dataSource = self
+		self.watchlistCollectionView.delegate = self
+		
 		self.alphabetCollectionView.dataSource = self
-		/*
-		watchlistCollectionView.layer.shadowColor = UIColor.black.cgColor
-		watchlistCollectionView.layer.shadowOffset = CGSize(width: 0, height: 1)
-		watchlistCollectionView.layer.shadowOpacity = 1
-		watchlistCollectionView.layer.shadowRadius = 1.0
-		watchlistCollectionView.clipsToBounds = false
-		watchlistCollectionView.layer.masksToBounds = false*/
 	}
 	
 	public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		if (collectionView.tag == 0) {
-			return viewModel.watchlist.count + 5
+			return viewModel.watchlist.count
 			
 		} else {
 			return viewModel.alphabet.count
@@ -57,4 +52,28 @@ public class WatchlistViewController: UIViewController, UICollectionViewDataSour
 		}
 	}
 	
+	public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		
+		if (collectionView.tag == 0) {
+			self.performSegue(withIdentifier: "myWatchlistToDetails", sender: self)
+			
+		} else if (collectionView.tag == 1) {
+			let selectedLetter = viewModel.alphabet[indexPath.item]
+			
+			for movie in viewModel.watchlist {
+				guard let firstChar = movie.title?.uppercased().characters.first else {
+					continue
+				}
+				
+				let movieIndex = viewModel.watchlist.index(of: movie)
+				
+				if (firstChar == selectedLetter) {
+					collectionView.scrollToItem(at: IndexPath(item:movieIndex! , section: 0), at: .centeredHorizontally, animated: true)
+					break
+				}
+			}
+			
+		}
+		
+	}
 }

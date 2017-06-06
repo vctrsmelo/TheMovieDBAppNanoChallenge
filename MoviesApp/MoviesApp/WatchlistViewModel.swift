@@ -12,7 +12,7 @@ public class WatchlistViewModel {
 	
 	let view: WatchlistViewController
 	
-	let watchlist: Set<Movie>
+	let watchlist: [Movie]
 	let alphabet: [Character]
 	
 	
@@ -20,7 +20,7 @@ public class WatchlistViewModel {
 		self.view = view
 		
 		if let watchlist = user.watchlist {
-			self.watchlist = watchlist
+			self.watchlist = Array(watchlist)
 		} else {
 			watchlist = []
 		}
