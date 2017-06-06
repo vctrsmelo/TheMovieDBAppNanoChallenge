@@ -985,7 +985,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="lmw-Wb-WSp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.031372549020000001" green="0.10980392160000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="0.031372549020000001" green="0.10980392160000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="selectedImageTintColor" red="0.0020610084759999999" green="0.82179480790000003" blue="0.46594417100000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
@@ -1004,7 +1004,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="i1W-xe-Kij" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="tabbar_general" selectedImage="tabbar_general" id="3Zf-fu-3la"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nTG-U4-fnf">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nTG-U4-fnf" customClass="CustomNavigationBar" customModule="MoviesApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1023,7 +1023,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="l0Q-wp-pm5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="tabbar_watchlist" selectedImage="tabbar_watchlist" id="qU5-3D-6RB"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="F6v-C2-1kj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="F6v-C2-1kj" customClass="CustomNavigationBar" customModule="MoviesApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
