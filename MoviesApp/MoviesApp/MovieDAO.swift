@@ -46,8 +46,8 @@ class MovieDAO : Object {
 		self.releaseDateString = movie.releaseDateString
 	}
 	
-	// MARK: Public Methods
-	func intoMovie() -> Movie {
+	// MARK: Private Methods
+	private func intoMovie() -> Movie {
 		var movieDAOGenres : [String]? = nil
 		
 		if !self.genres.isEmpty {
@@ -66,15 +66,34 @@ class MovieDAO : Object {
 	}
 	
 	// MARK: Public Methods
-//	static func getMovie(id : String) -> Movie? {
-//		let movieDAO = RealmsConfig.getTemporaryRealm().objects(MovieDAO.self).filter("id == \(id)").first
-//		
-//		return movieDAO?.intoMovie()
-//	}
-//	
-//	static func getMovies() {
-//		//let movies = RealmsConfig.getTemporaryRealm().objects(MovieDAO.self)
-//		
-//		//return movies
-//	}
+	static func save(_ movie : Movie, temporary : Bool) -> Bool {
+		let movieDAO = MovieDAO(movie)
+		
+		return RealmsConfig.save(movieDAO, temporary: temporary, update: false)
+	}
+	
+	static func update(_ movie : Movie, temporary : Bool) -> Bool {
+		let movieDAO = MovieDAO(movie)
+		
+		return RealmsConfig.save(movieDAO, temporary: temporary, update: true)
+	}
+	
+	static func load(id : String) -> Movie? {
+		let movieDAO = RealmsConfig.load(MovieDAO.self, with: id) as? MovieDAO
+		
+		return movieDAO?.intoMovie()
+	}
+	
+	static func load(filter : NSPredicate? = nil) -> [Movie] {
+		let results = RealmsConfig.load(MovieDAO.self, with: filter)
+		var movies = [Movie]()
+		
+		for result in results {
+			if let movieDAO = result as? MovieDAO {
+				movies.append(movieDAO.intoMovie())
+			}
+		}
+		
+		return movies
+	}
 }

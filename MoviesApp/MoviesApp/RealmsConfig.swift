@@ -77,16 +77,8 @@ class RealmsConfig {
 		self.defaultRealm = try Realm()
 		self.temporaryRealm = try Realm(configuration: Realm.Configuration(inMemoryIdentifier: RealmsConfig.inMemoryID))
 	}
-	
+		
 	// MARK: Public Methods
-	static func getDefaultRealm() -> Realm {
-		return instance.defaultRealm
-	}
-	
-	static func getTemporaryRealm() -> Realm {
-		return instance.temporaryRealm
-	}
-	
 	static func save(_ object : Object, temporary : Bool, update : Bool = false) -> Bool {
 		var result = false
 		
