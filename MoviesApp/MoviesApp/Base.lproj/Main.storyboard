@@ -228,7 +228,7 @@
         <!--NOW PLAYING-->
         <scene sceneID="nxJ-ih-pHE">
             <objects>
-                <viewController id="OJ6-l3-8cH" customClass="ViewController" customModule="MoviesApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="OJ6-l3-8cH" customClass="NowPlayingViewController" customModule="MoviesApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="opz-TE-mWx"/>
                         <viewControllerLayoutGuide type="bottom" id="n2O-zD-1Ow"/>
@@ -237,29 +237,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ku4-hg-WsY">
-                                <rect key="frame" x="106" y="318" width="163" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="View Movie Details Test"/>
-                                <connections>
-                                    <segue destination="XVY-IF-9bw" kind="show" id="O6W-MO-x05"/>
-                                </connections>
-                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="h3y-FM-2c7">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JoN-Fk-2Jd">
+                                    <size key="itemSize" width="224" height="309"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="nowPlayingMovieCell" id="UpT-Op-3Je" customClass="NowPlayingMovieCell" customModule="MoviesApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="66" width="224" height="309"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="224" height="309"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0qX-Ds-Udf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="224" height="309"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="0qX-Ds-Udf" firstAttribute="leading" secondItem="UpT-Op-3Je" secondAttribute="leading" id="QZz-EL-ooG"/>
+                                            <constraint firstItem="0qX-Ds-Udf" firstAttribute="top" secondItem="UpT-Op-3Je" secondAttribute="top" id="fc7-m7-zwY"/>
+                                            <constraint firstAttribute="trailing" secondItem="0qX-Ds-Udf" secondAttribute="trailing" id="iGe-9g-cXf"/>
+                                            <constraint firstAttribute="bottom" secondItem="0qX-Ds-Udf" secondAttribute="bottom" id="ln6-uO-EDj"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="posterImageView" destination="0qX-Ds-Udf" id="5Ax-3f-opL"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="Ku4-hg-WsY"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="Ku4-hg-WsY"/>
-                            </mask>
-                        </variation>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="h3y-FM-2c7" secondAttribute="trailing" id="Dcg-Ph-lZ9"/>
+                            <constraint firstItem="h3y-FM-2c7" firstAttribute="top" secondItem="opz-TE-mWx" secondAttribute="bottom" id="GJA-PF-kD3"/>
+                            <constraint firstItem="h3y-FM-2c7" firstAttribute="leading" secondItem="Rqd-D6-aK8" secondAttribute="leading" id="Sio-95-B2a"/>
+                            <constraint firstItem="h3y-FM-2c7" firstAttribute="bottom" secondItem="n2O-zD-1Ow" secondAttribute="top" id="m9v-FE-ny7"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="NOW PLAYING" id="rhp-Sm-m7l"/>
                     <connections>
+                        <outlet property="nowPlayingCollectionView" destination="h3y-FM-2c7" id="FBk-qc-wev"/>
                         <segue destination="XVY-IF-9bw" kind="show" identifier="nowPlayingToDetails" id="EDs-TS-HyK"/>
                     </connections>
                 </viewController>

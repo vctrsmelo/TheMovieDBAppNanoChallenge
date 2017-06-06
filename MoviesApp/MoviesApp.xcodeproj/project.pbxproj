@@ -35,6 +35,8 @@
 		E7966EE81EE26EB500AF3B6C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290F465C1EE0A85100E509E3 /* User.swift */; };
 		E7966EE91EE26EB500AF3B6C /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290F465E1EE0A88B00E509E3 /* Movie.swift */; };
 		EE7E0A851EE0946D0029874C /* TmdbAPIAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7E0A841EE0946D0029874C /* TmdbAPIAccess.swift */; };
+		EEFD11B41EE5F64F00EF1960 /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFD11B31EE5F64F00EF1960 /* NowPlayingViewController.swift */; };
+		EEFD11B61EE5F8EA00EF1960 /* NowPlayingMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEFD11B51EE5F8EA00EF1960 /* NowPlayingMovieCell.swift */; };
 		FC3078D11EE7352C006CE181 /* MovieTagsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3078D01EE7352C006CE181 /* MovieTagsDAO.swift */; };
 		FC3516B91EE0D4BB00E6A724 /* MovieDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3516B81EE0D4BB00E6A724 /* MovieDAO.swift */; };
 		FC3516BB1EE0DBFC00E6A724 /* RealmsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3516BA1EE0DBFC00E6A724 /* RealmsConfig.swift */; };
@@ -76,6 +78,8 @@
 		57C073711EE7489B007DDC0B /* CastingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CastingCollectionViewCell.swift; sourceTree = "<group>"; };
 		57C073731EE74BE5007DDC0B /* Actor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Actor.swift; sourceTree = "<group>"; };
 		EE7E0A841EE0946D0029874C /* TmdbAPIAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TmdbAPIAccess.swift; sourceTree = "<group>"; };
+		EEFD11B31EE5F64F00EF1960 /* NowPlayingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
+		EEFD11B51EE5F8EA00EF1960 /* NowPlayingMovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingMovieCell.swift; sourceTree = "<group>"; };
 		FC3078D01EE7352C006CE181 /* MovieTagsDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieTagsDAO.swift; sourceTree = "<group>"; };
 		FC3516B81EE0D4BB00E6A724 /* MovieDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDAO.swift; sourceTree = "<group>"; };
 		FC3516BA1EE0DBFC00E6A724 /* RealmsConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmsConfig.swift; sourceTree = "<group>"; };
@@ -129,6 +133,8 @@
 				5721A13B1EE1CF9300E1C95B /* UIViewExtension.swift */,
 				29DDC4F31EE73D5D003069CF /* CustomNavigationBar.swift */,
 				299D8D811EE9BFAC002B1FF3 /* SearchBar */,
+				EEFD11B31EE5F64F00EF1960 /* NowPlayingViewController.swift */,
+				EEFD11B51EE5F8EA00EF1960 /* NowPlayingMovieCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -272,7 +278,7 @@
 				TargetAttributes = {
 					5781C46F1EE0881F0037C7CB = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = LY74HQDURM;
+						DevelopmentTeam = Y93HUJS49V;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -343,8 +349,10 @@
 				E7966EE81EE26EB500AF3B6C /* User.swift in Sources */,
 				FC9229A61EE88A060072D327 /* DataManager.swift in Sources */,
 				E7966EE91EE26EB500AF3B6C /* Movie.swift in Sources */,
+				EEFD11B41EE5F64F00EF1960 /* NowPlayingViewController.swift in Sources */,
 				EE7E0A851EE0946D0029874C /* TmdbAPIAccess.swift in Sources */,
 				5781C4761EE0881F0037C7CB /* ViewController.swift in Sources */,
+				EEFD11B61EE5F8EA00EF1960 /* NowPlayingMovieCell.swift in Sources */,
 				290F46611EE0AF5A00E509E3 /* MovieTags.swift in Sources */,
 				294EC4BA1EE5D9A000528C40 /* WatchlistCollectionViewCell.swift in Sources */,
 				57C073721EE7489B007DDC0B /* CastingCollectionViewCell.swift in Sources */,
@@ -486,7 +494,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = LY74HQDURM;
+				DEVELOPMENT_TEAM = Y93HUJS49V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -503,7 +511,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = LY74HQDURM;
+				DEVELOPMENT_TEAM = Y93HUJS49V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
