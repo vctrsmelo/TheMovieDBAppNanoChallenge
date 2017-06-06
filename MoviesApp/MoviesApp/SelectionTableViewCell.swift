@@ -30,10 +30,10 @@ class SelectionTableViewCell: UITableViewCell {
     @IBAction func videosPressed(_ sender: UIButton) {
         root.selection = "videos"
         
-        videosButton.titleLabel?.textColor = videosSelectedLabel.backgroundColor
+        videosButton.setTitleColor(videosSelectedLabel.backgroundColor, for: UIControlState.normal)
         videosSelectedLabel.isHidden = false
         
-        castingButton.titleLabel?.textColor = UIColor.white
+        castingButton.setTitleColor(UIColor.white, for: UIControlState.normal)
         castingSelectedLabel.isHidden = true
         
         root.tableView.reloadData()
@@ -42,10 +42,10 @@ class SelectionTableViewCell: UITableViewCell {
     @IBAction func castingPressed(_ sender: UIButton) {
         root.selection = "casting"
         
-        videosButton.titleLabel?.textColor = UIColor.white
+        videosButton.setTitleColor(UIColor.white, for: UIControlState.normal)
         videosSelectedLabel.isHidden = true
         
-        castingButton.titleLabel?.textColor = castingSelectedLabel.backgroundColor
+        castingButton.setTitleColor(castingSelectedLabel.backgroundColor, for: UIControlState.normal)
         castingSelectedLabel.isHidden = false
         
         root.tableView.reloadData()
