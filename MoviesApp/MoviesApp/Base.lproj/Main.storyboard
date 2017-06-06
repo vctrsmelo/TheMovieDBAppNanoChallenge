@@ -912,7 +912,7 @@
                                             <outlet property="videosSelectedLabel" destination="P59-hz-TsU" id="pn1-La-T7K"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="videosCell" rowHeight="25" id="eUE-eQ-cmm" userLabel="Videos Table View Cell" customClass="VideosTableViewCell" customModule="MoviesApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="videosCell" rowHeight="25" id="eUE-eQ-cmm" userLabel="Videos Table View Cell" customClass="VideosTableViewCell" customModule="MoviesApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="266" width="351" height="25"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eUE-eQ-cmm" id="vef-Dw-Ce5">
@@ -939,20 +939,20 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="282" height="179"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Cj-bt-LAE" userLabel="Play Video Button">
+                                                                    <webView contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZfS-vp-3HP">
                                                                         <rect key="frame" x="0.0" y="0.0" width="282" height="179"/>
-                                                                        <color key="backgroundColor" red="0.0020610084759999999" green="0.82179480790000003" blue="0.46594417100000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    </button>
+                                                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    </webView>
                                                                 </subviews>
                                                             </view>
                                                             <constraints>
-                                                                <constraint firstItem="8Cj-bt-LAE" firstAttribute="leading" secondItem="QVC-sN-TS5" secondAttribute="leading" id="HKP-nm-VKv"/>
-                                                                <constraint firstAttribute="bottom" secondItem="8Cj-bt-LAE" secondAttribute="bottom" id="LwZ-bH-Gy3"/>
-                                                                <constraint firstItem="8Cj-bt-LAE" firstAttribute="top" secondItem="QVC-sN-TS5" secondAttribute="top" id="Xx7-Bd-W8r"/>
-                                                                <constraint firstAttribute="trailing" secondItem="8Cj-bt-LAE" secondAttribute="trailing" id="qba-wm-Wqw"/>
+                                                                <constraint firstItem="ZfS-vp-3HP" firstAttribute="top" secondItem="QVC-sN-TS5" secondAttribute="top" id="cEo-4c-K4O"/>
+                                                                <constraint firstAttribute="trailing" secondItem="ZfS-vp-3HP" secondAttribute="trailing" id="dpB-2v-BBm"/>
+                                                                <constraint firstAttribute="bottom" secondItem="ZfS-vp-3HP" secondAttribute="bottom" id="xgN-AU-DuQ"/>
+                                                                <constraint firstItem="ZfS-vp-3HP" firstAttribute="leading" secondItem="QVC-sN-TS5" secondAttribute="leading" id="yIc-ea-Io5"/>
                                                             </constraints>
                                                             <connections>
-                                                                <outlet property="playVideoButton" destination="8Cj-bt-LAE" id="VO3-Tz-Qe8"/>
+                                                                <outlet property="videoWebView" destination="ZfS-vp-3HP" id="D5K-8s-ciy"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
@@ -993,7 +993,7 @@
                                             <outlet property="videosCollectionView" destination="SQi-O6-sNe" id="bms-7x-ryA"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="castingCell" id="Amd-Pq-jFy" userLabel="Casting Table View Cell" customClass="CastingTableViewCell" customModule="MoviesApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="castingCell" id="Amd-Pq-jFy" userLabel="Casting Table View Cell" customClass="CastingTableViewCell" customModule="MoviesApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="291" width="351" height="237"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Amd-Pq-jFy" id="Za7-L8-5LS">

@@ -27,6 +27,10 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
         navigationController?.navigationItem.title = navigationController?.topViewController?.navigationItem.title
         navigationController?.navigationItem.backBarButtonItem?.isEnabled = false
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

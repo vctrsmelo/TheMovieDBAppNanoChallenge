@@ -9,5 +9,5 @@
 import UIKit
 
 class VideoCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var playVideoButton: UIButton!
+    @IBOutlet weak var videoWebView: UIWebView!
 }
