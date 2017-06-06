@@ -100,23 +100,36 @@ class RealmsConfig {
 		return result
 	}
 	
-//	static func load<K>(_ objectType : Object.Type, withKey key : K? = nil) -> Results<Object>? {
-//		var results : Results<Object>? = nil
-//		
-//		
-//		result = instance.temporaryRealm.object(ofType: objectType, forPrimaryKey: key)
-//		if let realm = getRealm(location) {
-//			result = realm.objects(objectType)
-//			
-//			if filter != nil {
-//				result = result!.filter(filter!)
-//			}
-//			
-//			if result!.isEmpty {
-//				result = nil
-//			}
-//		}
-//		
-//		return result
-//	}
+	static func load<KeyType>(_ objectType : Object.Type, with key : KeyType) -> Object? {
+		var result : Object? = nil
+		
+		
+		result = instance.temporaryRealm.object(ofType: objectType, forPrimaryKey: key)
+		
+		if result == nil {
+			result = instance.defaultRealm.object(ofType: objectType, forPrimaryKey: key)
+		}
+		
+		return result
+	}
+	
+	static func load(_ objectType : Object.Type, with filter : NSPredicate? = nil) -> Results<Object> {
+		var results : Results<Object>
+		
+		results = instance.temporaryRealm.objects(objectType)
+		
+		if filter != nil {
+			results = results.filter(filter!)
+		}
+		
+		if results.isEmpty {
+			results = instance.defaultRealm.objects(objectType)
+			
+			if filter != nil {
+				results = results.filter(filter!)
+			}
+		}
+		
+		return results
+	}
 }
