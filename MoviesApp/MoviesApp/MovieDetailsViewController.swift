@@ -23,6 +23,9 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
         tableView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         tableView.layer.shadowOpacity = 0.95
         tableView.layer.shadowRadius = 6.0
+        
+        navigationController?.navigationItem.title = navigationController?.topViewController?.navigationItem.title
+        navigationController?.navigationItem.backBarButtonItem?.isEnabled = false
     }
 
     override func didReceiveMemoryWarning() {
