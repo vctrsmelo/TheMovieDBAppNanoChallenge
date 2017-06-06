@@ -1002,7 +1002,9 @@
         <scene sceneID="o82-KC-bbq">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="i1W-xe-Kij" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tabbar_general" selectedImage="tabbar_general" id="3Zf-fu-3la"/>
+                    <tabBarItem key="tabBarItem" title="" image="tabbar_general" selectedImage="tabbar_general" id="3Zf-fu-3la">
+                        <inset key="imageInsets" minX="-55" minY="5.5" maxX="55" maxY="-5.5"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nTG-U4-fnf" customClass="CustomNavigationBar" customModule="MoviesApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -1021,7 +1023,9 @@
         <scene sceneID="dWJ-Yo-BhM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="l0Q-wp-pm5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="tabbar_watchlist" selectedImage="tabbar_watchlist" id="qU5-3D-6RB"/>
+                    <tabBarItem key="tabBarItem" title="" image="tabbar_watchlist" selectedImage="tabbar_watchlist" id="qU5-3D-6RB">
+                        <inset key="imageInsets" minX="55" minY="5.5" maxX="-55" maxY="-5.5"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="F6v-C2-1kj" customClass="CustomNavigationBar" customModule="MoviesApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
