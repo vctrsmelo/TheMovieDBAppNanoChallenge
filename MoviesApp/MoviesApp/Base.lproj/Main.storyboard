@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Fnl-eQ-Dfj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Fnl-eQ-Dfj">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -226,15 +226,15 @@
                                 <rect key="frame" x="12" y="64" width="351" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell alpha="0.0" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="mainInformationsCell" rowHeight="91" id="npg-T8-G3r" userLabel="Main Informations Table View Cell" customClass="MainInformationsTableViewCell" customModule="MoviesApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="351" height="91"/>
+                                    <tableViewCell alpha="0.0" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="mainInformationsCell" rowHeight="50" id="npg-T8-G3r" userLabel="Main Informations Table View Cell" customClass="MainInformationsTableViewCell" customModule="MoviesApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="351" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="npg-T8-G3r" id="hDh-U8-oGi">
-                                            <rect key="frame" x="0.0" y="0.0" width="351" height="91"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="351" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WGr-z7-27X" userLabel="Background View">
-                                                    <rect key="frame" x="0.0" y="10" width="351" height="81"/>
+                                                    <rect key="frame" x="0.0" y="10" width="351" height="40"/>
                                                     <color key="backgroundColor" red="0.10110349208116531" green="0.12944775819778442" blue="0.13375258445739746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="images" translatesAutoresizingMaskIntoConstraints="NO" id="hxE-z6-2Z1">
@@ -760,17 +760,17 @@
                                             <outlet property="watchlistButton" destination="3fS-h3-gJg" id="TYW-dw-apC"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="overviewCell" rowHeight="84" id="zlB-bl-qdI" userLabel="Overview Table View Cell" customClass="OverviewTableViewCell" customModule="MoviesApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="119" width="351" height="84"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="overviewCell" rowHeight="80" id="zlB-bl-qdI" userLabel="Overview Table View Cell" customClass="OverviewTableViewCell" customModule="MoviesApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="78" width="351" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zlB-bl-qdI" id="3CV-0G-jaD">
-                                            <rect key="frame" x="0.0" y="0.0" width="351" height="84"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="351" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OVERVIEW" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCR-8i-2vJ">
-                                                    <rect key="frame" x="23" y="11" width="303" height="30"/>
+                                                    <rect key="frame" x="23" y="18" width="303" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="U7M-QB-Ckr"/>
+                                                        <constraint firstAttribute="height" constant="16" id="U7M-QB-Ckr"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                     <nil key="textColor"/>
@@ -787,7 +787,7 @@
                                                     </variation>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxr-Z2-EoY">
-                                                    <rect key="frame" x="23" y="52" width="303" height="12"/>
+                                                    <rect key="frame" x="23" y="52" width="303" height="8"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     <variation key="heightClass=regular-widthClass=compact">
@@ -806,8 +806,8 @@
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="hxr-Z2-EoY" secondAttribute="bottom" constant="20" id="0TK-Ws-60g"/>
-                                                <constraint firstItem="hxr-Z2-EoY" firstAttribute="top" secondItem="ZCR-8i-2vJ" secondAttribute="bottom" constant="11" id="D8B-FE-PoI"/>
-                                                <constraint firstItem="ZCR-8i-2vJ" firstAttribute="top" secondItem="3CV-0G-jaD" secondAttribute="top" constant="11" id="FN1-3J-fvd"/>
+                                                <constraint firstItem="hxr-Z2-EoY" firstAttribute="top" secondItem="ZCR-8i-2vJ" secondAttribute="bottom" constant="18" id="D8B-FE-PoI"/>
+                                                <constraint firstItem="ZCR-8i-2vJ" firstAttribute="top" secondItem="3CV-0G-jaD" secondAttribute="top" constant="18" id="FN1-3J-fvd"/>
                                                 <constraint firstItem="hxr-Z2-EoY" firstAttribute="trailing" secondItem="ZCR-8i-2vJ" secondAttribute="trailing" id="Puk-Gp-Rzk"/>
                                                 <constraint firstItem="hxr-Z2-EoY" firstAttribute="leading" secondItem="ZCR-8i-2vJ" secondAttribute="leading" id="XOe-9R-mCl"/>
                                                 <constraint firstAttribute="trailing" secondItem="ZCR-8i-2vJ" secondAttribute="trailing" constant="25" id="at5-Cq-id0"/>
@@ -850,7 +850,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="selectionCell" rowHeight="63" id="FHK-3P-1Vq" userLabel="Selection Table View Cell" customClass="SelectionTableViewCell" customModule="MoviesApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="203" width="351" height="63"/>
+                                        <rect key="frame" x="0.0" y="158" width="351" height="63"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FHK-3P-1Vq" id="b6h-OC-s1V">
                                             <rect key="frame" x="0.0" y="0.0" width="351" height="63"/>
@@ -912,11 +912,11 @@
                                             <outlet property="videosSelectedLabel" destination="P59-hz-TsU" id="pn1-La-T7K"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="videosCell" rowHeight="25" id="eUE-eQ-cmm" userLabel="Videos Table View Cell" customClass="VideosTableViewCell" customModule="MoviesApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="266" width="351" height="25"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="videosCell" rowHeight="50" id="eUE-eQ-cmm" userLabel="Videos Table View Cell" customClass="VideosTableViewCell" customModule="MoviesApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="221" width="351" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eUE-eQ-cmm" id="vef-Dw-Ce5">
-                                            <rect key="frame" x="0.0" y="0.0" width="351" height="25"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="351" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SQi-O6-sNe">
@@ -993,11 +993,11 @@
                                             <outlet property="videosCollectionView" destination="SQi-O6-sNe" id="bms-7x-ryA"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="castingCell" id="Amd-Pq-jFy" userLabel="Casting Table View Cell" customClass="CastingTableViewCell" customModule="MoviesApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="291" width="351" height="237"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="castingCell" rowHeight="50" id="Amd-Pq-jFy" userLabel="Casting Table View Cell" customClass="CastingTableViewCell" customModule="MoviesApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="271" width="351" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Amd-Pq-jFy" id="Za7-L8-5LS">
-                                            <rect key="frame" x="0.0" y="0.0" width="351" height="237"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="351" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YXx-Vx-Rrv" userLabel="Casting Collection View">
@@ -1145,7 +1145,7 @@
                         <inset key="imageInsets" minX="0.0" minY="5.5" maxX="0.0" maxY="-5.5"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="nTG-U4-fnf">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="nTG-U4-fnf" customClass="CustomNavigationBar" customModule="MoviesApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1166,7 +1166,7 @@
                         <inset key="imageInsets" minX="0.0" minY="5.5" maxX="0.0" maxY="-5.5"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="F6v-C2-1kj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="F6v-C2-1kj" customClass="CustomNavigationBar" customModule="MoviesApp" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
