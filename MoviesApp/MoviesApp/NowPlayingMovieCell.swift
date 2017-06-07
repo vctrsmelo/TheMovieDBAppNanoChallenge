@@ -12,35 +12,54 @@ class NowPlayingMovieCell: UICollectionViewCell {
     
     @IBOutlet weak var posterImageView: UIImageView!
 
-    private let originalSize = CGSize(width: 270, height: 400)
+    private let heightIncreaseFactor : CGFloat = 80.0
+    
+    private let originalSize = CGSize(width: 215, height: 322)
+    
+    private var featuredPercentage: CGFloat?
     
     public func updateSize(cellFrame: CGRect, container: CGRect){
         
-        let containerXCenter : Double = Double(container.origin.x + container.width/2)
-        print("containerXCenter: \(containerXCenter)")
+        let containerXCenter : CGFloat = container.origin.x + container.width/2
+
+        let cellXCenter : CGFloat = cellFrame.origin.x + cellFrame.width/2
         
-        let cellXCenter : Double = Double(cellFrame.origin.x + cellFrame.width/2)
-        
-        let distance : Double = abs(containerXCenter - cellXCenter)
+        let distance : CGFloat = abs(containerXCenter - cellXCenter)
         
 
-        let multFactor : Double = (1 - (distance/100.0))*100
+        //entre 0 e 100, sendo 100 = maior tamanho e 0 = menor tamanho
+        featuredPercentage = (1 - (distance/container.width))*100
         
-        print(multFactor)
+        let newHeight = originalSize.height+(featuredPercentage!*heightIncreaseFactor)/100
+        let newWidth = (originalSize.width/originalSize.height) * newHeight
+
         
-        let increasedHeight = Double((multFactor*15)/100)
-        let newHeight : Double = Double(originalSize.height)+increasedHeight
-        let newWidth : Double = Double(originalSize.width/originalSize.height) * newHeight
+        //size changes relating to current size
+        let increasedHeight = abs(self.frame.height - newHeight)
+        let increasedWidth = abs(self.frame.width - newWidth)
         
-        let increasedWidth: Double = Double(originalSize.width) - newWidth
+        
+        //position changes relating to current position
+        let newX = (self.frame.width < newWidth) ? self.frame.origin.x - increasedWidth/2 : self.frame.origin.x + increasedWidth/2
+        let newY = (self.frame.height < newHeight) ? self.frame.origin.y - increasedHeight/2 : self.frame.origin.y + increasedHeight/2
         
         self.frame.size.width = CGFloat(newWidth)
         self.frame.size.height = CGFloat(newHeight)
         
-//        let newX = cellFrame.origin.x - CGFloat(increasedWidth/2)
-//        let newY = cellFrame.origin.y - CGFloat(increasedHeight/2)
-//        
-//        self.frame = CGRect(x: newX, y: newY, width: CGFloat(newWidth), height: CGFloat(newHeight))
+        self.frame.origin.x = newX
+        self.frame.origin.y = newY
+        
+    }
+    
+    func getFeaturedPerentage() -> CGFloat{
+        
+        if let feature = self.featuredPercentage {
+            
+            return feature
+            
+        }
+        
+        return 0.0
         
     }
 }

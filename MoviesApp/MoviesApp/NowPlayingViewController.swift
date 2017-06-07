@@ -11,9 +11,11 @@ import UIKit
 class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     @IBOutlet weak var nowPlayingCollectionView: UICollectionView!
+    private var collectionLayout : UICollectionViewFlowLayout!
+    
     private var nowPlayingMovies : [Movie] = []
     
-    private let posterSize = CGSize(width: 270, height: 400)
+    private let posterSize = CGSize(width: 215, height: 322)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +27,6 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
         
         TmdbAPIAccess.getNowPlayingMovies(countryCode: countryCode){(movies) in
          
-            print("veio aqui")
             print(movies)
             self.nowPlayingMovies.append(contentsOf: movies)
             self.nowPlayingCollectionView.reloadData()
@@ -34,14 +35,14 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
         }
         
         
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsetsMake(0, 53, 0, 53)
-        layout.minimumInteritemSpacing = 21
-        layout.minimumLineSpacing = 21
-        layout.scrollDirection = .horizontal
-        layout.itemSize = posterSize
+        collectionLayout = UICollectionViewFlowLayout()
+        collectionLayout.sectionInset = UIEdgeInsetsMake(0, 53, 0, 53)
+        collectionLayout.minimumInteritemSpacing = 51
+        collectionLayout.minimumLineSpacing = 51
+        collectionLayout.scrollDirection = .horizontal
+        collectionLayout.itemSize = posterSize
         
-        nowPlayingCollectionView.collectionViewLayout = layout
+        nowPlayingCollectionView.collectionViewLayout = collectionLayout
         
         // Do any additional setup after loading the view.
     }
@@ -62,10 +63,10 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
         
         let cell: NowPlayingMovieCell = collectionView.dequeueReusableCell(withReuseIdentifier: "nowPlayingMovieCell", for: indexPath) as! NowPlayingMovieCell
         
-        if(indexPath.row == 0){
-            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-            
-        }
+//        if(indexPath.row == 0){
+//            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+//            
+//        }
         
         var frame = cell.frame
         
@@ -73,9 +74,17 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
         frame.size.height = posterSize.height
         
         cell.frame = frame
-        cell.layoutMargins = UIEdgeInsetsMake(0, 10, 0, 10)
     
+        let cellFrame = nowPlayingCollectionView.convert(cell.frame, to: nowPlayingCollectionView.superview)
+        cell.updateSize(cellFrame: cellFrame, container: self.nowPlayingCollectionView.frame)
+        
+        //rounded corners
         cell.posterImageView.image = nowPlayingMovies[indexPath.row].poster
+        cell.posterImageView.layer.masksToBounds = true
+        cell.posterImageView.layer.cornerRadius = 4
+
+        //shadow
+        adjustShadow(to: cell)
         
         return cell
         
@@ -89,12 +98,36 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
             if let nowPlayingCell = cell as? NowPlayingMovieCell{
                 
                 let cellFrame = nowPlayingCollectionView.convert(nowPlayingCell.frame, to: nowPlayingCollectionView.superview)
-                
                 nowPlayingCell.updateSize(cellFrame: cellFrame, container: nowPlayingCollectionView.frame)
-
+                
+                //shadow adjustment
+                self.adjustShadow(to: nowPlayingCell)
             }
             
         }
+        
+    }
+    
+    private func adjustShadow(to cell: NowPlayingMovieCell){
+        
+        let ft = cell.getFeaturedPerentage()
+        let defaultShadowRadius: CGFloat = 5
+        var finalShadowRadius: CGFloat = 5
+        
+        if(ft != 0){
+            
+            finalShadowRadius = defaultShadowRadius * ft / (defaultShadowRadius*10)
+            print("finalShadowRadius: \(finalShadowRadius)")
+        }
+        
+        
+        cell.clipsToBounds = false
+        cell.layer.shadowColor = UIColor.black.cgColor
+        cell.layer.shadowOpacity = 0.5
+        cell.layer.shadowOffset = CGSize.zero
+        cell.layer.shadowRadius = finalShadowRadius
+        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: 4).cgPath
+
         
     }
     
