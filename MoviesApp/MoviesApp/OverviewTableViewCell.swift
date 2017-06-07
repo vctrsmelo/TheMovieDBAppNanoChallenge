@@ -14,6 +14,7 @@ class OverviewTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        movieOverview.textContainerInset = UIEdgeInsetsMake(0, -5, 0, -5);
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

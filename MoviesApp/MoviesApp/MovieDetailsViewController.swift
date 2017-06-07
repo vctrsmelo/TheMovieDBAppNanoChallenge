@@ -24,8 +24,8 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
         tableView.layer.shadowOpacity = 0.95
         tableView.layer.shadowRadius = 6.0
         
-        navigationController?.navigationItem.title = navigationController?.topViewController?.navigationItem.title
-        navigationController?.navigationItem.backBarButtonItem?.isEnabled = false
+        navigationController?.isNavigationBarHidden = true
+        UIApplication.shared.statusBarView?.backgroundColor = .white
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,21 +37,23 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 6
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
-            return 237
+            return 113
         case 1:
-            return 132
+            return 237
         case 2:
-            return 63
+            return 132
         case 3:
-            return 261
+            return 63
         case 4:
-            return 265
+            return 268
+        case 5:
+            return 258
         default:
             return 0
         }
@@ -60,24 +62,30 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
-            return tableView.dequeueReusableCell(withIdentifier: "mainInformationsCell") as! MainInformationsTableViewCell
+            let cell = UITableViewCell(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+            cell.backgroundView?.backgroundColor = UIColor.white.withAlphaComponent(0)
+            cell.backgroundColor = UIColor.white.withAlphaComponent(0)
+            return cell
             
         case 1:
-            return tableView.dequeueReusableCell(withIdentifier: "overviewCell") as! OverviewTableViewCell
+            return tableView.dequeueReusableCell(withIdentifier: "mainInformationsCell") as! MainInformationsTableViewCell
             
         case 2:
+            return tableView.dequeueReusableCell(withIdentifier: "overviewCell") as! OverviewTableViewCell
+            
+        case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "selectionCell") as! SelectionTableViewCell
             cell.root = self
             return cell
             
-        case 3:
+        case 4:
             if selection == "videos" {
                 return tableView.dequeueReusableCell(withIdentifier: "videosCell") as! VideosTableViewCell
             } else {
                 return tableView.dequeueReusableCell(withIdentifier: "castingCell") as! CastingTableViewCell
             }
             
-        case 4:
+        case 5:
             return tableView.dequeueReusableCell(withIdentifier: "recommendationsCell") as! RecommendationsTableViewCell
             
         default:

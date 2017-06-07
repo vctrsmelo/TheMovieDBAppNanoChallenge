@@ -21,6 +21,14 @@ class SelectionTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         castingButton.titleLabel?.textColor = UIColor.white
         super.awakeFromNib()
+        
+        let device = UIDevice.current.model
+        if device.contains("iPhone") {
+            videosButton.imageView?.frame.size = CGSize(width: 11, height: 16)
+            videosButton.imageView?.clipsToBounds = true
+            castingButton.imageView?.frame.size = CGSize(width: 12, height: 16)
+            castingButton.imageView?.clipsToBounds = true
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -31,9 +39,11 @@ class SelectionTableViewCell: UITableViewCell {
         root.selection = "videos"
         
         videosButton.setTitleColor(videosSelectedLabel.backgroundColor, for: UIControlState.normal)
+        videosButton.setImage(UIImage(named: "Icon_Video_Select"), for: UIControlState.normal)
         videosSelectedLabel.isHidden = false
         
         castingButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+        castingButton.setImage(UIImage(named: "Icon_Casting"), for: UIControlState.normal)
         castingSelectedLabel.isHidden = true
         
         root.tableView.reloadData()
@@ -43,9 +53,11 @@ class SelectionTableViewCell: UITableViewCell {
         root.selection = "casting"
         
         videosButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+        videosButton.setImage(UIImage(named: "Icon_Video"), for: UIControlState.normal)
         videosSelectedLabel.isHidden = true
         
         castingButton.setTitleColor(castingSelectedLabel.backgroundColor, for: UIControlState.normal)
+        castingButton.setImage(UIImage(named: "Icon_Castibg_Select"), for: UIControlState.normal)
         castingSelectedLabel.isHidden = false
         
         root.tableView.reloadData()
