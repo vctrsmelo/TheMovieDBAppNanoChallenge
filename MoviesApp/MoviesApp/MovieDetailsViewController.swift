@@ -65,6 +65,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
             let cell = UITableViewCell(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
             cell.backgroundView?.backgroundColor = UIColor.white.withAlphaComponent(0)
             cell.backgroundColor = UIColor.white.withAlphaComponent(0)
+            cell.selectionStyle = UITableViewCellSelectionStyle.none
             return cell
             
         case 1:
