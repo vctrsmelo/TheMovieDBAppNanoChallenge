@@ -7,17 +7,12 @@
 //
 
 import UIKit
-class TmdbAPIAccess: NSObject {
+
+class TmdbAPIAccess {
     
     //API Key
     private static let apiKey = "7f5f382d2a06f7172d41b460a773743e"
     private static let imageStartingUrl = "http://image.tmdb.org/t/p/w185"
-    
-    override init(){
-        
-        super.init()
-        
-    }
     
     /*
      countryCode: acquired through the following code
@@ -25,7 +20,8 @@ class TmdbAPIAccess: NSObject {
      
      }
      */
-    public static func getNowPlayingMovies(countryCode: String, succeeded: @escaping ([Movie]) -> Void){
+	
+    static func getNowPlayingMovies(countryCode: String, completion: @escaping ([Movie]) -> Void){
     
         var moviesArray : [Movie] = []
     
@@ -60,7 +56,7 @@ class TmdbAPIAccess: NSObject {
                         
                     }
                     
-                    succeeded(moviesArray)
+                    completion(moviesArray)
                     
                 } catch let error{
                     
@@ -74,7 +70,7 @@ class TmdbAPIAccess: NSObject {
         
     }
     
-    public static func getUpcomingMovies(countryCode: String, succeeded: @escaping ([Movie]) -> Void){
+    static func getUpcomingMovies(countryCode: String, completion: @escaping ([Movie]) -> Void){
         
         var moviesArray : [Movie] = []
 
@@ -109,7 +105,7 @@ class TmdbAPIAccess: NSObject {
                         
                     }
                     
-                    succeeded(moviesArray)
+                    completion(moviesArray)
                     
                 }catch let error{
                     
@@ -123,7 +119,7 @@ class TmdbAPIAccess: NSObject {
         
     }
     
-    public static func getMoviesBy(title: String, succeeded: @escaping ([Movie]) -> Void){
+    static func getMoviesBy(title: String, completion: @escaping ([Movie]) -> Void){
         
         var moviesArray : [Movie] = []
         
@@ -176,7 +172,7 @@ class TmdbAPIAccess: NSObject {
                         
                     }
                     
-                    succeeded(moviesArray)
+                    completion(moviesArray)
                     
                 } catch let error{
                     
@@ -191,9 +187,9 @@ class TmdbAPIAccess: NSObject {
         
     }
     
-    public static func getMovieBy(id: CUnsignedLong, completion: @escaping (_ movie : Movie?) -> Void){
+    static func getMovieBy(id: String, completion: @escaping (Movie?) -> Void){
         
-        if let url = URL(string:"http://api.themoviedb.org/3/movie/"+String(id)+"?api_key="+apiKey+"&language="+Locale.preferredLanguages[0]){
+        if let url = URL(string:"http://api.themoviedb.org/3/movie/"+id+"?api_key="+apiKey+"&language="+Locale.preferredLanguages[0]){
 
             let request = URLRequest(url: url)
             let session = URLSession.shared
@@ -221,8 +217,17 @@ class TmdbAPIAccess: NSObject {
         }
         
     }
-    
-    
+	
+	static func getImageFromUrl(url: URL, completion: @escaping (_ imageData: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
+		
+		URLSession.shared.dataTask(with: url) {
+			(imageData, response, error) in
+			completion(imageData, response, error)
+			
+			}.resume()
+		
+	}
+	
     private static func getMovieFrom(movieDictionary movie: [String:AnyObject]) -> Movie?{
         
         var posterUrl: URL? = nil
@@ -254,7 +259,7 @@ class TmdbAPIAccess: NSObject {
             
         }
         
-        let movie = Movie(id: "\(String(describing: id))", title: title as? String, originalTitle: originalTitle as? String, genres: genres, runtime: runtime as? Int, releaseDateString: releaseDate as? String, overview: overview as? String)
+        let movie = Movie(id: id as! String, title: title as? String, originalTitle: originalTitle as? String, genres: genres, runtime: runtime as? Int, releaseDateString: releaseDate as? String, overview: overview as? String)
         
         if let url = posterUrl{
             
@@ -270,17 +275,6 @@ class TmdbAPIAccess: NSObject {
         }
         
         return movie
-        
-    }
-    
-    
-    public static func getImageFromUrl(url: URL, completion: @escaping (_ imageData: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
-
-        URLSession.shared.dataTask(with: url) {
-            (imageData, response, error) in
-            completion(imageData, response, error)
-        
-        }.resume()
         
     }
     

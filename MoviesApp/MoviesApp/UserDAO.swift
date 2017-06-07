@@ -23,11 +23,11 @@ class UserDAO : Object {
 		
 		self.id = user.id
 		
-		for movie in user.watchlist {
-			self.watchlist.append(MovieDAO(movie))
+		for movieID in user.watchlist {
+			if let movieDAO : MovieDAO = MovieDAO.load(id: movieID) {
+				self.watchlist.append(movieDAO)
+			}
 		}
-		
-		
 		
 		for (movieID, movieTags) in user.movieTags {
 			let movieTagsDAO = MovieTagsDAO(movieTags)
@@ -39,11 +39,11 @@ class UserDAO : Object {
 	
 	// MARK: Private Methods
 	private func intoUser() -> User {
-		var watchlist = Set<Movie>()
-		var movieTags = [Int : MovieTags]()
+		var watchlist = Set<String>()
+		var movieTags = [String : MovieTags]()
 		
 		for movie in self.watchlist {
-			watchlist.insert(movie.intoMovie())
+			watchlist.insert(movie.intoMovie().id)
 		}
 		
 		for dictionaryEntry in self.movieTags {

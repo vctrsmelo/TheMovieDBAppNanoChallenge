@@ -11,7 +11,7 @@ import UIKit
 import RealmSwift
 
 class MovieTagsDAO: Object {
-	dynamic var movieID = 0
+	dynamic var movieID = ""
 	dynamic var isFavorite = false
 	dynamic var isOnWatchlist = false
 	dynamic var userRating : Float = 0.0

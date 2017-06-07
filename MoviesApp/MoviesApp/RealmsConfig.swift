@@ -11,13 +11,13 @@ import os.log
 import RealmSwift
 
 class RealmDictionaryEntry : Object {
-	dynamic var key = 0
+	dynamic var key = ""
 	dynamic var value : Object?
 	
-	convenience init(key : AnyHashable, value: Object) {
+	convenience init(key : String, value: Object) {
 		self.init()
 		
-		self.key = key.hashValue
+		self.key = key
 		self.value = value
 	}
 }

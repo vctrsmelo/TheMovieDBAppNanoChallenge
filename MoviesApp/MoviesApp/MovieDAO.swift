@@ -80,16 +80,20 @@ class MovieDAO : Object {
 		return Movie(id: self.id, title: self.title, originalTitle: self.originalTitle, genres: movieGenres, runtime: self.runtime.value, releaseDateString: self.releaseDateString, overview: self.overview, poster: moviePoster, cast: movieCast)
 	}
 	
-	static func save(_ movie : Movie, temporary : Bool) -> Bool {
+	static func save(_ movie : Movie) -> Bool {
 		let movieDAO = MovieDAO(movie)
 		
-		return RealmsConfig.save(movieDAO, update: false, temporary: temporary)
+		return RealmsConfig.save(movieDAO, update: false, temporary: true)
 	}
 	
-	static func update(_ movie : Movie, temporary : Bool) -> Bool {
-		let movieDAO = MovieDAO(movie)
-		
-		return RealmsConfig.save(movieDAO, update: true, temporary: temporary)
+//	static func update(_ movie : Movie) -> Bool {
+//		let movieDAO = MovieDAO(movie)
+//		
+//		return RealmsConfig.save(movieDAO, update: true, temporary: true)
+//	}
+	
+	static func load(id : String) -> MovieDAO? {
+		return RealmsConfig.load(MovieDAO.self, with: id)
 	}
 	
 	static func load(id : String) -> Movie? {
