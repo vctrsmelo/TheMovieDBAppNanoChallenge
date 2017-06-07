@@ -32,11 +32,13 @@
 		E7966EE81EE26EB500AF3B6C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290F465C1EE0A85100E509E3 /* User.swift */; };
 		E7966EE91EE26EB500AF3B6C /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 290F465E1EE0A88B00E509E3 /* Movie.swift */; };
 		EE7E0A851EE0946D0029874C /* TmdbAPIAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7E0A841EE0946D0029874C /* TmdbAPIAccess.swift */; };
+		FC3078D11EE7352C006CE181 /* MovieTagsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3078D01EE7352C006CE181 /* MovieTagsDAO.swift */; };
 		FC3516B91EE0D4BB00E6A724 /* MovieDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3516B81EE0D4BB00E6A724 /* MovieDAO.swift */; };
 		FC3516BB1EE0DBFC00E6A724 /* RealmsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3516BA1EE0DBFC00E6A724 /* RealmsConfig.swift */; };
 		FC59E30B1EE0C80100157142 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC59E3091EE0C80100157142 /* Realm.framework */; };
 		FC59E30C1EE0C80100157142 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC59E30A1EE0C80100157142 /* RealmSwift.framework */; };
 		FC59E30F1EE0CAF600157142 /* UserDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC59E30E1EE0CAF600157142 /* UserDAO.swift */; };
+		FCD79CB21EE87A18000B12F9 /* ActorDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD79CB11EE87A18000B12F9 /* ActorDAO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,11 +69,13 @@
 		57C073711EE7489B007DDC0B /* CastingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CastingCollectionViewCell.swift; sourceTree = "<group>"; };
 		57C073731EE74BE5007DDC0B /* Actor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Actor.swift; sourceTree = "<group>"; };
 		EE7E0A841EE0946D0029874C /* TmdbAPIAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TmdbAPIAccess.swift; sourceTree = "<group>"; };
+		FC3078D01EE7352C006CE181 /* MovieTagsDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieTagsDAO.swift; sourceTree = "<group>"; };
 		FC3516B81EE0D4BB00E6A724 /* MovieDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDAO.swift; sourceTree = "<group>"; };
 		FC3516BA1EE0DBFC00E6A724 /* RealmsConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmsConfig.swift; sourceTree = "<group>"; };
 		FC59E3091EE0C80100157142 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		FC59E30A1EE0C80100157142 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		FC59E30E1EE0CAF600157142 /* UserDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDAO.swift; sourceTree = "<group>"; };
+		FCD79CB11EE87A18000B12F9 /* ActorDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActorDAO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +145,8 @@
 			children = (
 				FC59E30E1EE0CAF600157142 /* UserDAO.swift */,
 				FC3516B81EE0D4BB00E6A724 /* MovieDAO.swift */,
+				FC3078D01EE7352C006CE181 /* MovieTagsDAO.swift */,
+				FCD79CB11EE87A18000B12F9 /* ActorDAO.swift */,
 				FC3516BA1EE0DBFC00E6A724 /* RealmsConfig.swift */,
 			);
 			name = Persistence;
@@ -193,7 +199,6 @@
 		579097C61EE5EF5C004D72CA /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				579097C21EE5DBD9004D72CA /* MainInformationsTableViewCell.swift */,
 				579097C41EE5EEF0004D72CA /* OverviewTableViewCell.swift */,
 				579097C71EE60938004D72CA /* SelectionTableViewCell.swift */,
 				57C073691EE7158E007DDC0B /* VideosTableViewCell.swift */,
@@ -319,6 +324,7 @@
 				57C0736E1EE715C5007DDC0B /* RecommendationsTableViewCell.swift in Sources */,
 				579097C51EE5EEF0004D72CA /* OverviewTableViewCell.swift in Sources */,
 				57C0736C1EE7159E007DDC0B /* CastingTableViewCell.swift in Sources */,
+				FC3078D11EE7352C006CE181 /* MovieTagsDAO.swift in Sources */,
 				E7966EE81EE26EB500AF3B6C /* User.swift in Sources */,
 				E7966EE91EE26EB500AF3B6C /* Movie.swift in Sources */,
 				EE7E0A851EE0946D0029874C /* TmdbAPIAccess.swift in Sources */,
@@ -330,6 +336,7 @@
 				FC3516B91EE0D4BB00E6A724 /* MovieDAO.swift in Sources */,
 				294EC4B61EE5D85100528C40 /* WatchlistViewController.swift in Sources */,
 				FC59E30F1EE0CAF600157142 /* UserDAO.swift in Sources */,
+				FCD79CB21EE87A18000B12F9 /* ActorDAO.swift in Sources */,
 				5781C4741EE0881F0037C7CB /* AppDelegate.swift in Sources */,
 				57C0736A1EE7158E007DDC0B /* VideosTableViewCell.swift in Sources */,
 				579097C81EE60938004D72CA /* SelectionTableViewCell.swift in Sources */,

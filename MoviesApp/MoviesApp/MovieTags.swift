@@ -7,16 +7,12 @@
 //
 
 import Foundation
+import UIKit
 
 public struct MovieTags {
-	let user: User
-	let movie: Movie
+	let movieID: Int
 	var isFavorite: Bool
-	var isOnWatchlist: Bool {
-		if let watchlist = user.watchlist {
-			return watchlist.contains(movie)
-		}
-		return false
-	}
+	var isOnWatchlist: Bool
 	var userRating: Float
+	var userWatchedPhoto: UIImage?
 }

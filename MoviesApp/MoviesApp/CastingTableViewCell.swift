@@ -33,7 +33,7 @@ class CastingTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColle
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = castingCollectionView.dequeueReusableCell(withReuseIdentifier: "castingCell", for: indexPath) as! CastingCollectionViewCell
-        cell.actorName.text = cast[indexPath.item].actorName?.uppercased()
+        cell.actorName.text = cast[indexPath.item].actorName.uppercased()
         cell.characterName.text = cast[indexPath.item].characterName
         cell.actorPhoto.image = cast[indexPath.item].photo
         return cell

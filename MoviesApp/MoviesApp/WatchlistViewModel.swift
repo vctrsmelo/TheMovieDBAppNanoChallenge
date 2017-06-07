@@ -19,8 +19,8 @@ public class WatchlistViewModel {
 	init(user: User, view: WatchlistViewController) {
 		self.view = view
 		
-		if let watchlist = user.watchlist {
-			self.watchlist = Array(watchlist).sorted(by: { (movieA, movieB) -> Bool in
+		if !user.watchlist.isEmpty {
+			self.watchlist = Array(user.watchlist).sorted(by: { (movieA, movieB) -> Bool in
 				guard let titleA = movieA.title else {
 					return false
 				}
