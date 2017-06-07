@@ -385,7 +385,7 @@
                                                         <constraint firstAttribute="height" constant="14" id="Ad6-ud-MDW"/>
                                                         <constraint firstAttribute="width" constant="15" id="SDC-UF-fU1"/>
                                                     </constraints>
-                                                    <state key="normal" image="Ic_Star"/>
+                                                    <state key="normal" image="ic_star"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
                                                             <exclude reference="Ad6-ud-MDW"/>
@@ -408,7 +408,7 @@
                                                         <constraint firstAttribute="height" constant="14" id="Wnj-g1-pUM"/>
                                                         <constraint firstAttribute="width" constant="15" id="vRh-n0-pj9"/>
                                                     </constraints>
-                                                    <state key="normal" image="Ic_Star"/>
+                                                    <state key="normal" image="ic_star"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
                                                             <exclude reference="Wnj-g1-pUM"/>
@@ -431,7 +431,7 @@
                                                         <constraint firstAttribute="height" constant="14" id="AwW-U9-3Fn"/>
                                                         <constraint firstAttribute="width" constant="15" id="ctM-Kp-2cy"/>
                                                     </constraints>
-                                                    <state key="normal" image="Ic_Star"/>
+                                                    <state key="normal" image="ic_star"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
                                                             <exclude reference="AwW-U9-3Fn"/>
@@ -454,7 +454,7 @@
                                                         <constraint firstAttribute="width" constant="15" id="I01-WE-1ay"/>
                                                         <constraint firstAttribute="height" constant="14" id="YgO-YQ-Ha5"/>
                                                     </constraints>
-                                                    <state key="normal" image="Ic_Star"/>
+                                                    <state key="normal" image="ic_star"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
                                                             <exclude reference="I01-WE-1ay"/>
@@ -477,7 +477,7 @@
                                                         <constraint firstAttribute="width" constant="15" id="Kag-Wq-XLj"/>
                                                         <constraint firstAttribute="height" constant="14" id="OPy-mk-9uI"/>
                                                     </constraints>
-                                                    <state key="normal" image="Ic_Star"/>
+                                                    <state key="normal" image="ic_star"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
                                                             <exclude reference="Kag-Wq-XLj"/>
@@ -1313,7 +1313,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Ic_Star" width="15" height="14"/>
         <image name="Icon_Casting" width="21" height="28"/>
         <image name="Icon_Video" width="17" height="24"/>
         <image name="Icon_Video_Select" width="17" height="24"/>
@@ -1323,6 +1322,7 @@
         <image name="ic_saved" width="12" height="16"/>
         <image name="ic_saved-1" width="45" height="55"/>
         <image name="ic_search" width="26" height="26"/>
+        <image name="ic_star" width="15" height="14"/>
         <image name="images" width="184" height="273"/>
         <image name="tabbar_general" width="23" height="26"/>
         <image name="tabbar_watchlist" width="26" height="26"/>
