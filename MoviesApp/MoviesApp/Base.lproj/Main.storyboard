@@ -243,7 +243,7 @@
                                     <constraint firstAttribute="height" constant="40" id="gXm-eR-S6A"/>
                                 </constraints>
                             </view>
-                            <tableView contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="237" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Yy6-yz-Edp">
+                            <tableView contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="237" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Yy6-yz-Edp">
                                 <rect key="frame" x="12" y="20" width="351" height="598"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -1141,7 +1141,7 @@
                                             <outlet property="castingCollectionView" destination="YXx-Vx-Rrv" id="ywn-Qa-D9R"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="recommendationsCell" rowHeight="50" id="G8f-Cb-oj7" userLabel="Recommendations Table View Cell" customClass="RecommendationsTableViewCell" customModule="MoviesApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="recommendationsCell" rowHeight="50" id="G8f-Cb-oj7" userLabel="Recommendations Table View Cell" customClass="RecommendationsTableViewCell" customModule="MoviesApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="508" width="351" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G8f-Cb-oj7" id="mee-WJ-o2g">
