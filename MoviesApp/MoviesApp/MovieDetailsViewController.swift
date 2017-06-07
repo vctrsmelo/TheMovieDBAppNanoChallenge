@@ -17,6 +17,8 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var tableView: UITableView!
     var selection: String = "videos"
     var movie : Movie?
+	
+	private let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,8 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
         tableView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         tableView.layer.shadowOpacity = 0.95
         tableView.layer.shadowRadius = 6.0
+		
+		configureImagePicker()
         
         navigationController?.isNavigationBarHidden = true
         UIApplication.shared.statusBarView?.backgroundColor = .white
@@ -142,6 +146,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
             cell.backgroundView?.backgroundColor = UIColor.white.withAlphaComponent(0)
             cell.backgroundColor = UIColor.white.withAlphaComponent(0)
             cell.selectionStyle = UITableViewCellSelectionStyle.none
+            cell.root = self
             return cell
             
         case 1:
@@ -184,4 +189,20 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
 
         }
     }
+	
+	// MARK: Image Picker Methods
+	private func configureImagePicker() {
+		imagePicker.allowsEditing = false
+		imagePicker.sourceType = .camera
+		imagePicker.navigationController?.delegate = self
+	}
+	internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+		if let photo = info[UIImagePickerControllerOriginalImage] as? UIImage {
+			print(photo)
+			//Data.user.movieTags[movie] = set something
+		}
+	}
+	public func presentImagePicker() {
+		present(imagePicker, animated: true, completion: nil)
+	}
 }
