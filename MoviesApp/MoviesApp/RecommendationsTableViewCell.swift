@@ -31,7 +31,7 @@ class RecommendationsTableViewCell: UITableViewCell, UICollectionViewDataSource,
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = recommendationsCollectionView.dequeueReusableCell(withReuseIdentifier: "recommendationsCell", for: indexPath) as! RecommendationsCollectionViewCell
-        cell.poster.image = recommendedMovies[indexPath.item].poster
+        cell.posterButton.setImage(recommendedMovies[indexPath.item].poster, for: UIControlState.normal)
         return cell
     }
 }

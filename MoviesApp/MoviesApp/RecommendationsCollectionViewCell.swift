@@ -9,5 +9,5 @@
 import UIKit
 
 class RecommendationsCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var poster: UIImageView!
+    @IBOutlet weak var posterButton: UIButton!
 }

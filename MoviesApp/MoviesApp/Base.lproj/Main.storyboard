@@ -1117,16 +1117,17 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="136" height="201"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jbf-cx-PcQ">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r18-pM-vlv">
                                                                         <rect key="frame" x="0.0" y="0.0" width="136" height="201"/>
-                                                                    </imageView>
+                                                                        <state key="normal" image="Ic_Videos"/>
+                                                                    </button>
                                                                 </subviews>
                                                             </view>
                                                             <constraints>
-                                                                <constraint firstItem="Jbf-cx-PcQ" firstAttribute="leading" secondItem="Dg8-1p-UxX" secondAttribute="leading" id="CyJ-tN-4DV"/>
-                                                                <constraint firstAttribute="bottom" secondItem="Jbf-cx-PcQ" secondAttribute="bottom" id="Fgv-BG-4kp"/>
-                                                                <constraint firstItem="Jbf-cx-PcQ" firstAttribute="top" secondItem="Dg8-1p-UxX" secondAttribute="top" id="XQN-eh-9Pi"/>
-                                                                <constraint firstAttribute="trailing" secondItem="Jbf-cx-PcQ" secondAttribute="trailing" id="u08-W6-kd7"/>
+                                                                <constraint firstItem="r18-pM-vlv" firstAttribute="leading" secondItem="Dg8-1p-UxX" secondAttribute="leading" id="1Ae-pM-8S6"/>
+                                                                <constraint firstAttribute="trailing" secondItem="r18-pM-vlv" secondAttribute="trailing" id="wLb-2t-1hF"/>
+                                                                <constraint firstAttribute="bottom" secondItem="r18-pM-vlv" secondAttribute="bottom" id="ySt-WK-KrZ"/>
+                                                                <constraint firstItem="r18-pM-vlv" firstAttribute="top" secondItem="Dg8-1p-UxX" secondAttribute="top" id="zmC-1x-9K8"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1134,7 +1135,7 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                             <connections>
-                                                                <outlet property="poster" destination="Jbf-cx-PcQ" id="Nae-27-g1D"/>
+                                                                <outlet property="posterButton" destination="r18-pM-vlv" id="HRg-CP-9JQ"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
@@ -1254,6 +1255,7 @@
     </scenes>
     <resources>
         <image name="Ic_Star" width="15" height="14"/>
+        <image name="Ic_Videos" width="12" height="16"/>
         <image name="ic_cancel" width="17" height="17"/>
         <image name="ic_clock" width="10" height="10"/>
         <image name="ic_heart" width="15" height="14"/>
