@@ -19,6 +19,7 @@ class MovieDAO : Object {
 	let runtime = RealmOptional<Int>()
 	dynamic var overview : String? = nil
 	dynamic var releaseDateString : String? = nil
+	let cast = List<ActorDAO>()
 	
 	override static func primaryKey() -> String? {
 		return "id"
@@ -44,25 +45,39 @@ class MovieDAO : Object {
 		self.runtime.value = movie.runtime
 		self.overview = movie.overview
 		self.releaseDateString = movie.releaseDateString
+		
+		if let movieCast = movie.cast {
+			for actor in movieCast {
+				self.cast.append(ActorDAO(actor))
+			}
+		}
 	}
 	
 	// MARK: Public Methods
 	func intoMovie() -> Movie {
-		var movieDAOGenres : [String]? = nil
+		var movieGenres : [String]? = nil
 		
 		if !self.genres.isEmpty {
-			movieDAOGenres = [String]()
+			movieGenres = [String]()
 			for genre in self.genres {
-				movieDAOGenres?.append(genre.value)
+				movieGenres?.append(genre.value)
 			}
 		}
 		
-		var movieDAOPoster : UIImage? = nil
+		var moviePoster : UIImage? = nil
 		if let movieDAOPosterData = self.poster {
-			movieDAOPoster = UIImage(data: movieDAOPosterData)
+			moviePoster = UIImage(data: movieDAOPosterData)
 		}
 		
-		return Movie(id: self.id, title: self.title, originalTitle: self.originalTitle, genres: movieDAOGenres, runtime: self.runtime.value, releaseDateString: self.releaseDateString, overview: self.overview, poster: movieDAOPoster)
+		var movieCast : [Actor]? = nil
+		if !self.cast.isEmpty {
+			movieCast = [Actor]()
+			for actorDAO in self.cast {
+				movieCast?.append(actorDAO.intoActor())
+			}
+		}
+		
+		return Movie(id: self.id, title: self.title, originalTitle: self.originalTitle, genres: movieGenres, runtime: self.runtime.value, releaseDateString: self.releaseDateString, overview: self.overview, poster: moviePoster, cast: movieCast)
 	}
 	
 	static func save(_ movie : Movie, temporary : Bool) -> Bool {

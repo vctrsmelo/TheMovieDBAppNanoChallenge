@@ -33,7 +33,7 @@ public class Movie: Hashable, Equatable {
     
     weak var delegate: MovieDelegate?
 
-    init(id: String, title: String?, originalTitle: String?, genres: [String]?, runtime: Int?, releaseDateString: String?, overview: String?, poster: UIImage? = nil) {
+	init(id: String, title: String?, originalTitle: String?, genres: [String]?, runtime: Int?, releaseDateString: String?, overview: String?, poster: UIImage? = nil, cast: [Actor]? = nil) {
 		self.id = id
 		self.title = title
 		self.genres = genres
@@ -42,7 +42,7 @@ public class Movie: Hashable, Equatable {
         self.releaseDateString = releaseDateString
         self.overview = overview
         self.originalTitle = originalTitle
-        self.cast = []
+        self.cast = cast
 	}
     
     public func set(poster: UIImage){
