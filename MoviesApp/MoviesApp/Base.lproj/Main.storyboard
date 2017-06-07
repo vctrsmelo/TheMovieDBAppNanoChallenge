@@ -1003,10 +1003,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="i1W-xe-Kij" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="tabbar_general" selectedImage="tabbar_general" id="3Zf-fu-3la">
-                        <inset key="imageInsets" minX="-55" minY="5.5" maxX="55" maxY="-5.5"/>
+                        <inset key="imageInsets" minX="0.0" minY="5.5" maxX="0.0" maxY="-5.5"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nTG-U4-fnf" customClass="CustomNavigationBar" customModule="MoviesApp" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="nTG-U4-fnf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1024,10 +1024,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="l0Q-wp-pm5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="tabbar_watchlist" selectedImage="tabbar_watchlist" id="qU5-3D-6RB">
-                        <inset key="imageInsets" minX="55" minY="5.5" maxX="-55" maxY="-5.5"/>
+                        <inset key="imageInsets" minX="0.0" minY="5.5" maxX="0.0" maxY="-5.5"/>
                     </tabBarItem>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="F6v-C2-1kj" customClass="CustomNavigationBar" customModule="MoviesApp" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="F6v-C2-1kj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
