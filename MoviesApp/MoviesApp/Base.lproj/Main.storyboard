@@ -237,6 +237,13 @@
                                                     <rect key="frame" x="0.0" y="10" width="351" height="40"/>
                                                     <color key="backgroundColor" red="0.10110349208116531" green="0.12944775819778442" blue="0.13375258445739746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_saved-1" translatesAutoresizingMaskIntoConstraints="NO" id="nb8-pF-Z2h">
+                                                    <rect key="frame" x="174" y="-1" width="23" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="23" id="81L-vl-mzB"/>
+                                                        <constraint firstAttribute="height" constant="28" id="svS-ec-KOA"/>
+                                                    </constraints>
+                                                </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="images" translatesAutoresizingMaskIntoConstraints="NO" id="hxE-z6-2Z1">
                                                     <rect key="frame" x="23" y="-36" width="136" height="201"/>
                                                     <constraints>
@@ -364,6 +371,9 @@
                                                             <include reference="SDC-UF-fU1"/>
                                                         </mask>
                                                     </variation>
+                                                    <connections>
+                                                        <action selector="oneStarPressed:" destination="npg-T8-G3r" eventType="touchUpInside" id="95Q-O5-mGO"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64m-rX-Fd5" userLabel="Star Button 2">
                                                     <rect key="frame" x="251" y="151" width="15" height="14"/>
@@ -384,6 +394,9 @@
                                                             <include reference="vRh-n0-pj9"/>
                                                         </mask>
                                                     </variation>
+                                                    <connections>
+                                                        <action selector="twoStarsPressed:" destination="npg-T8-G3r" eventType="touchUpInside" id="M30-dv-J3z"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IP4-7W-s9g" userLabel="Star Button 3">
                                                     <rect key="frame" x="271" y="151" width="15" height="14"/>
@@ -404,6 +417,9 @@
                                                             <include reference="ctM-Kp-2cy"/>
                                                         </mask>
                                                     </variation>
+                                                    <connections>
+                                                        <action selector="threeStarsPressed:" destination="npg-T8-G3r" eventType="touchUpInside" id="apv-7o-ANe"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRU-YT-F2U" userLabel="Star Button 4">
                                                     <rect key="frame" x="291" y="151" width="15" height="14"/>
@@ -424,6 +440,9 @@
                                                             <include reference="YgO-YQ-Ha5"/>
                                                         </mask>
                                                     </variation>
+                                                    <connections>
+                                                        <action selector="fourStarsPressed:" destination="npg-T8-G3r" eventType="touchUpInside" id="RLB-7c-zbn"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zfp-qH-Nmg" userLabel="Star Button 5">
                                                     <rect key="frame" x="311" y="151" width="15" height="14"/>
@@ -444,6 +463,9 @@
                                                             <include reference="OPy-mk-9uI"/>
                                                         </mask>
                                                     </variation>
+                                                    <connections>
+                                                        <action selector="fiveStarsPressed:" destination="npg-T8-G3r" eventType="touchUpInside" id="hsd-gf-XBB"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTx-EM-lgU">
                                                     <rect key="frame" x="231" y="176" width="95" height="28"/>
@@ -596,6 +618,7 @@
                                                 <constraint firstItem="zfp-qH-Nmg" firstAttribute="trailing" secondItem="HTx-EM-lgU" secondAttribute="trailing" id="3E3-Nk-Bhf"/>
                                                 <constraint firstItem="1oC-g5-ybW" firstAttribute="leading" secondItem="zAw-gx-7Mo" secondAttribute="leading" id="5Hc-2c-4va"/>
                                                 <constraint firstItem="hxE-z6-2Z1" firstAttribute="leading" secondItem="hDh-U8-oGi" secondAttribute="leading" constant="23" id="6p9-LX-ZFm"/>
+                                                <constraint firstItem="nb8-pF-Z2h" firstAttribute="top" secondItem="hDh-U8-oGi" secondAttribute="top" constant="-1" id="8ka-vp-Bc7"/>
                                                 <constraint firstItem="lau-Ns-uTz" firstAttribute="top" secondItem="hxE-z6-2Z1" secondAttribute="bottom" constant="11" id="9Au-jl-WfA"/>
                                                 <constraint firstItem="zfp-qH-Nmg" firstAttribute="leading" secondItem="SRU-YT-F2U" secondAttribute="trailing" constant="5" id="BBV-Ri-vds"/>
                                                 <constraint firstItem="IP4-7W-s9g" firstAttribute="bottom" secondItem="hxE-z6-2Z1" secondAttribute="bottom" id="BYg-Hb-xYo"/>
@@ -633,6 +656,7 @@
                                                 <constraint firstItem="HTx-EM-lgU" firstAttribute="top" secondItem="lau-Ns-uTz" secondAttribute="top" id="vU6-sA-8Oj"/>
                                                 <constraint firstItem="IP4-7W-s9g" firstAttribute="leading" secondItem="64m-rX-Fd5" secondAttribute="trailing" constant="5" id="xcz-HP-tjK"/>
                                                 <constraint firstItem="oT7-UF-ElI" firstAttribute="bottom" secondItem="hxE-z6-2Z1" secondAttribute="bottom" id="y8v-Nc-XTe"/>
+                                                <constraint firstItem="1oC-g5-ybW" firstAttribute="leading" secondItem="nb8-pF-Z2h" secondAttribute="leading" id="yO2-ge-APS"/>
                                                 <constraint firstAttribute="trailing" secondItem="WGr-z7-27X" secondAttribute="trailing" id="z7u-9E-lc1"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
@@ -856,10 +880,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="351" height="63"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cek-dQ-KSy">
-                                                    <rect key="frame" x="0.0" y="19" width="175.5" height="32"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                    <state key="normal" title="VIDEOS">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cek-dQ-KSy">
+                                                    <rect key="frame" x="0.0" y="19" width="175.5" height="24"/>
+                                                    <state key="normal" title="   VIDEOS" image="Icon_Video_Select">
                                                         <color key="titleColor" red="0.0020610084757208824" green="0.82179480791091919" blue="0.46594417095184326" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
@@ -873,10 +896,9 @@
                                                         <constraint firstAttribute="height" constant="2" id="sjW-HJ-T9I"/>
                                                     </constraints>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KSH-fP-aGo">
-                                                    <rect key="frame" x="175.5" y="19" width="175.5" height="32"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                    <state key="normal" title="CASTING">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KSH-fP-aGo">
+                                                    <rect key="frame" x="175.5" y="19" width="175.5" height="28"/>
+                                                    <state key="normal" title="   CASTING" image="Icon_Casting">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -1119,7 +1141,7 @@
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r18-pM-vlv">
                                                                         <rect key="frame" x="0.0" y="0.0" width="136" height="201"/>
-                                                                        <state key="normal" image="Ic_Videos"/>
+                                                                        <state key="normal" image="Icon_Video"/>
                                                                     </button>
                                                                 </subviews>
                                                             </view>
@@ -1255,11 +1277,14 @@
     </scenes>
     <resources>
         <image name="Ic_Star" width="15" height="14"/>
-        <image name="Ic_Videos" width="12" height="16"/>
+        <image name="Icon_Casting" width="21" height="28"/>
+        <image name="Icon_Video" width="17" height="24"/>
+        <image name="Icon_Video_Select" width="17" height="24"/>
         <image name="ic_cancel" width="17" height="17"/>
         <image name="ic_clock" width="10" height="10"/>
         <image name="ic_heart" width="15" height="14"/>
         <image name="ic_saved" width="12" height="16"/>
+        <image name="ic_saved-1" width="45" height="55"/>
         <image name="ic_search" width="26" height="26"/>
         <image name="images" width="184" height="273"/>
         <image name="tabbar_general" width="23" height="26"/>

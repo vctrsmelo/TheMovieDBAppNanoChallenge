@@ -32,4 +32,44 @@ class MainInformationsTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
+    @IBAction func oneStarPressed(_ sender: UIButton) {
+        rating1Button.setImage(UIImage(named: "ic_star-1"), for: UIControlState.normal)
+        rating2Button.setImage(UIImage(named: "Ic_Star"), for: UIControlState.normal)
+        rating3Button.setImage(UIImage(named: "Ic_Star"), for: UIControlState.normal)
+        rating4Button.setImage(UIImage(named: "Ic_Star"), for: UIControlState.normal)
+        rating5Button.setImage(UIImage(named: "Ic_Star"), for: UIControlState.normal)
+    }
+    
+    @IBAction func twoStarsPressed(_ sender: UIButton) {
+        rating1Button.setImage(UIImage(named: "ic_star-1"), for: UIControlState.normal)
+        rating2Button.setImage(UIImage(named: "ic_star-1"), for: UIControlState.normal)
+        rating3Button.setImage(UIImage(named: "Ic_Star"), for: UIControlState.normal)
+        rating4Button.setImage(UIImage(named: "Ic_Star"), for: UIControlState.normal)
+        rating5Button.setImage(UIImage(named: "Ic_Star"), for: UIControlState.normal)
+    }
+    
+    @IBAction func threeStarsPressed(_ sender: UIButton) {
+        rating1Button.setImage(UIImage(named: "ic_star-1"), for: UIControlState.normal)
+        rating2Button.setImage(UIImage(named: "ic_star-1"), for: UIControlState.normal)
+        rating3Button.setImage(UIImage(named: "ic_star-1"), for: UIControlState.normal)
+        rating4Button.setImage(UIImage(named: "Ic_Star"), for: UIControlState.normal)
+        rating5Button.setImage(UIImage(named: "Ic_Star"), for: UIControlState.normal)
+    }
+    
+    @IBAction func fourStarsPressed(_ sender: UIButton) {
+        rating1Button.setImage(UIImage(named: "ic_star-1"), for: UIControlState.normal)
+        rating2Button.setImage(UIImage(named: "ic_star-1"), for: UIControlState.normal)
+        rating3Button.setImage(UIImage(named: "ic_star-1"), for: UIControlState.normal)
+        rating4Button.setImage(UIImage(named: "ic_star-1"), for: UIControlState.normal)
+        rating5Button.setImage(UIImage(named: "Ic_Star"), for: UIControlState.normal)
+    }
+    
+    @IBAction func fiveStarsPressed(_ sender: UIButton) {
+        rating1Button.setImage(UIImage(named: "ic_star-1"), for: UIControlState.normal)
+        rating2Button.setImage(UIImage(named: "ic_star-1"), for: UIControlState.normal)
+        rating3Button.setImage(UIImage(named: "ic_star-1"), for: UIControlState.normal)
+        rating4Button.setImage(UIImage(named: "ic_star-1"), for: UIControlState.normal)
+        rating5Button.setImage(UIImage(named: "ic_star-1"), for: UIControlState.normal)
+    }
 }
