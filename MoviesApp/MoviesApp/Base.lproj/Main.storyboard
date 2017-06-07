@@ -857,7 +857,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cek-dQ-KSy">
-                                                    <rect key="frame" x="0.0" y="19" width="175.5" height="30"/>
+                                                    <rect key="frame" x="0.0" y="19" width="175.5" height="32"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                     <state key="normal" title="VIDEOS">
                                                         <color key="titleColor" red="0.0020610084757208824" green="0.82179480791091919" blue="0.46594417095184326" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
@@ -873,7 +874,8 @@
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KSH-fP-aGo">
-                                                    <rect key="frame" x="175.5" y="19" width="175.5" height="30"/>
+                                                    <rect key="frame" x="175.5" y="19" width="175.5" height="32"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                     <state key="normal" title="CASTING">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -1080,6 +1082,76 @@
                                         <color key="backgroundColor" red="0.1011034921" green="0.12944775820000001" blue="0.13375258449999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="castingCollectionView" destination="YXx-Vx-Rrv" id="ywn-Qa-D9R"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="recommendationsCell" id="G8f-Cb-oj7" userLabel="Recommendations Table View Cell" customClass="RecommendationsTableViewCell" customModule="MoviesApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="321" width="351" height="237"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G8f-Cb-oj7" id="mee-WJ-o2g">
+                                            <rect key="frame" x="0.0" y="0.0" width="351" height="237"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RECOMMENDATIONS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="beY-US-ujV">
+                                                    <rect key="frame" x="23" y="0.0" width="303" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="H9f-vR-dEy" userLabel="Recommendations Collection View">
+                                                    <rect key="frame" x="0.0" y="47.5" width="351" height="201"/>
+                                                    <color key="backgroundColor" red="0.10110349208116531" green="0.12944775819778442" blue="0.13375258445739746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="201" id="QeW-IC-UHV"/>
+                                                    </constraints>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="15" minimumInteritemSpacing="15" id="xu4-Ni-Exu">
+                                                        <size key="itemSize" width="136" height="201"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="23" minY="0.0" maxX="23" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="recommendationsCell" id="Dg8-1p-UxX" customClass="RecommendationsCollectionViewCell" customModule="MoviesApp" customModuleProvider="target">
+                                                            <rect key="frame" x="23" y="0.0" width="136" height="201"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                                <rect key="frame" x="0.0" y="0.0" width="136" height="201"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jbf-cx-PcQ">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="136" height="201"/>
+                                                                    </imageView>
+                                                                </subviews>
+                                                            </view>
+                                                            <constraints>
+                                                                <constraint firstItem="Jbf-cx-PcQ" firstAttribute="leading" secondItem="Dg8-1p-UxX" secondAttribute="leading" id="CyJ-tN-4DV"/>
+                                                                <constraint firstAttribute="bottom" secondItem="Jbf-cx-PcQ" secondAttribute="bottom" id="Fgv-BG-4kp"/>
+                                                                <constraint firstItem="Jbf-cx-PcQ" firstAttribute="top" secondItem="Dg8-1p-UxX" secondAttribute="top" id="XQN-eh-9Pi"/>
+                                                                <constraint firstAttribute="trailing" secondItem="Jbf-cx-PcQ" secondAttribute="trailing" id="u08-W6-kd7"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="4"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <outlet property="poster" destination="Jbf-cx-PcQ" id="Nae-27-g1D"/>
+                                                            </connections>
+                                                        </collectionViewCell>
+                                                    </cells>
+                                                </collectionView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="beY-US-ujV" secondAttribute="trailing" constant="25" id="598-AG-ojK"/>
+                                                <constraint firstItem="H9f-vR-dEy" firstAttribute="leading" secondItem="mee-WJ-o2g" secondAttribute="leading" id="Al1-8d-S7W"/>
+                                                <constraint firstItem="H9f-vR-dEy" firstAttribute="top" secondItem="beY-US-ujV" secondAttribute="bottom" constant="28" id="SAS-fx-8Js"/>
+                                                <constraint firstItem="beY-US-ujV" firstAttribute="top" secondItem="mee-WJ-o2g" secondAttribute="top" id="aHR-2P-lyr"/>
+                                                <constraint firstAttribute="trailing" secondItem="H9f-vR-dEy" secondAttribute="trailing" id="kRS-6H-vX6"/>
+                                                <constraint firstItem="beY-US-ujV" firstAttribute="leading" secondItem="mee-WJ-o2g" secondAttribute="leading" constant="23" id="uNJ-RF-vdy"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.10110349208116531" green="0.12944775819778442" blue="0.13375258445739746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="recommendationsCollectionView" destination="H9f-vR-dEy" id="Hjl-8o-1YG"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

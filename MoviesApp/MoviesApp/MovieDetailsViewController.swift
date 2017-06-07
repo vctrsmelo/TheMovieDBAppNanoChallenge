@@ -37,7 +37,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -49,9 +49,9 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
         case 2:
             return 63
         case 3:
-            return 261
+            return 268
         case 4:
-            return 265
+            return 258
         default:
             return 0
         }
