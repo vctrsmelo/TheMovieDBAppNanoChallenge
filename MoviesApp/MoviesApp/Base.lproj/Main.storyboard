@@ -331,6 +331,9 @@
                                                             <include reference="wu6-Uz-stc"/>
                                                         </mask>
                                                     </variation>
+                                                    <connections>
+                                                        <action selector="favoritePressed:" destination="npg-T8-G3r" eventType="touchUpInside" id="BBx-8A-f2E"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fS-h3-gJg" userLabel="Saved Button">
                                                     <rect key="frame" x="204" y="150" width="13" height="16"/>
@@ -351,6 +354,9 @@
                                                             <include reference="mGT-g5-Gpp"/>
                                                         </mask>
                                                     </variation>
+                                                    <connections>
+                                                        <action selector="watchlistPressed:" destination="npg-T8-G3r" eventType="touchUpInside" id="K8X-Bw-HMu"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oT7-UF-ElI" userLabel="Star Button 1">
                                                     <rect key="frame" x="231" y="151" width="15" height="14"/>
@@ -497,6 +503,9 @@
                                                             <include reference="MWh-Ls-knK"/>
                                                         </mask>
                                                     </variation>
+                                                    <connections>
+                                                        <action selector="watchedPressed:" destination="npg-T8-G3r" eventType="touchUpInside" id="ulh-jp-3Cz"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQM-dn-Bo0" userLabel="Cancel Button">
                                                     <rect key="frame" x="316" y="18" width="17" height="17"/>
@@ -517,6 +526,9 @@
                                                             <include reference="Mn5-94-1Vh"/>
                                                         </mask>
                                                     </variation>
+                                                    <connections>
+                                                        <action selector="cancelPressed:" destination="npg-T8-G3r" eventType="touchUpInside" id="f7l-zP-vC9"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Action, Adventure, Fantasy, Sci-Fi" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lau-Ns-uTz" userLabel="Movie Details">
                                                     <rect key="frame" x="23" y="176" width="136" height="30"/>
@@ -781,7 +793,9 @@
                                             <outlet property="rating4Button" destination="SRU-YT-F2U" id="UyG-2N-i4i"/>
                                             <outlet property="rating5Button" destination="zfp-qH-Nmg" id="3Wq-IY-oiU"/>
                                             <outlet property="viewPhotoButton" destination="3lR-gI-7gG" id="sP3-pj-88a"/>
+                                            <outlet property="watchedButton" destination="HTx-EM-lgU" id="dkF-af-Om3"/>
                                             <outlet property="watchlistButton" destination="3fS-h3-gJg" id="TYW-dw-apC"/>
+                                            <outlet property="yearLabel" destination="zAw-gx-7Mo" id="IC9-EZ-8Us"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="overviewCell" rowHeight="80" id="zlB-bl-qdI" userLabel="Overview Table View Cell" customClass="OverviewTableViewCell" customModule="MoviesApp" customModuleProvider="target">
