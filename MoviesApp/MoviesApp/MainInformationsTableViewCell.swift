@@ -9,6 +9,9 @@
 import UIKit
 
 class MainInformationsTableViewCell: UITableViewCell {
+
+	weak var root: MovieDetailsViewController!
+	
     
     var isFavorite: Bool! = false
     var isWatchlist: Bool! = false
@@ -119,4 +122,8 @@ class MainInformationsTableViewCell: UITableViewCell {
     @IBAction func cancelPressed(_ sender: UIButton) {
 
     }
+	
+	@IBAction func touchedUpInsideWatchedButton(_ sender: UIButton) {
+		root.presentImagePicker()
+	}
 }
