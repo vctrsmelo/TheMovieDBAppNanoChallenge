@@ -17,8 +17,8 @@ public class WatchlistViewModel {
 	
 	init(user: User, view: WatchlistViewController) {
 		self.view = view
-		
-		self.watchlist = Array(user.watchlist).sorted(by: { (movieA, movieB) -> Bool in
+
+		self.watchlist = Array(DataManager.watchlistMovies()).sorted(by: { (movieA, movieB) -> Bool in
 			guard let titleA = movieA.title else {
 				return false
 			}

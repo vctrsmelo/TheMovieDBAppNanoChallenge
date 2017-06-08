@@ -11,10 +11,10 @@ import Foundation
 public class User {
 	
 	var id: String
-	var watchlist: Set<Movie>
-	var movieTags: [Int:MovieTags]
+	var watchlist: Set<String>
+	var movieTags: [String:MovieTags]
 	
-	init(id: String, watchlist: Set<Movie> = [], movieTags: [Int:MovieTags] = [:]) {
+	init(id: String, watchlist: Set<String> = [], movieTags: [String:MovieTags] = [:]) {
 		self.id = id
 		self.watchlist = watchlist
 		self.movieTags = movieTags

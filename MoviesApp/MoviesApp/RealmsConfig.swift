@@ -10,18 +10,6 @@ import Foundation
 import os.log
 import RealmSwift
 
-class RealmDictionaryEntry : Object {
-	dynamic var key = 0
-	dynamic var value : Object?
-	
-	convenience init(key : AnyHashable, value: Object) {
-		self.init()
-		
-		self.key = key.hashValue
-		self.value = value
-	}
-}
-
 class RealmString : Object {
 	dynamic var value = ""
 	
@@ -91,7 +79,7 @@ class RealmsConfig {
 	}
 		
 	// MARK: Public Methods
-	static func save(_ object : Object, update : Bool, temporary : Bool = false) -> Bool {
+	static func save(_ object : Object, update : Bool, temporary : Bool) -> Bool {
 		var result = false
 		
 		let realm = temporary ? instance.temporaryRealm! : instance.defaultRealm!
