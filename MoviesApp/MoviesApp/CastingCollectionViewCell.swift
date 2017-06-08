@@ -9,6 +9,9 @@
 import UIKit
 
 class CastingCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var actorNameLabelHeight: NSLayoutConstraint!
+    @IBOutlet weak var characterNameLabelHeight: NSLayoutConstraint!
+    
     @IBOutlet weak var actorPhoto: UIImageView!
     @IBOutlet weak var actorName: UILabel!
     @IBOutlet weak var characterName: UILabel!

@@ -16,8 +16,6 @@ class CastingTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColle
     
     @IBOutlet weak var castingCollectionViewHeight: NSLayoutConstraint!
     @IBOutlet weak var castingCollectionViewTop: NSLayoutConstraint!
-    @IBOutlet weak var actorNameLabelHeight: NSLayoutConstraint!
-    @IBOutlet weak var characterNameLabelHeight: NSLayoutConstraint!
     
     @IBOutlet weak var castingCollectionView: UICollectionView!
     
@@ -31,13 +29,9 @@ class CastingTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColle
             if UIDevice.current.orientation == .portrait {
                 castingCollectionViewHeight.constant    = 241
                 castingCollectionViewTop.constant       = 88
-                actorNameLabelHeight.constant           = 26
-                characterNameLabelHeight.constant       = 18
             } else {
                 castingCollectionViewHeight.constant    = 241
                 castingCollectionViewTop.constant       = 108
-                actorNameLabelHeight.constant           = 26
-                characterNameLabelHeight.constant       = 18
             }
         }
     }
@@ -55,6 +49,17 @@ class CastingTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColle
         cell.actorName.text = cast[indexPath.item].actorName.uppercased()
         cell.characterName.text = cast[indexPath.item].characterName
         cell.actorPhoto.image = cast[indexPath.item].photo
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            if UIDevice.current.orientation == .portrait {
+                cell.actorNameLabelHeight.constant      = 26
+                cell.characterNameLabelHeight.constant  = 18
+            } else {
+                cell.actorNameLabelHeight.constant      = 26
+                cell.characterNameLabelHeight.constant  = 18
+            }
+        }
+        
         return cell
     }
 }
