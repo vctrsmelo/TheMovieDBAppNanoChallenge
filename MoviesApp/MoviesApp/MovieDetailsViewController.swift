@@ -18,6 +18,8 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
     var selection: String = "videos"
     var movie : Movie?
 	
+	var testBoolForPhoto = false
+	let testID = "123456"
 	private let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
@@ -197,12 +199,17 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
 		imagePicker.sourceType = .camera
 		imagePicker.navigationController?.delegate = self
 	}
+	
 	internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
 		if let photo = info[UIImagePickerControllerOriginalImage] as? UIImage {
-			print(photo)
-			//Data.user.movieTags[movie] = set something
+			// TODO: Correct ID
+			DataManager.user.watchedMovie(id: self.testID, photo: photo)
+			self.testBoolForPhoto = true
+		} else {
+			self.testBoolForPhoto = false
 		}
 	}
+	
 	public func presentImagePicker() {
 		present(imagePicker, animated: true, completion: nil)
 	}

@@ -108,8 +108,15 @@ class MainInformationsTableViewCell: UITableViewCell {
     }
     
     @IBAction func watchedPressed(_ sender: UIButton) {
-        isWatched = !isWatched
-        
+		if self.isWatched {
+			DataManager.user.removeWatchedMovie(id: self.root.testID)
+			self.root.testBoolForPhoto = false
+		} else {
+			self.root.presentImagePicker()
+		}
+		
+		self.isWatched = self.root.testBoolForPhoto
+		
         if isWatched {
             watchedButton.setTitleColor(yearLabel.textColor, for: UIControlState.normal)
             watchedButton.borderColor = yearLabel.textColor
@@ -122,8 +129,4 @@ class MainInformationsTableViewCell: UITableViewCell {
     @IBAction func cancelPressed(_ sender: UIButton) {
 
     }
-	
-	@IBAction func touchedUpInsideWatchedButton(_ sender: UIButton) {
-		root.presentImagePicker()
-	}
 }
