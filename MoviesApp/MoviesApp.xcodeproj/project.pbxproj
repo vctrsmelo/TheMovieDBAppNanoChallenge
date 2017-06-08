@@ -131,6 +131,7 @@
 				579097C61EE5EF5C004D72CA /* Cells */,
 				577A01301EE09600005CC233 /* MovieDetailsViewController.swift */,
 				5721A13B1EE1CF9300E1C95B /* UIViewExtension.swift */,
+				EE83D8AC1EE8859F00482405 /* General Screen */,
 				29DDC4F31EE73D5D003069CF /* CustomNavigationBar.swift */,
 				299D8D811EE9BFAC002B1FF3 /* SearchBar */,
 				EEFD11B31EE5F64F00EF1960 /* NowPlayingViewController.swift */,
@@ -234,6 +235,23 @@
 				571F16FB1EE880B500BD1742 /* RecommendationsCollectionViewCell.swift */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		EE7E0A831EE0940C0029874C /* APIAccess */ = {
+			isa = PBXGroup;
+			children = (
+				EE7E0A841EE0946D0029874C /* TmdbAPIAccess.swift */,
+			);
+			name = APIAccess;
+			sourceTree = "<group>";
+		};
+		EE83D8AC1EE8859F00482405 /* General Screen */ = {
+			isa = PBXGroup;
+			children = (
+				EEFD11B51EE5F8EA00EF1960 /* NowPlayingMovieCell.swift */,
+				EEFD11B31EE5F64F00EF1960 /* NowPlayingViewController.swift */,
+			);
+			name = "General Screen";
 			sourceTree = "<group>";
 		};
 		FC59E3081EE0C80100157142 /* Frameworks */ = {

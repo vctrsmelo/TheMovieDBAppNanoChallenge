@@ -8,20 +8,67 @@
 
 import UIKit
 
+
+extension CALayer {
+    
+    func addBorder(edge: UIRectEdge, border: CALayer, color: UIColor, thickness: CGFloat){
+        
+        switch edge {
+        case UIRectEdge.top:
+            border.frame = CGRect.init(x: 0, y: 0, width: self.frame.width, height: thickness)
+            break
+            
+        case UIRectEdge.bottom:
+            border.frame = CGRect.init(x: 0, y: CGFloat(self.frame.size.height - thickness), width: self.frame.size.width, height: thickness)
+            break
+            
+        case UIRectEdge.left:
+            border.frame = CGRect.init(x: 0, y: 0, width: thickness, height: self.frame.size.height)
+            //CGRectMake(0, 0, thickness, CGRectGetHeight(self.frame))
+            break
+        case UIRectEdge.right:
+            border.frame = CGRect.init(x: CGFloat(self.frame.size.width - thickness), y: 0, width: thickness, height: self.frame.size.height)
+            //CGRectMake(CGRectGetWidth(self.frame) - thickness, 0, thickness, CGRectGetHeight(self.frame))
+            break
+        default:
+            break
+        }
+        
+        border.backgroundColor = color.cgColor;
+        self.addSublayer(border)
+        
+    }
+    
+}
+
 class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     @IBOutlet weak var nowPlayingCollectionView: UICollectionView!
     private var collectionLayout : UICollectionViewFlowLayout!
     
+    @IBOutlet weak var alphabetCollectionView: UICollectionView!
+    
+    
     private var nowPlayingMovies : [Movie] = []
     
     private let posterSize = CGSize(width: 215, height: 322)
+    
+    @IBOutlet weak var nowPlayingButton: UIButton!
+    private var nowPlayingBorder = CALayer()
+    
+    @IBOutlet weak var upcomingButton: UIButton!
+    private var upcomingBorder = CALayer()
+    
+    private var nowPlayingIsCurrentContent = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         nowPlayingCollectionView.delegate = self
         nowPlayingCollectionView.dataSource = self
+        
+        alphabetCollectionView.delegate = self
+        alphabetCollectionView.dataSource = self
         
         let countryCode = (Locale.current.regionCode != nil) ? (Locale.current.regionCode!) : "US"
         
@@ -32,11 +79,17 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
             self.nowPlayingCollectionView.reloadData()
             self.nowPlayingCollectionView.setNeedsLayout()
             
+            self.alphabetCollectionView.reloadData()
+            self.alphabetCollectionView.setNeedsLayout()
+            
         }
         
+        nowPlayingButton.layer.addBorder(edge: .bottom, border: self.nowPlayingBorder , color: .black, thickness: 2.0)
+        upcomingButton.layer.addBorder(edge: .bottom, border: self.upcomingBorder , color: .black, thickness: 2.0)
+        upcomingBorder.isHidden = true
         
         collectionLayout = UICollectionViewFlowLayout()
-        collectionLayout.sectionInset = UIEdgeInsetsMake(0, 53, 0, 53)
+        collectionLayout.sectionInset = UIEdgeInsetsMake(-20, 53, 0, 53)
         collectionLayout.minimumInteritemSpacing = 51
         collectionLayout.minimumLineSpacing = 51
         collectionLayout.scrollDirection = .horizontal
@@ -60,33 +113,44 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        if(collectionView == nowPlayingCollectionView){
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "nowPlayingMovieCell", for: indexPath) as! NowPlayingMovieCell
+            
+            
+    //        if(indexPath.row == 0){
+    //            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+    //            
+    //        }
+            
+            var frame = cell.frame
+            
+            frame.size.width = posterSize.width
+            frame.size.height = posterSize.height
+            
+            cell.frame = frame
         
-        let cell: NowPlayingMovieCell = collectionView.dequeueReusableCell(withReuseIdentifier: "nowPlayingMovieCell", for: indexPath) as! NowPlayingMovieCell
-        
-//        if(indexPath.row == 0){
-//            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-//            
-//        }
-        
-        var frame = cell.frame
-        
-        frame.size.width = posterSize.width
-        frame.size.height = posterSize.height
-        
-        cell.frame = frame
-    
-        let cellFrame = nowPlayingCollectionView.convert(cell.frame, to: nowPlayingCollectionView.superview)
-        cell.updateSize(cellFrame: cellFrame, container: self.nowPlayingCollectionView.frame)
-        
-        //rounded corners
-        cell.posterImageView.image = nowPlayingMovies[indexPath.row].poster
-        cell.posterImageView.layer.masksToBounds = true
-        cell.posterImageView.layer.cornerRadius = 4
+            let cellFrame = nowPlayingCollectionView.convert(cell.frame, to: nowPlayingCollectionView.superview)
+            cell.updateSize(cellFrame: cellFrame, container: self.nowPlayingCollectionView.frame)
+            
+            //rounded corners
+            cell.posterImageView.image = nowPlayingMovies[indexPath.row].poster
+            cell.posterImageView.layer.masksToBounds = true
+            cell.posterImageView.layer.cornerRadius = 4
 
-        //shadow
-        adjustShadow(to: cell)
-        
-        return cell
+            //shadow
+            cell.adjustShadow()
+            return cell
+            
+        }else{ //alphabet collection view
+            
+            let cell: WatchlistAlphabetCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "letterCell", for: indexPath) as! WatchlistAlphabetCollectionViewCell
+            cell.letterLabel.text = String.init(describing: self.nowPlayingMovies[indexPath.row].title!.uppercased().characters.first!)
+            
+            
+            return cell
+            
+        }
         
     }
     
@@ -101,57 +165,41 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
                 nowPlayingCell.updateSize(cellFrame: cellFrame, container: nowPlayingCollectionView.frame)
                 
                 //shadow adjustment
-                self.adjustShadow(to: nowPlayingCell)
+                nowPlayingCell.adjustShadow()
             }
             
         }
         
     }
     
-    private func adjustShadow(to cell: NowPlayingMovieCell){
-        
-        let ft = cell.getFeaturedPerentage()
-        let defaultShadowRadius: CGFloat = 5
-        var finalShadowRadius: CGFloat = 5
-        
-        if(ft != 0){
-            
-            finalShadowRadius = defaultShadowRadius * ft / (defaultShadowRadius*10)
-            print("finalShadowRadius: \(finalShadowRadius)")
-        }
-        
-        
-        cell.clipsToBounds = false
-        cell.layer.shadowColor = UIColor.black.cgColor
-        cell.layer.shadowOpacity = 0.5
-        cell.layer.shadowOffset = CGSize.zero
-        cell.layer.shadowRadius = finalShadowRadius
-        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: 4).cgPath
-
-        
-    }
-    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         
-        print("terminou decelerating")
-    
     }
-    
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         
-            print("terminou dragging")
+    }
+
+    @IBAction func nowPlayingButtonTouched(_ sender: UIButton) {
         
-    }
+        if nowPlayingIsCurrentContent { return }
+        
+        upcomingBorder.isHidden = true
+        nowPlayingBorder.isHidden = false
+        
+        nowPlayingIsCurrentContent = true
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
+    
+    
+    @IBAction func upcomingButtonTouched(_ sender: UIButton) {
+
+        if !nowPlayingIsCurrentContent { return }
+        
+        nowPlayingBorder.isHidden = true
+        upcomingBorder.isHidden = false
+        
+        nowPlayingIsCurrentContent = false
+    }
 
 }

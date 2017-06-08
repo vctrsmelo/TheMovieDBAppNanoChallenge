@@ -225,7 +225,7 @@
             </objects>
             <point key="canvasLocation" x="1879.7101449275365" y="-142.66304347826087"/>
         </scene>
-        <!--NOW PLAYING-->
+        <!--Now Playing View Controller-->
         <scene sceneID="nxJ-ih-pHE">
             <objects>
                 <viewController id="OJ6-l3-8cH" customClass="NowPlayingViewController" customModule="MoviesApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -237,8 +237,75 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="h3y-FM-2c7">
-                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RyJ-RI-UUY" userLabel="Header">
+                                <rect key="frame" x="0.0" y="64" width="414" height="90"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hMM-6t-a09">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jQS-mf-eee" userLabel="SearchViewContainer">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5kA-Vb-c5d" userLabel="ButtonsContainer">
+                                                <rect key="frame" x="0.0" y="45" width="414" height="45"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5aK-1l-OBt">
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="45"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8J-2D-6WM">
+                                                                <rect key="frame" x="0.0" y="0.0" width="207" height="45"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                                <state key="normal" title="NOW PLAYING">
+                                                                    <color key="titleColor" red="0.031372549019607843" green="0.10980392156862745" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="nowPlayingButtonTouched:" destination="OJ6-l3-8cH" eventType="touchUpInside" id="CcK-1m-wuK"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTA-2R-lmN">
+                                                                <rect key="frame" x="207" y="0.0" width="207" height="45"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                                <state key="normal" title="UPCOMING">
+                                                                    <color key="titleColor" red="0.031372549019607843" green="0.10980392156862745" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="upcomingButtonTouched:" destination="OJ6-l3-8cH" eventType="touchUpInside" id="reB-DR-FdT"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="bTA-2R-lmN" firstAttribute="height" secondItem="x8J-2D-6WM" secondAttribute="height" id="YnF-9y-kjh"/>
+                                                            <constraint firstItem="bTA-2R-lmN" firstAttribute="width" secondItem="x8J-2D-6WM" secondAttribute="width" id="goQ-lY-ZQw"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstItem="5aK-1l-OBt" firstAttribute="leading" secondItem="5kA-Vb-c5d" secondAttribute="leading" id="8j6-hx-gWC"/>
+                                                    <constraint firstAttribute="bottom" secondItem="5aK-1l-OBt" secondAttribute="bottom" id="BRm-5M-zuX"/>
+                                                    <constraint firstItem="5aK-1l-OBt" firstAttribute="top" secondItem="5kA-Vb-c5d" secondAttribute="top" id="TaL-8b-af2"/>
+                                                    <constraint firstAttribute="trailing" secondItem="5aK-1l-OBt" secondAttribute="trailing" id="Wp0-O9-u4n"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="5kA-Vb-c5d" firstAttribute="height" secondItem="jQS-mf-eee" secondAttribute="height" id="OTE-HR-SFG"/>
+                                            <constraint firstItem="5kA-Vb-c5d" firstAttribute="width" secondItem="jQS-mf-eee" secondAttribute="width" id="dXI-oz-jvG"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="hMM-6t-a09" firstAttribute="leading" secondItem="RyJ-RI-UUY" secondAttribute="leading" id="0NC-uT-iwd"/>
+                                    <constraint firstItem="hMM-6t-a09" firstAttribute="top" secondItem="RyJ-RI-UUY" secondAttribute="top" id="NTB-MP-Ct1"/>
+                                    <constraint firstAttribute="height" constant="90" id="Shu-X9-xks"/>
+                                    <constraint firstAttribute="trailing" secondItem="hMM-6t-a09" secondAttribute="trailing" id="sBJ-uD-FwV"/>
+                                    <constraint firstAttribute="bottom" secondItem="hMM-6t-a09" secondAttribute="bottom" id="tM2-Iw-Mbl"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="h3y-FM-2c7" userLabel="CollectionView">
+                                <rect key="frame" x="0.0" y="154" width="414" height="473"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JoN-Fk-2Jd">
                                     <size key="itemSize" width="224" height="309"/>
@@ -248,7 +315,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="nowPlayingMovieCell" id="UpT-Op-3Je" customClass="NowPlayingMovieCell" customModule="MoviesApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="125" width="224" height="309"/>
+                                        <rect key="frame" x="0.0" y="82" width="224" height="309"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="224" height="309"/>
@@ -271,18 +338,71 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RvH-Ok-B9A" userLabel="Letters">
+                                <rect key="frame" x="67" y="627" width="280" height="28"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="Px2-zZ-e4T"/>
+                                    <constraint firstAttribute="height" constant="28" id="nxZ-QD-lV2"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WRk-26-coF">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="letterCell" id="uTg-tb-eJ0" customClass="WatchlistAlphabetCollectionViewCell" customModule="MoviesApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="21" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="21" height="28"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="W" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gym-3Z-lFj">
+                                                    <rect key="frame" x="0.0" y="0.0" width="21" height="28"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                                                    <color key="textColor" red="0.031372549020000001" green="0.10980392160000001" blue="0.14117647059999999" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="gym-3Z-lFj" firstAttribute="top" secondItem="uTg-tb-eJ0" secondAttribute="top" id="Bsu-ZG-woC"/>
+                                            <constraint firstItem="gym-3Z-lFj" firstAttribute="leading" secondItem="uTg-tb-eJ0" secondAttribute="leading" id="I1z-6h-l4B"/>
+                                            <constraint firstAttribute="trailing" secondItem="gym-3Z-lFj" secondAttribute="trailing" id="jIQ-S6-14l"/>
+                                            <constraint firstAttribute="bottom" secondItem="gym-3Z-lFj" secondAttribute="bottom" id="tur-Wr-Fil"/>
+                                        </constraints>
+                                        <size key="customSize" width="21" height="28"/>
+                                        <connections>
+                                            <outlet property="letterLabel" destination="gym-3Z-lFj" id="nKx-ql-6yR"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="n2O-zD-1Ow" firstAttribute="top" secondItem="h3y-FM-2c7" secondAttribute="bottom" constant="60" id="8Bb-75-1SI"/>
                             <constraint firstAttribute="trailing" secondItem="h3y-FM-2c7" secondAttribute="trailing" id="Dcg-Ph-lZ9"/>
-                            <constraint firstItem="h3y-FM-2c7" firstAttribute="top" secondItem="opz-TE-mWx" secondAttribute="bottom" id="GJA-PF-kD3"/>
+                            <constraint firstItem="RvH-Ok-B9A" firstAttribute="centerX" secondItem="Rqd-D6-aK8" secondAttribute="centerX" id="H6G-ld-PiD"/>
+                            <constraint firstItem="RyJ-RI-UUY" firstAttribute="leading" secondItem="Rqd-D6-aK8" secondAttribute="leading" id="MQ9-Vt-ds5"/>
                             <constraint firstItem="h3y-FM-2c7" firstAttribute="leading" secondItem="Rqd-D6-aK8" secondAttribute="leading" id="Sio-95-B2a"/>
-                            <constraint firstItem="h3y-FM-2c7" firstAttribute="bottom" secondItem="n2O-zD-1Ow" secondAttribute="top" id="m9v-FE-ny7"/>
+                            <constraint firstAttribute="trailing" secondItem="h3y-FM-2c7" secondAttribute="trailing" id="beI-uU-OTM"/>
+                            <constraint firstAttribute="trailing" secondItem="RyJ-RI-UUY" secondAttribute="trailing" id="c0C-T6-PlB"/>
+                            <constraint firstItem="RvH-Ok-B9A" firstAttribute="top" secondItem="h3y-FM-2c7" secondAttribute="bottom" id="cxW-Yi-eU1"/>
+                            <constraint firstItem="h3y-FM-2c7" firstAttribute="leading" secondItem="Rqd-D6-aK8" secondAttribute="leading" id="o2C-Av-4j2"/>
+                            <constraint firstItem="RyJ-RI-UUY" firstAttribute="top" secondItem="opz-TE-mWx" secondAttribute="bottom" id="r2r-WD-csr"/>
+                            <constraint firstItem="RyJ-RI-UUY" firstAttribute="top" secondItem="opz-TE-mWx" secondAttribute="bottom" id="tX2-hI-IIZ"/>
+                            <constraint firstItem="h3y-FM-2c7" firstAttribute="top" secondItem="RyJ-RI-UUY" secondAttribute="bottom" id="xp1-eK-NVJ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="NOW PLAYING" id="rhp-Sm-m7l"/>
+                    <navigationItem key="navigationItem" id="rhp-Sm-m7l"/>
                     <connections>
+                        <outlet property="alphabetCollectionView" destination="RvH-Ok-B9A" id="XEB-1k-S7q"/>
+                        <outlet property="nowPlayingButton" destination="x8J-2D-6WM" id="qFK-qz-tvU"/>
                         <outlet property="nowPlayingCollectionView" destination="h3y-FM-2c7" id="FBk-qc-wev"/>
+                        <outlet property="upcomingButton" destination="bTA-2R-lmN" id="B7R-fi-FIJ"/>
                         <segue destination="XVY-IF-9bw" kind="show" identifier="nowPlayingToDetails" id="EDs-TS-HyK"/>
                     </connections>
                 </viewController>
@@ -1068,7 +1188,7 @@
         <image name="tabbar_watchlist" width="26" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="O6W-MO-x05"/>
+        <segue reference="EDs-TS-HyK"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0020610084759999999" green="0.82179480790000003" blue="0.46594417100000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

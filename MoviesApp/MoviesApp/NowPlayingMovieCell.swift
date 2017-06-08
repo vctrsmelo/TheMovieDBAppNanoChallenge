@@ -51,6 +51,29 @@ class NowPlayingMovieCell: UICollectionViewCell {
         
     }
     
+    public func adjustShadow(){
+        
+        let ft = self.getFeaturedPerentage()
+        let defaultShadowRadius: CGFloat = 5
+        var finalShadowRadius: CGFloat = 5
+        
+        if(ft != 0){
+            
+            finalShadowRadius = defaultShadowRadius * ft / (defaultShadowRadius*10)
+            
+        }
+        
+        
+        self.clipsToBounds = false
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOpacity = 0.5
+        self.layer.shadowOffset = CGSize.zero
+        self.layer.shadowRadius = finalShadowRadius
+        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: 4).cgPath
+        
+        
+    }
+    
     func getFeaturedPerentage() -> CGFloat{
         
         if let feature = self.featuredPercentage {
