@@ -62,6 +62,12 @@ class DataManager {
 
 	}
 	
+	static func movieRecommendations(id : String, completion: @escaping ([Movie]) -> Void) {
+		TmdbAPIAccess.getRecommendations(id: id) { (movies) in
+			completion(movies)
+		}
+	}
+	
 	static func movies(with title : String, completion: @escaping ([Movie]) -> Void) {
 		TmdbAPIAccess.getMoviesBy(title: title) { (movies) in
 			completion(movies)

@@ -218,6 +218,50 @@ class TmdbAPIAccess {
         
     }
 	
+	static func getRecommendations(id : String, completion: @escaping  ([Movie]) -> Void) {
+		
+		var moviesArray : [Movie] = []
+		
+		if let url = URL(string: "http://api.themoviedb.org/3/movie/"+id+"/recommendations?api_key="+apiKey+"&language="+Locale.preferredLanguages[0]+"&page=1") {
+			
+			let request = URLRequest(url: url)
+			let session = URLSession.shared
+			
+			session.dataTask(with: request) { (data, response, error) in
+				do{
+					let json = try JSONSerialization.jsonObject(with: data!, options: [])
+					
+					if let dic = json as? [String:AnyObject]{
+						
+						if let movies = dic["results"] as? [[String:AnyObject]]{
+							
+							for movieDic in movies{
+								
+								if let movie = getMovieFrom(movieDictionary: movieDic){
+									
+									moviesArray.append(movie)
+									
+								}
+								
+							}
+							
+						}
+						
+					}
+					
+					completion(moviesArray)
+					
+				} catch let error{
+					
+					print(error)
+					
+				}
+				
+				}.resume()
+			
+		}
+	}
+	
 	static func getImageFromUrl(url: URL, completion: @escaping (_ imageData: Data?, _  response: URLResponse?, _ error: Error?) -> Void) {
 		
 		URLSession.shared.dataTask(with: url) {
