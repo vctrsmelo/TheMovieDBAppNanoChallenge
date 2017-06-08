@@ -58,13 +58,13 @@ class UserDAO : Object {
 	static func save(_ user : User) -> Bool {
 		let userDAO = UserDAO(user)
 		
-		return RealmsConfig.save(userDAO, update: false)
+		return RealmsConfig.save(userDAO, update: false, temporary: false)
 	}
 	
 	static func update(_ user : User) -> Bool {
 		let userDAO = UserDAO(user)
 		
-		return RealmsConfig.save(userDAO, update: true)
+		return RealmsConfig.save(userDAO, update: true, temporary: false)
 	}
 	
 	static func load() -> User? {

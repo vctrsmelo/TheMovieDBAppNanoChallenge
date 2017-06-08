@@ -102,6 +102,18 @@ class MovieDAO : Object {
 		return movieDAO?.intoMovie()
 	}
 	
+	static func load(ids : Set<String>) -> [Movie] {
+		var movies = [Movie]()
+		
+		for id in ids {
+			if let movie : Movie = load(id: id) {
+				movies.append(movie)
+			}
+		}
+		
+		return movies
+	}
+	
 	static func load(filter : NSPredicate? = nil) -> [Movie] {
 		let results = RealmsConfig.load(MovieDAO.self, with: filter)
 		var movies = [Movie]()
