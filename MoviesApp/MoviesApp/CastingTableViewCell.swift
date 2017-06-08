@@ -10,7 +10,7 @@ import UIKit
 
 class CastingTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    let cast: [Actor] = [Actor(actorName: "Kakaroto", characterName: "Goku", photo: UIImage(named: "images")),
+    var cast: [Actor] = [Actor(actorName: "Kakaroto", characterName: "Goku", photo: UIImage(named: "images")),
                          Actor(actorName: "Vegeta", characterName: "Sayajin King", photo: UIImage(named: "images")),
                          Actor(actorName: "Gohan", characterName: "Matou Cell", photo: UIImage(named: "images"))]
     

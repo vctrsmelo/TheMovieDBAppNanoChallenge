@@ -102,7 +102,7 @@ class RealmsConfig {
 			result = instance.defaultRealm.object(ofType: objectType, forPrimaryKey: key)
 		}
 		
-		return (result as! Obj)
+		return (result as? Obj)
 	}
 	
 	static func load(_ objectType : Object.Type, with filter : NSPredicate? = nil) -> Results<Object> {

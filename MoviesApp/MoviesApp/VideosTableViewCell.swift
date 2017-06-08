@@ -11,7 +11,7 @@ import AVFoundation
 
 class VideosTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
 
-    let videosURL: [String] = ["5lGoQhFb4NM", "INLzqh7rZ-U"]
+    var videosURL: [String] = ["5lGoQhFb4NM", "INLzqh7rZ-U"]
     
     @IBOutlet weak var videosCellHeight: NSLayoutConstraint!
     @IBOutlet weak var videosCellTop: NSLayoutConstraint!
