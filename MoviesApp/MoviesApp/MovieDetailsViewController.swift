@@ -146,7 +146,6 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
             cell.backgroundView?.backgroundColor = UIColor.white.withAlphaComponent(0)
             cell.backgroundColor = UIColor.white.withAlphaComponent(0)
             cell.selectionStyle = UITableViewCellSelectionStyle.none
-            cell.root = self
             return cell
             
         case 1:
@@ -163,6 +162,8 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
                 cell.movieTitle.attributedText = cellTitle
                 
             }
+            
+            cell.root = self
     
             return cell
             
