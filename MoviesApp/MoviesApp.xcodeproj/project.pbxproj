@@ -365,7 +365,6 @@
 				57C0736A1EE7158E007DDC0B /* VideosTableViewCell.swift in Sources */,
 				579097C81EE60938004D72CA /* SelectionTableViewCell.swift in Sources */,
 				5721A13C1EE1CF9300E1C95B /* UIViewExtension.swift in Sources */,
-				29DDC4F41EE73D5D003069CF /* CustomNavigationBar.swift in Sources */,
 				577A01311EE09600005CC233 /* MovieDetailsViewController.swift in Sources */,
 				294EC4BD1EE5DEC000528C40 /* WatchlistAlphabetCollectionViewCell.swift in Sources */,
 				FC3516BB1EE0DBFC00E6A724 /* RealmsConfig.swift in Sources */,
