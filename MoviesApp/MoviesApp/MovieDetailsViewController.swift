@@ -22,7 +22,8 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var movieOverviewTop: NSLayoutConstraint!
     @IBOutlet weak var movieOverviewBottom: NSLayoutConstraint!
     
-    
+    @IBOutlet weak var selectionButtonsHeight: NSLayoutConstraint!
+    @IBOutlet weak var selectionButtonsTop: NSLayoutConstraint!
     
     @IBOutlet weak var tableView: UITableView!
     var selection: String = "videos"
@@ -64,6 +65,11 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
                 overviewLabelTrailing.constant  = 48 // Trailing ''
                 movieOverviewTop.constant       = 30
                 movieOverviewBottom.constant    = 40
+                
+                selectionButtonsHeight.constant = 4
+                selectionButtonsTop.constant    = 17
+                
+                
             } else {
                 screenTitleTop.constant         = 47
                 screenTitleHeight.constant      = 25
@@ -76,6 +82,10 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
                 overviewLabelTrailing.constant  = 63 // Trailing ''
                 movieOverviewTop.constant       = 25
                 movieOverviewBottom.constant    = 43
+                
+                selectionButtonsHeight.constant = 5
+                selectionButtonsTop.constant    = 2
+                
             }
         }
     }

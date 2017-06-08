@@ -971,7 +971,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cek-dQ-KSy">
-                                                    <rect key="frame" x="0.0" y="19" width="384" height="24"/>
+                                                    <rect key="frame" x="0.0" y="19" width="175.5" height="24"/>
                                                     <state key="normal" title="   VIDEOS" image="Icon_Video_Select">
                                                         <color key="titleColor" red="0.0020610084757208824" green="0.82179480791091919" blue="0.46594417095184326" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
@@ -980,7 +980,7 @@
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P59-hz-TsU" userLabel="Videos Selected">
-                                                    <rect key="frame" x="0.0" y="61" width="384" height="2"/>
+                                                    <rect key="frame" x="0.0" y="61" width="175.5" height="2"/>
                                                     <color key="backgroundColor" red="0.0020610084759999999" green="0.82179480790000003" blue="0.46594417100000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="2" id="sjW-HJ-T9I"/>
@@ -997,7 +997,7 @@
                                                     </variation>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KSH-fP-aGo">
-                                                    <rect key="frame" x="384" y="19" width="384" height="28"/>
+                                                    <rect key="frame" x="175.5" y="19" width="175.5" height="28"/>
                                                     <state key="normal" title="   CASTING" image="Icon_Casting">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -1006,21 +1006,8 @@
                                                     </connections>
                                                 </button>
                                                 <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A8l-p7-ig8" userLabel="Casting Selected">
-                                                    <rect key="frame" x="384" y="61" width="384" height="2"/>
+                                                    <rect key="frame" x="175.5" y="61" width="175.5" height="2"/>
                                                     <color key="backgroundColor" red="0.0020610084759999999" green="0.82179480790000003" blue="0.46594417100000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="2" id="7To-ib-Ifi"/>
-                                                    </constraints>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="7To-ib-Ifi"/>
-                                                        </mask>
-                                                    </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact">
-                                                        <mask key="constraints">
-                                                            <include reference="7To-ib-Ifi"/>
-                                                        </mask>
-                                                    </variation>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" red="0.1011034921" green="0.12944775820000001" blue="0.13375258449999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1033,6 +1020,7 @@
                                                 <constraint firstItem="A8l-p7-ig8" firstAttribute="leading" secondItem="KSH-fP-aGo" secondAttribute="leading" id="Uzg-gh-tWf"/>
                                                 <constraint firstItem="cek-dQ-KSy" firstAttribute="leading" secondItem="b6h-OC-s1V" secondAttribute="leading" id="V1f-S3-GVd"/>
                                                 <constraint firstItem="A8l-p7-ig8" firstAttribute="trailing" secondItem="KSH-fP-aGo" secondAttribute="trailing" id="Vp9-hf-uHH"/>
+                                                <constraint firstItem="A8l-p7-ig8" firstAttribute="height" secondItem="P59-hz-TsU" secondAttribute="height" id="egv-OL-bVJ"/>
                                                 <constraint firstAttribute="bottom" secondItem="P59-hz-TsU" secondAttribute="bottom" id="fwD-wB-KaZ"/>
                                                 <constraint firstItem="KSH-fP-aGo" firstAttribute="top" secondItem="cek-dQ-KSy" secondAttribute="top" id="ge1-5s-haL"/>
                                                 <constraint firstItem="P59-hz-TsU" firstAttribute="leading" secondItem="cek-dQ-KSy" secondAttribute="leading" id="nDA-Zd-ACq"/>
@@ -1041,33 +1029,11 @@
                                             <variation key="default">
                                                 <mask key="constraints">
                                                     <exclude reference="66H-lR-w0M"/>
-                                                    <exclude reference="V1f-S3-GVd"/>
-                                                    <exclude reference="fwD-wB-KaZ"/>
-                                                    <exclude reference="nDA-Zd-ACq"/>
-                                                    <exclude reference="vDU-xj-0Dy"/>
-                                                    <exclude reference="3BE-fp-240"/>
-                                                    <exclude reference="9aA-fK-Lti"/>
-                                                    <exclude reference="Qpc-kT-x7p"/>
-                                                    <exclude reference="ge1-5s-haL"/>
-                                                    <exclude reference="G5n-YI-ook"/>
-                                                    <exclude reference="Uzg-gh-tWf"/>
-                                                    <exclude reference="Vp9-hf-uHH"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
                                                 <mask key="constraints">
                                                     <include reference="66H-lR-w0M"/>
-                                                    <include reference="V1f-S3-GVd"/>
-                                                    <include reference="fwD-wB-KaZ"/>
-                                                    <include reference="nDA-Zd-ACq"/>
-                                                    <include reference="vDU-xj-0Dy"/>
-                                                    <include reference="3BE-fp-240"/>
-                                                    <include reference="9aA-fK-Lti"/>
-                                                    <include reference="Qpc-kT-x7p"/>
-                                                    <include reference="ge1-5s-haL"/>
-                                                    <include reference="G5n-YI-ook"/>
-                                                    <include reference="Uzg-gh-tWf"/>
-                                                    <include reference="Vp9-hf-uHH"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -1489,6 +1455,8 @@
                         <outlet property="overviewLabelTrailing" destination="at5-Cq-id0" id="HBP-Jd-rwN"/>
                         <outlet property="screenTitleHeight" destination="or5-bF-iMV" id="F5q-qT-GiF"/>
                         <outlet property="screenTitleTop" destination="GdN-Ba-ZCZ" id="HNj-Y1-bpV"/>
+                        <outlet property="selectionButtonsHeight" destination="sjW-HJ-T9I" id="WaC-SR-TUl"/>
+                        <outlet property="selectionButtonsTop" destination="66H-lR-w0M" id="TCl-aF-7lf"/>
                         <outlet property="tableView" destination="Yy6-yz-Edp" id="8e7-zd-Gts"/>
                         <outlet property="tableViewLeading" destination="yrR-TY-z34" id="T7W-vh-wLh"/>
                         <outlet property="tableViewTrailing" destination="lC1-zT-LkI" id="ke5-L1-V85"/>
