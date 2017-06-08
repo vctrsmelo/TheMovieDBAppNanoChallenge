@@ -15,6 +15,12 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var tableViewLeading: NSLayoutConstraint!
     @IBOutlet weak var tableViewTrailing: NSLayoutConstraint!
     
+    @IBOutlet weak var overviewLabelHeight: NSLayoutConstraint!
+    @IBOutlet weak var overviewLabelTop: NSLayoutConstraint!
+    @IBOutlet weak var overviewLabelLeading: NSLayoutConstraint!
+    @IBOutlet weak var overviewLabelTrailing: NSLayoutConstraint!
+    @IBOutlet weak var movieOverviewTop: NSLayoutConstraint!
+    @IBOutlet weak var movieOverviewBottom: NSLayoutConstraint!
     
     
     
@@ -47,27 +53,30 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
     override func viewWillLayoutSubviews() {
         if UIDevice.current.userInterfaceIdiom == .pad {
             if UIDevice.current.orientation == .portrait {
-                screenTitleTop.constant = 30
-                screenTitleHeight.constant = 25
-                tableViewLeading.constant = 46
-                tableViewTrailing.constant = 46
+                screenTitleTop.constant         = 30
+                screenTitleHeight.constant      = 25
+                tableViewLeading.constant       = 46
+                tableViewTrailing.constant      = 46
                 
-                
+                overviewLabelHeight.constant    = 25
+                overviewLabelTop.constant       = 42
+                overviewLabelLeading.constant   = 42 // Leading de todas as views
+                overviewLabelTrailing.constant  = 48 // Trailing ''
+                movieOverviewTop.constant       = 30
+                movieOverviewBottom.constant    = 40
             } else {
-                screenTitleTop.constant = 47
-                screenTitleHeight.constant = 25
-                tableViewLeading.constant = 73
-                tableViewTrailing.constant = 73
+                screenTitleTop.constant         = 47
+                screenTitleHeight.constant      = 25
+                tableViewLeading.constant       = 73
+                tableViewTrailing.constant      = 73
                 
-                
+                overviewLabelHeight.constant    = 25
+                overviewLabelTop.constant       = 50
+                overviewLabelLeading.constant   = 57 // Leading de todas as views
+                overviewLabelTrailing.constant  = 63 // Trailing ''
+                movieOverviewTop.constant       = 25
+                movieOverviewBottom.constant    = 43
             }
-        } else {
-            screenTitleTop.constant = 18
-            screenTitleHeight.constant = 20
-            tableViewLeading.constant = 12
-            tableViewTrailing.constant = 12
-            
-            
         }
     }
     
