@@ -15,25 +15,18 @@ public class WatchlistViewModel {
 	let watchlist: [Movie]
 	let alphabet: [Character]
 	
-	
 	init(user: User, view: WatchlistViewController) {
 		self.view = view
 		
-		if !user.watchlist.isEmpty {
-			self.watchlist = Array(user.watchlist).sorted(by: { (movieA, movieB) -> Bool in
-				guard let titleA = movieA.title else {
-					return false
-				}
-				
-				guard let titleB = movieB.title else {
-					return true
-				}
-				
-				return titleA.compare(titleB).rawValue < 0
-			})
-		} else {
-			watchlist = []
-		}
+		self.watchlist = Array(user.watchlist).sorted(by: { (movieA, movieB) -> Bool in
+			guard let titleA = movieA.title else {
+				return false
+			}
+			guard let titleB = movieB.title else {
+				return true
+			}
+			return titleA.compare(titleB).rawValue < 0
+		})
 		
 		var alphabet: [Character] = []
 		for character in "ABCDEFGHIJKLMNOPQRSTUVXWYZ".characters {
@@ -41,6 +34,4 @@ public class WatchlistViewModel {
 		}
 		self.alphabet = alphabet
 	}
-	
-	
 }
