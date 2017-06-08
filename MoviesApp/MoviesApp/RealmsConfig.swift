@@ -10,18 +10,6 @@ import Foundation
 import os.log
 import RealmSwift
 
-class RealmDictionaryEntry : Object {
-	dynamic var key = ""
-	dynamic var value : Object?
-	
-	convenience init(key : String, value: Object) {
-		self.init()
-		
-		self.key = key
-		self.value = value
-	}
-}
-
 class RealmString : Object {
 	dynamic var value = ""
 	

@@ -10,6 +10,18 @@ import Foundation
 import UIKit
 import RealmSwift
 
+class RealmDictionaryEntry : Object {
+	dynamic var key = ""
+	dynamic var movieTagsDAO : MovieTagsDAO?
+	
+	convenience init(key : String, movieTagsDAO: MovieTagsDAO) {
+		self.init()
+		
+		self.key = key
+		self.movieTagsDAO = movieTagsDAO
+	}
+}
+
 class MovieTagsDAO: Object {
 	dynamic var movieID = ""
 	dynamic var isFavorite = false

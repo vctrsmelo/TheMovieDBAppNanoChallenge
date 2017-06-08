@@ -258,8 +258,10 @@ class TmdbAPIAccess {
             }
             
         }
-        
-        let movie = Movie(id: id as! String, title: title as? String, originalTitle: originalTitle as? String, genres: genres, runtime: runtime as? Int, releaseDateString: releaseDate as? String, overview: overview as? String)
+		
+		let idString = String((id as! Int))
+		
+        let movie = Movie(id: idString, title: title as? String, originalTitle: originalTitle as? String, genres: genres, runtime: runtime as? Int, releaseDateString: releaseDate as? String, overview: overview as? String)
         
         if let url = posterUrl{
             

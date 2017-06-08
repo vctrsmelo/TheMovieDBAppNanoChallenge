@@ -11,7 +11,7 @@ import UIKit
 import RealmSwift
 
 class ActorDAO: Object {
-	dynamic var id = UUID()
+	dynamic var id = UUID().uuidString
 	dynamic var actorName = ""
 	dynamic var characterName = ""
 	dynamic var photo : Data? = nil

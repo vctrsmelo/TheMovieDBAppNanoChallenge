@@ -32,7 +32,7 @@ class UserDAO : Object {
 		for (movieID, movieTags) in user.movieTags {
 			let movieTagsDAO = MovieTagsDAO(movieTags)
 			
-			self.movieTags.append(RealmDictionaryEntry(key: movieID, value: movieTagsDAO))
+			self.movieTags.append(RealmDictionaryEntry(key: movieID, movieTagsDAO: movieTagsDAO))
 		}
 		
 	}
@@ -48,7 +48,7 @@ class UserDAO : Object {
 		
 		for dictionaryEntry in self.movieTags {
 			
-			movieTags[dictionaryEntry.key] = (dictionaryEntry.value as! MovieTagsDAO).intoMovieTags()
+			movieTags[dictionaryEntry.key] = dictionaryEntry.movieTagsDAO!.intoMovieTags()
 		}
 		
 		return User(id: self.id, watchlist: watchlist, movieTags: movieTags)

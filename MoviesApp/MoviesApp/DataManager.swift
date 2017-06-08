@@ -7,12 +7,21 @@
 //
 
 import Foundation
+import os.log
 
 class DataManager {
 	static let user : User = {
 		var result : User
 		
-		result = UserDAO.load() ?? User(id: "Me")
+		if let theResult : User = UserDAO.load() {
+			result = theResult
+		} else {
+			result = User(id: "Me")
+			if !UserDAO.save(result) {
+				os_log("Unable to save new User", log: OSLog.default, type: .error)
+				fatalError()
+			}
+		}
 		
 		return result
 	}()
@@ -53,10 +62,12 @@ class DataManager {
 
 	}
 	
-//	static func movies(with title : String) -> [Movie] {
-//		
-//	}
-//	
+	static func movies(with title : String, completion: @escaping ([Movie]) -> Void) {
+		TmdbAPIAccess.getMoviesBy(title: title) { (movies) in
+			completion(movies)
+		}
+	}
+	
 	static func watchlistMovies() -> [Movie] {
 		return MovieDAO.load(ids: user.watchlist)
 	}
