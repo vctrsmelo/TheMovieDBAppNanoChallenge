@@ -13,6 +13,9 @@ class VideosTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollec
 
     let videosURL: [String] = ["5lGoQhFb4NM", "INLzqh7rZ-U"]
     
+    @IBOutlet weak var videosCellHeight: NSLayoutConstraint!
+    @IBOutlet weak var videosCellTop: NSLayoutConstraint!
+    
     @IBOutlet weak var videosCollectionView: UICollectionView!
     
     override func awakeFromNib() {
@@ -20,6 +23,16 @@ class VideosTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollec
         
         videosCollectionView.dataSource = self
         videosCollectionView.delegate = self
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            if UIDevice.current.orientation == .portrait {
+                videosCellHeight.constant   = 346
+                videosCellTop.constant      = 84
+            } else {
+                videosCellHeight.constant   = 450
+                videosCellTop.constant      = 109
+            }
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -12,6 +12,9 @@ class SelectionTableViewCell: UITableViewCell {
     
     weak var root: MovieDetailsViewController!
 
+    @IBOutlet weak var buttonSelectedHeight: NSLayoutConstraint!
+    @IBOutlet weak var selectionButtonsTop: NSLayoutConstraint!
+    
     @IBOutlet weak var videosButton: UIButton!
     @IBOutlet weak var castingButton: UIButton!
     
@@ -22,12 +25,14 @@ class SelectionTableViewCell: UITableViewCell {
         castingButton.titleLabel?.textColor = UIColor.white
         super.awakeFromNib()
         
-        let device = UIDevice.current.model
-        if device.contains("iPhone") {
-            videosButton.imageView?.frame.size = CGSize(width: 11, height: 16)
-            videosButton.imageView?.clipsToBounds = true
-            castingButton.imageView?.frame.size = CGSize(width: 12, height: 16)
-            castingButton.imageView?.clipsToBounds = true
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            if UIDevice.current.orientation == .portrait {
+                buttonSelectedHeight.constant   = 4
+                selectionButtonsTop.constant    = 17
+            } else {
+                buttonSelectedHeight.constant   = 5
+                selectionButtonsTop.constant    = 2
+            }
         }
     }
 

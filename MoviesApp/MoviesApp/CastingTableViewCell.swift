@@ -14,6 +14,11 @@ class CastingTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColle
                          Actor(actorName: "Vegeta", characterName: "Sayajin King", photo: UIImage(named: "images")),
                          Actor(actorName: "Gohan", characterName: "Matou Cell", photo: UIImage(named: "images"))]
     
+    @IBOutlet weak var castingCollectionViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var castingCollectionViewTop: NSLayoutConstraint!
+    @IBOutlet weak var actorNameLabelHeight: NSLayoutConstraint!
+    @IBOutlet weak var characterNameLabelHeight: NSLayoutConstraint!
+    
     @IBOutlet weak var castingCollectionView: UICollectionView!
     
     override func awakeFromNib() {
@@ -21,6 +26,20 @@ class CastingTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColle
         
         castingCollectionView.dataSource = self
         castingCollectionView.delegate = self
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            if UIDevice.current.orientation == .portrait {
+                castingCollectionViewHeight.constant    = 241
+                castingCollectionViewTop.constant       = 88
+                actorNameLabelHeight.constant           = 26
+                characterNameLabelHeight.constant       = 18
+            } else {
+                castingCollectionViewHeight.constant    = 241
+                castingCollectionViewTop.constant       = 108
+                actorNameLabelHeight.constant           = 26
+                characterNameLabelHeight.constant       = 18
+            }
+        }
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
