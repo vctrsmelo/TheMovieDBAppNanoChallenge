@@ -1052,7 +1052,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SQi-O6-sNe">
-                                                    <rect key="frame" x="0.0" y="45" width="768" height="179"/>
+                                                    <rect key="frame" x="0.0" y="45" width="351" height="179"/>
                                                     <color key="backgroundColor" red="0.10110349208116531" green="0.12944775819778442" blue="0.13375258445739746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="179" id="co9-Jo-Uei"/>
@@ -1071,7 +1071,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="282" height="179"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <webView contentMode="scaleAspectFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZfS-vp-3HP">
+                                                                    <webView contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZfS-vp-3HP">
                                                                         <rect key="frame" x="0.0" y="0.0" width="282" height="179"/>
                                                                         <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     </webView>
@@ -1083,22 +1083,6 @@
                                                                 <constraint firstAttribute="bottom" secondItem="ZfS-vp-3HP" secondAttribute="bottom" id="xgN-AU-DuQ"/>
                                                                 <constraint firstItem="ZfS-vp-3HP" firstAttribute="leading" secondItem="QVC-sN-TS5" secondAttribute="leading" id="yIc-ea-Io5"/>
                                                             </constraints>
-                                                            <variation key="default">
-                                                                <mask key="constraints">
-                                                                    <exclude reference="cEo-4c-K4O"/>
-                                                                    <exclude reference="dpB-2v-BBm"/>
-                                                                    <exclude reference="xgN-AU-DuQ"/>
-                                                                    <exclude reference="yIc-ea-Io5"/>
-                                                                </mask>
-                                                            </variation>
-                                                            <variation key="heightClass=regular-widthClass=compact">
-                                                                <mask key="constraints">
-                                                                    <include reference="cEo-4c-K4O"/>
-                                                                    <include reference="dpB-2v-BBm"/>
-                                                                    <include reference="xgN-AU-DuQ"/>
-                                                                    <include reference="yIc-ea-Io5"/>
-                                                                </mask>
-                                                            </variation>
                                                             <connections>
                                                                 <outlet property="videoWebView" destination="ZfS-vp-3HP" id="D5K-8s-ciy"/>
                                                             </connections>
@@ -1123,15 +1107,11 @@
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
-                                                    <exclude reference="Dzu-cJ-Rv8"/>
-                                                    <exclude reference="Jqm-6h-F63"/>
                                                     <exclude reference="RCC-W8-Nju"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
                                                 <mask key="constraints">
-                                                    <include reference="Dzu-cJ-Rv8"/>
-                                                    <include reference="Jqm-6h-F63"/>
                                                     <include reference="RCC-W8-Nju"/>
                                                 </mask>
                                             </variation>
@@ -1168,16 +1148,16 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="136" height="201"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ePi-Cx-v9q" userLabel="Actor Photo">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="136" height="168"/>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ePi-Cx-v9q" userLabel="Actor Photo">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="136" height="174.5"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                                 <real key="value" value="4"/>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </imageView>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGW-ml-HvM" userLabel="Actor Name Label">
-                                                                        <rect key="frame" x="0.0" y="164" width="136" height="22"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGW-ml-HvM" userLabel="Actor Name Label">
+                                                                        <rect key="frame" x="0.0" y="170.5" width="136" height="19.5"/>
                                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="22" id="P4Q-bq-yZL"/>
@@ -1196,8 +1176,8 @@
                                                                             </mask>
                                                                         </variation>
                                                                     </label>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0JN-p9-Lcc" userLabel="Character Name Label">
-                                                                        <rect key="frame" x="0.0" y="186" width="136" height="15"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0JN-p9-Lcc" userLabel="Character Name Label">
+                                                                        <rect key="frame" x="0.0" y="190" width="136" height="11"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="15" id="FLW-oE-flv"/>
@@ -1230,34 +1210,6 @@
                                                                 <constraint firstItem="0JN-p9-Lcc" firstAttribute="top" secondItem="HGW-ml-HvM" secondAttribute="bottom" id="i5Y-fa-cLK"/>
                                                                 <constraint firstAttribute="trailing" secondItem="ePi-Cx-v9q" secondAttribute="trailing" id="lEd-uI-Jsi"/>
                                                             </constraints>
-                                                            <variation key="default">
-                                                                <mask key="constraints">
-                                                                    <exclude reference="2Qt-u2-fqf"/>
-                                                                    <exclude reference="Tve-nj-ko2"/>
-                                                                    <exclude reference="lEd-uI-Jsi"/>
-                                                                    <exclude reference="EGi-e5-Ekr"/>
-                                                                    <exclude reference="SLB-67-tWg"/>
-                                                                    <exclude reference="i2M-iX-O2V"/>
-                                                                    <exclude reference="EBG-Zx-4MI"/>
-                                                                    <exclude reference="K75-Jc-zrd"/>
-                                                                    <exclude reference="NYa-Qi-brh"/>
-                                                                    <exclude reference="i5Y-fa-cLK"/>
-                                                                </mask>
-                                                            </variation>
-                                                            <variation key="heightClass=regular-widthClass=compact">
-                                                                <mask key="constraints">
-                                                                    <include reference="2Qt-u2-fqf"/>
-                                                                    <include reference="Tve-nj-ko2"/>
-                                                                    <include reference="lEd-uI-Jsi"/>
-                                                                    <include reference="EGi-e5-Ekr"/>
-                                                                    <include reference="SLB-67-tWg"/>
-                                                                    <include reference="i2M-iX-O2V"/>
-                                                                    <include reference="EBG-Zx-4MI"/>
-                                                                    <include reference="K75-Jc-zrd"/>
-                                                                    <include reference="NYa-Qi-brh"/>
-                                                                    <include reference="i5Y-fa-cLK"/>
-                                                                </mask>
-                                                            </variation>
                                                             <connections>
                                                                 <outlet property="actorName" destination="HGW-ml-HvM" id="RQn-pM-Bwa"/>
                                                                 <outlet property="actorPhoto" destination="ePi-Cx-v9q" id="Cs3-Q1-lz6"/>
@@ -1447,6 +1399,9 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="actorNameLabelHeight" destination="P4Q-bq-yZL" id="w8p-Nu-5kG"/>
+                        <outlet property="castingCollectionViewHeight" destination="5e8-Fh-5yl" id="OmT-WK-bCl"/>
+                        <outlet property="characterNameLabelHeight" destination="FLW-oE-flv" id="JCA-9d-qwh"/>
                         <outlet property="movieOverviewBottom" destination="0TK-Ws-60g" id="LsT-wi-BpL"/>
                         <outlet property="movieOverviewTop" destination="D8B-FE-PoI" id="x2p-9W-Lmv"/>
                         <outlet property="overviewLabelHeight" destination="U7M-QB-Ckr" id="1YD-Jr-Ec5"/>
@@ -1460,6 +1415,8 @@
                         <outlet property="tableView" destination="Yy6-yz-Edp" id="8e7-zd-Gts"/>
                         <outlet property="tableViewLeading" destination="yrR-TY-z34" id="T7W-vh-wLh"/>
                         <outlet property="tableViewTrailing" destination="lC1-zT-LkI" id="ke5-L1-V85"/>
+                        <outlet property="videosCellHeight" destination="co9-Jo-Uei" id="gQn-7q-asT"/>
+                        <outlet property="videosCellTop" destination="RCC-W8-Nju" id="NKN-8Y-gaV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Brz-jw-jbd" userLabel="First Responder" sceneMemberID="firstResponder"/>
