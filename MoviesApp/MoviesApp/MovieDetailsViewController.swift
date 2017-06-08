@@ -10,6 +10,14 @@ import UIKit
 
 class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var screenTitleTop: NSLayoutConstraint!
+    @IBOutlet weak var screenTitleHeight: NSLayoutConstraint!
+    @IBOutlet weak var tableViewLeading: NSLayoutConstraint!
+    @IBOutlet weak var tableViewTrailing: NSLayoutConstraint!
+    
+    
+    
+    
     @IBOutlet weak var tableView: UITableView!
     var selection: String = "videos"
     
@@ -34,6 +42,33 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            if UIDevice.current.orientation == .portrait {
+                screenTitleTop.constant = 30
+                screenTitleHeight.constant = 25
+                tableViewLeading.constant = 46
+                tableViewTrailing.constant = 46
+                
+                
+            } else {
+                screenTitleTop.constant = 47
+                screenTitleHeight.constant = 25
+                tableViewLeading.constant = 73
+                tableViewTrailing.constant = 73
+                
+                
+            }
+        } else {
+            screenTitleTop.constant = 18
+            screenTitleHeight.constant = 20
+            tableViewLeading.constant = 12
+            tableViewTrailing.constant = 12
+            
+            
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
