@@ -103,14 +103,14 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="letterCell" id="53T-Gf-xCm" customClass="WatchlistAlphabetCollectionViewCell" customModule="MoviesApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="5.5" width="29" height="28"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="20" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="29" height="28"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="20" height="28"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="W" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hiN-zB-G9n">
-                                                    <rect key="frame" x="0.0" y="0.0" width="29" height="28"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="20" height="28"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
                                                     <color key="textColor" red="0.031372549019607843" green="0.10980392156862745" blue="0.14117647058823529" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -128,6 +128,7 @@
                                             <constraint firstAttribute="bottom" secondItem="hiN-zB-G9n" secondAttribute="bottom" id="PWT-dh-70S"/>
                                             <constraint firstAttribute="trailing" secondItem="hiN-zB-G9n" secondAttribute="trailing" id="fcd-l6-Ry3"/>
                                         </constraints>
+                                        <size key="customSize" width="20" height="28"/>
                                         <connections>
                                             <outlet property="letterLabel" destination="hiN-zB-G9n" id="f6Z-sK-P8i"/>
                                         </connections>
@@ -238,7 +239,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RyJ-RI-UUY" userLabel="Header">
-                                <rect key="frame" x="0.0" y="64" width="414" height="90"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="90"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hMM-6t-a09">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
@@ -290,6 +291,7 @@
                                             </view>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="jQS-mf-eee" firstAttribute="top" secondItem="hMM-6t-a09" secondAttribute="top" id="7tW-iX-RKx"/>
                                             <constraint firstItem="5kA-Vb-c5d" firstAttribute="height" secondItem="jQS-mf-eee" secondAttribute="height" id="OTE-HR-SFG"/>
                                             <constraint firstItem="5kA-Vb-c5d" firstAttribute="width" secondItem="jQS-mf-eee" secondAttribute="width" id="dXI-oz-jvG"/>
                                         </constraints>
@@ -305,7 +307,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="h3y-FM-2c7" userLabel="CollectionView">
-                                <rect key="frame" x="0.0" y="154" width="414" height="473"/>
+                                <rect key="frame" x="0.0" y="110" width="414" height="517"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JoN-Fk-2Jd">
                                     <size key="itemSize" width="224" height="309"/>
@@ -315,7 +317,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="nowPlayingMovieCell" id="UpT-Op-3Je" customClass="NowPlayingMovieCell" customModule="MoviesApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="82" width="224" height="309"/>
+                                        <rect key="frame" x="0.0" y="104" width="224" height="309"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="224" height="309"/>
@@ -338,7 +340,7 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RvH-Ok-B9A" userLabel="Letters">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RvH-Ok-B9A" userLabel="Letters">
                                 <rect key="frame" x="67" y="627" width="280" height="28"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -353,14 +355,14 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="letterCell" id="uTg-tb-eJ0" customClass="WatchlistAlphabetCollectionViewCell" customModule="MoviesApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="21" height="28"/>
+                                        <rect key="frame" x="0.0" y="-11" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="21" height="28"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="W" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gym-3Z-lFj">
-                                                    <rect key="frame" x="0.0" y="0.0" width="21" height="28"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
                                                     <color key="textColor" red="0.031372549020000001" green="0.10980392160000001" blue="0.14117647059999999" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -373,7 +375,6 @@
                                             <constraint firstAttribute="trailing" secondItem="gym-3Z-lFj" secondAttribute="trailing" id="jIQ-S6-14l"/>
                                             <constraint firstAttribute="bottom" secondItem="gym-3Z-lFj" secondAttribute="bottom" id="tur-Wr-Fil"/>
                                         </constraints>
-                                        <size key="customSize" width="21" height="28"/>
                                         <connections>
                                             <outlet property="letterLabel" destination="gym-3Z-lFj" id="nKx-ql-6yR"/>
                                         </connections>
@@ -1132,7 +1133,7 @@
         <!--Navigation Controller-->
         <scene sceneID="o82-KC-bbq">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="i1W-xe-Kij" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="i1W-xe-Kij" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="tabbar_general" selectedImage="tabbar_general" id="3Zf-fu-3la">
                         <inset key="imageInsets" minX="0.0" minY="5.5" maxX="0.0" maxY="-5.5"/>
                     </tabBarItem>

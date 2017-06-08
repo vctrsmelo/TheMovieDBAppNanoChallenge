@@ -41,17 +41,19 @@ extension CALayer {
     
 }
 
-class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var nowPlayingCollectionView: UICollectionView!
     private var collectionLayout : UICollectionViewFlowLayout!
     
     @IBOutlet weak var alphabetCollectionView: UICollectionView!
-    
-    
-    private var nowPlayingMovies : [Movie] = []
+    private var currentSelectedAlphabetIndex : IndexPath?
+    private var currentSelectedMovie: Movie?
+
+    private var viewModel : NowPlayingViewModel!
     
     private let posterSize = CGSize(width: 215, height: 322)
+    private var posterOriginY : CGFloat?
     
     @IBOutlet weak var nowPlayingButton: UIButton!
     private var nowPlayingBorder = CALayer()
@@ -72,24 +74,17 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
         
         let countryCode = (Locale.current.regionCode != nil) ? (Locale.current.regionCode!) : "US"
         
-        TmdbAPIAccess.getNowPlayingMovies(countryCode: countryCode){(movies) in
-         
-            print(movies)
-            self.nowPlayingMovies.append(contentsOf: movies)
-            self.nowPlayingCollectionView.reloadData()
-            self.nowPlayingCollectionView.setNeedsLayout()
-            
-            self.alphabetCollectionView.reloadData()
-            self.alphabetCollectionView.setNeedsLayout()
-            
-        }
+        viewModel = NowPlayingViewModel(view: self, isNowPlayingList: true, countryCode: countryCode)
+        
+        self.alphabetCollectionView.reloadData()
+        self.alphabetCollectionView.setNeedsLayout()
         
         nowPlayingButton.layer.addBorder(edge: .bottom, border: self.nowPlayingBorder , color: .black, thickness: 2.0)
         upcomingButton.layer.addBorder(edge: .bottom, border: self.upcomingBorder , color: .black, thickness: 2.0)
         upcomingBorder.isHidden = true
         
         collectionLayout = UICollectionViewFlowLayout()
-        collectionLayout.sectionInset = UIEdgeInsetsMake(-20, 53, 0, 53)
+        collectionLayout.sectionInset = UIEdgeInsetsMake(-10, 53, 0, 53)
         collectionLayout.minimumInteritemSpacing = 51
         collectionLayout.minimumLineSpacing = 51
         collectionLayout.scrollDirection = .horizontal
@@ -99,15 +94,20 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
         
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return nowPlayingMovies.count
+        if (collectionView == nowPlayingCollectionView) {
+
+            return viewModel.nowPlayingMovies.count
+            
+        } else {
+            return viewModel.alphabet.count
+        }
         
     }
     
@@ -117,24 +117,36 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "nowPlayingMovieCell", for: indexPath) as! NowPlayingMovieCell
             
-            
-    //        if(indexPath.row == 0){
-    //            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-    //            
-    //        }
-            
+            //first movie being added
+            if(posterOriginY == nil){
+                
+                posterOriginY = cell.frame.origin.y
+
+            }
+
             var frame = cell.frame
             
             frame.size.width = posterSize.width
             frame.size.height = posterSize.height
+            frame.origin.y = posterOriginY!
+            
             
             cell.frame = frame
         
             let cellFrame = nowPlayingCollectionView.convert(cell.frame, to: nowPlayingCollectionView.superview)
             cell.updateSize(cellFrame: cellFrame, container: self.nowPlayingCollectionView.frame)
             
+            if(cell.getFeaturedPerentage() > 50){
+                
+                currentSelectedMovie = viewModel.nowPlayingMovies[indexPath.row]
+                alphabetCollectionView.reloadData()
+            }
+            
+            
+            currentSelectedMovie = viewModel.nowPlayingMovies[indexPath.row]
+            
             //rounded corners
-            cell.posterImageView.image = nowPlayingMovies[indexPath.row].poster
+            cell.posterImageView.image = viewModel.nowPlayingMovies[indexPath.row].poster
             cell.posterImageView.layer.masksToBounds = true
             cell.posterImageView.layer.cornerRadius = 4
 
@@ -144,11 +156,31 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
             
         }else{ //alphabet collection view
             
-            let cell: WatchlistAlphabetCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "letterCell", for: indexPath) as! WatchlistAlphabetCollectionViewCell
-            cell.letterLabel.text = String.init(describing: self.nowPlayingMovies[indexPath.row].title!.uppercased().characters.first!)
             
+            let alphabetCell = collectionView.dequeueReusableCell(withReuseIdentifier: "letterCell", for: indexPath) as! WatchlistAlphabetCollectionViewCell
+            alphabetCell.letterLabel.text = String(viewModel.alphabet[indexPath.row])
             
-            return cell
+            if let movieTitle = currentSelectedMovie?.title, let cellTitle = alphabetCell.letterLabel.text{
+                
+                if movieTitle.characters.first == cellTitle.characters.first{
+                    
+                    if currentSelectedAlphabetIndex == nil{
+                        
+                        self.currentSelectedAlphabetIndex = indexPath
+                        
+                    }
+                    
+                    collectionView.cellForItem(at: currentSelectedAlphabetIndex!)?.isSelected = false
+                    alphabetCell.isSelected = true
+                    
+                    currentSelectedAlphabetIndex = indexPath
+                    
+                }
+                
+
+            }
+    
+            return alphabetCell
             
         }
         
@@ -164,8 +196,25 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
                 let cellFrame = nowPlayingCollectionView.convert(nowPlayingCell.frame, to: nowPlayingCollectionView.superview)
                 nowPlayingCell.updateSize(cellFrame: cellFrame, container: nowPlayingCollectionView.frame)
                 
+                
+                if(nowPlayingCell.getFeaturedPerentage() > 50){
+                        
+                
+                    if let movieIndex = nowPlayingCollectionView.indexPath(for: nowPlayingCell) {
+                        
+                        currentSelectedMovie = viewModel.nowPlayingMovies[movieIndex.row]
+                        alphabetCollectionView.reloadData()
+
+                        alphabetCollectionView.scrollToItem(at: currentSelectedAlphabetIndex!, at: UICollectionViewScrollPosition.right, animated: false)
+
+                        
+                    }
+
+                }
+                
                 //shadow adjustment
                 nowPlayingCell.adjustShadow()
+                
             }
             
         }
@@ -199,7 +248,35 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
         nowPlayingBorder.isHidden = true
         upcomingBorder.isHidden = false
         
+        let countryCode = (Locale.current.regionCode != nil) ? (Locale.current.regionCode!) : "US"
+        viewModel = NowPlayingViewModel(view: self, isNowPlayingList: false, countryCode: countryCode)
+        self.nowPlayingCollectionView.reloadData()
+        
         nowPlayingIsCurrentContent = false
+    }
+    
+    // MARK: Collection View Layout
+    // DO NOT TOUCH
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        
+        if (collectionView == alphabetCollectionView) {
+            switch UIDevice.current.userInterfaceIdiom {
+            case .pad:
+                return CGSize(width: 40.2, height: alphabetCollectionView.frame.height)
+            case .phone:
+                return CGSize(width: 29.39, height: alphabetCollectionView.frame.height)
+            default:
+                return CGSize(width: 29.39, height: alphabetCollectionView.frame.height)
+            }
+        }
+        else{
+            
+            return posterSize
+            
+        }
+    
+    
     }
 
 }
