@@ -38,6 +38,11 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var actorNameLabelHeight: NSLayoutConstraint!
     @IBOutlet weak var characterNameLabelHeight: NSLayoutConstraint!
     
+    // Recommendations
+    @IBOutlet weak var recommendationsLabelLeading: NSLayoutConstraint!
+    @IBOutlet weak var recommendationsLabelTrailing: NSLayoutConstraint!
+    @IBOutlet weak var recommendationsLabelBottom: NSLayoutConstraint!
+    
     
     @IBOutlet weak var tableView: UITableView!
     var selection: String = "videos"
@@ -68,50 +73,74 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
     override func viewWillLayoutSubviews() {
         if UIDevice.current.userInterfaceIdiom == .pad {
             if UIDevice.current.orientation == .portrait {
-                screenTitleTop.constant             = 30
-                screenTitleHeight.constant          = 25
-                tableViewLeading.constant           = 46
-                tableViewTrailing.constant          = 46
+                // Main view
+                screenTitleTop.constant                 = 30
+                screenTitleHeight.constant              = 25
+                tableViewLeading.constant               = 46
+                tableViewTrailing.constant              = 46
                 
-                overviewLabelHeight.constant        = 25
-                overviewLabelTop.constant           = 42
-                overviewLabelLeading.constant       = 42 // Leading de todas as views
-                overviewLabelTrailing.constant      = 48 // Trailing ''
-                movieOverviewTop.constant           = 30
-                movieOverviewBottom.constant        = 40
+                // Main Informations
                 
-                selectionButtonsHeight.constant     = 4
-                selectionButtonsTop.constant        = 17
+                // Overview
+                overviewLabelHeight.constant            = 25
+                overviewLabelTop.constant               = 42
+                overviewLabelLeading.constant           = 42 // Leading de todas as views
+                overviewLabelTrailing.constant          = 48 // Trailing ''
+                movieOverviewTop.constant               = 30
+                movieOverviewBottom.constant            = 40
                 
-                videosCellHeight.constant           = 346
-                videosCellTop.constant              = 84
+                // Selection
+                selectionButtonsHeight.constant         = 4
+                selectionButtonsTop.constant            = 17
                 
-                castingCollectionViewHeight.constant= 241
-                actorNameLabelHeight.constant       = 26
-                characterNameLabelHeight.constant   = 18
+                // Videos
+                videosCellHeight.constant               = 346
+                videosCellTop.constant                  = 84
+                
+                // Casting
+                castingCollectionViewHeight.constant    = 241
+                actorNameLabelHeight.constant           = 26
+                characterNameLabelHeight.constant       = 18
+                
+                // Recommendations
+                recommendationsLabelLeading.constant    = 42 // Leading de todas as views
+                recommendationsLabelTrailing.constant   = 48 // Trailing de todas as views
+                recommendationsLabelBottom.constant     = 45
                 
             } else {
-                screenTitleTop.constant             = 47
-                screenTitleHeight.constant          = 25
-                tableViewLeading.constant           = 73
-                tableViewTrailing.constant          = 73
+                // Main view
+                screenTitleTop.constant                 = 47
+                screenTitleHeight.constant              = 25
+                tableViewLeading.constant               = 73
+                tableViewTrailing.constant              = 73
                 
-                overviewLabelHeight.constant        = 25
-                overviewLabelTop.constant           = 50
-                overviewLabelLeading.constant       = 57 // Leading de todas as views
-                overviewLabelTrailing.constant      = 63 // Trailing ''
-                movieOverviewTop.constant           = 25
-                movieOverviewBottom.constant        = 43
+                // Main Informations
                 
-                selectionButtonsHeight.constant     = 5
-                selectionButtonsTop.constant        = 2
+                // Overview
+                overviewLabelHeight.constant            = 25
+                overviewLabelTop.constant               = 50
+                overviewLabelLeading.constant           = 57 // Leading de todas as views
+                overviewLabelTrailing.constant          = 63 // Trailing de todas as views
+                movieOverviewTop.constant               = 25
+                movieOverviewBottom.constant            = 43
                 
-                videosCellHeight.constant           = 450
-                videosCellTop.constant              = 109
+                // Selection
+                selectionButtonsHeight.constant         = 5
+                selectionButtonsTop.constant            = 2
                 
-                castingCollectionViewHeight.constant= 241
-                actorNameLabelHeight.constant       = 26
-                characterNameLabelHeight.constant   = 18
+                // Videos
+                videosCellHeight.constant               = 450
+                videosCellTop.constant                  = 109
+                
+                // Casting
+                castingCollectionViewHeight.constant    = 241
+                actorNameLabelHeight.constant           = 26
+                characterNameLabelHeight.constant       = 18
+                
+                // Recommendations
+                recommendationsLabelLeading.constant    = 57 // Leading de todas as views
+                recommendationsLabelTrailing.constant   = 63 // Trailing de todas as views
+                recommendationsLabelBottom.constant     = 62
             }
         }
     }

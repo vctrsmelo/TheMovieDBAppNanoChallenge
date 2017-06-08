@@ -1268,7 +1268,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="H9f-vR-dEy" userLabel="Recommendations Collection View">
-                                                    <rect key="frame" x="0.0" y="48" width="768" height="201"/>
+                                                    <rect key="frame" x="0.0" y="48" width="351" height="201"/>
                                                     <color key="backgroundColor" red="0.10110349208116531" green="0.12944775819778442" blue="0.13375258445739746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="201" id="QeW-IC-UHV"/>
@@ -1287,7 +1287,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="136" height="201"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r18-pM-vlv">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r18-pM-vlv">
                                                                         <rect key="frame" x="0.0" y="0.0" width="136" height="201"/>
                                                                         <state key="normal" image="Icon_Video"/>
                                                                     </button>
@@ -1304,22 +1304,6 @@
                                                                     <real key="value" value="4"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
-                                                            <variation key="default">
-                                                                <mask key="constraints">
-                                                                    <exclude reference="1Ae-pM-8S6"/>
-                                                                    <exclude reference="wLb-2t-1hF"/>
-                                                                    <exclude reference="ySt-WK-KrZ"/>
-                                                                    <exclude reference="zmC-1x-9K8"/>
-                                                                </mask>
-                                                            </variation>
-                                                            <variation key="heightClass=regular-widthClass=compact">
-                                                                <mask key="constraints">
-                                                                    <include reference="1Ae-pM-8S6"/>
-                                                                    <include reference="wLb-2t-1hF"/>
-                                                                    <include reference="ySt-WK-KrZ"/>
-                                                                    <include reference="zmC-1x-9K8"/>
-                                                                </mask>
-                                                            </variation>
                                                             <connections>
                                                                 <outlet property="posterButton" destination="r18-pM-vlv" id="HRg-CP-9JQ"/>
                                                             </connections>
@@ -1348,21 +1332,15 @@
                                             <variation key="default">
                                                 <mask key="constraints">
                                                     <exclude reference="598-AG-ojK"/>
-                                                    <exclude reference="aHR-2P-lyr"/>
                                                     <exclude reference="uNJ-RF-vdy"/>
-                                                    <exclude reference="Al1-8d-S7W"/>
                                                     <exclude reference="SAS-fx-8Js"/>
-                                                    <exclude reference="kRS-6H-vX6"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
                                                 <mask key="constraints">
                                                     <include reference="598-AG-ojK"/>
-                                                    <include reference="aHR-2P-lyr"/>
                                                     <include reference="uNJ-RF-vdy"/>
-                                                    <include reference="Al1-8d-S7W"/>
                                                     <include reference="SAS-fx-8Js"/>
-                                                    <include reference="kRS-6H-vX6"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -1408,6 +1386,9 @@
                         <outlet property="overviewLabelLeading" destination="eg9-9G-aYl" id="igk-hY-Jyq"/>
                         <outlet property="overviewLabelTop" destination="FN1-3J-fvd" id="DB1-EM-zrZ"/>
                         <outlet property="overviewLabelTrailing" destination="at5-Cq-id0" id="HBP-Jd-rwN"/>
+                        <outlet property="recommendationsLabelBottom" destination="SAS-fx-8Js" id="A9x-EF-lZv"/>
+                        <outlet property="recommendationsLabelLeading" destination="uNJ-RF-vdy" id="4ru-W1-LrM"/>
+                        <outlet property="recommendationsLabelTrailing" destination="598-AG-ojK" id="V8M-M1-nUh"/>
                         <outlet property="screenTitleHeight" destination="or5-bF-iMV" id="F5q-qT-GiF"/>
                         <outlet property="screenTitleTop" destination="GdN-Ba-ZCZ" id="HNj-Y1-bpV"/>
                         <outlet property="selectionButtonsHeight" destination="sjW-HJ-T9I" id="WaC-SR-TUl"/>
