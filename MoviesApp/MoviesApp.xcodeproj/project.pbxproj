@@ -39,6 +39,7 @@
 		FC59E30B1EE0C80100157142 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC59E3091EE0C80100157142 /* Realm.framework */; };
 		FC59E30C1EE0C80100157142 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC59E30A1EE0C80100157142 /* RealmSwift.framework */; };
 		FC59E30F1EE0CAF600157142 /* UserDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC59E30E1EE0CAF600157142 /* UserDAO.swift */; };
+		FC9229A61EE88A060072D327 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9229A51EE88A060072D327 /* DataManager.swift */; };
 		FCD79CB21EE87A18000B12F9 /* ActorDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD79CB11EE87A18000B12F9 /* ActorDAO.swift */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,7 @@
 		FC59E3091EE0C80100157142 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		FC59E30A1EE0C80100157142 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		FC59E30E1EE0CAF600157142 /* UserDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDAO.swift; sourceTree = "<group>"; };
+		FC9229A51EE88A060072D327 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		FCD79CB11EE87A18000B12F9 /* ActorDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActorDAO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,6 +139,8 @@
 		290F46661EE1E74100E509E3 /* Comms */ = {
 			isa = PBXGroup;
 			children = (
+				EE7E0A841EE0946D0029874C /* TmdbAPIAccess.swift */,
+				FC9229A51EE88A060072D327 /* DataManager.swift */,
 			);
 			name = Comms;
 			sourceTree = "<group>";
@@ -186,7 +190,6 @@
 				290F46621EE1E70300E509E3 /* Model */,
 				290F46651EE1E72C00E509E3 /* ViewModel */,
 				290F46641EE1E72000E509E3 /* View */,
-				EE7E0A831EE0940C0029874C /* APIAccess */,
 				5781C4731EE0881F0037C7CB /* AppDelegate.swift */,
 				5781C4751EE0881F0037C7CB /* ViewController.swift */,
 				5781C4771EE0881F0037C7CB /* Main.storyboard */,
@@ -211,14 +214,6 @@
 				571F16FB1EE880B500BD1742 /* RecommendationsCollectionViewCell.swift */,
 			);
 			name = Cells;
-			sourceTree = "<group>";
-		};
-		EE7E0A831EE0940C0029874C /* APIAccess */ = {
-			isa = PBXGroup;
-			children = (
-				EE7E0A841EE0946D0029874C /* TmdbAPIAccess.swift */,
-			);
-			name = APIAccess;
 			sourceTree = "<group>";
 		};
 		FC59E3081EE0C80100157142 /* Frameworks */ = {
@@ -331,6 +326,7 @@
 				571F16FC1EE880B500BD1742 /* RecommendationsCollectionViewCell.swift in Sources */,
 				FC3078D11EE7352C006CE181 /* MovieTagsDAO.swift in Sources */,
 				E7966EE81EE26EB500AF3B6C /* User.swift in Sources */,
+				FC9229A61EE88A060072D327 /* DataManager.swift in Sources */,
 				E7966EE91EE26EB500AF3B6C /* Movie.swift in Sources */,
 				EE7E0A851EE0946D0029874C /* TmdbAPIAccess.swift in Sources */,
 				5781C4761EE0881F0037C7CB /* ViewController.swift in Sources */,

@@ -23,32 +23,32 @@ class UserDAO : Object {
 		
 		self.id = user.id
 		
-		for movie in user.watchlist {
-			self.watchlist.append(MovieDAO(movie))
+		for movieID in user.watchlist {
+			if let movieDAO : MovieDAO = MovieDAO.load(id: movieID) {
+				self.watchlist.append(movieDAO)
+			}
 		}
-		
-		
 		
 		for (movieID, movieTags) in user.movieTags {
 			let movieTagsDAO = MovieTagsDAO(movieTags)
 			
-			self.movieTags.append(RealmDictionaryEntry(key: movieID, value: movieTagsDAO))
+			self.movieTags.append(RealmDictionaryEntry(key: movieID, movieTagsDAO: movieTagsDAO))
 		}
 		
 	}
 	
 	// MARK: Private Methods
 	private func intoUser() -> User {
-		var watchlist = Set<Movie>()
-		var movieTags = [Int : MovieTags]()
+		var watchlist = Set<String>()
+		var movieTags = [String : MovieTags]()
 		
 		for movie in self.watchlist {
-			watchlist.insert(movie.intoMovie())
+			watchlist.insert(movie.intoMovie().id)
 		}
 		
 		for dictionaryEntry in self.movieTags {
 			
-			movieTags[dictionaryEntry.key] = (dictionaryEntry.value as! MovieTagsDAO).intoMovieTags()
+			movieTags[dictionaryEntry.key] = dictionaryEntry.movieTagsDAO!.intoMovieTags()
 		}
 		
 		return User(id: self.id, watchlist: watchlist, movieTags: movieTags)
@@ -58,13 +58,13 @@ class UserDAO : Object {
 	static func save(_ user : User) -> Bool {
 		let userDAO = UserDAO(user)
 		
-		return RealmsConfig.save(userDAO, update: false)
+		return RealmsConfig.save(userDAO, update: false, temporary: false)
 	}
 	
 	static func update(_ user : User) -> Bool {
 		let userDAO = UserDAO(user)
 		
-		return RealmsConfig.save(userDAO, update: true)
+		return RealmsConfig.save(userDAO, update: true, temporary: false)
 	}
 	
 	static func load() -> User? {

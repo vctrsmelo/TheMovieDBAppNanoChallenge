@@ -14,6 +14,9 @@ class CastingTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColle
                          Actor(actorName: "Vegeta", characterName: "Sayajin King", photo: UIImage(named: "images")),
                          Actor(actorName: "Gohan", characterName: "Matou Cell", photo: UIImage(named: "images"))]
     
+    @IBOutlet weak var castingCollectionViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var castingCollectionViewTop: NSLayoutConstraint!
+    
     @IBOutlet weak var castingCollectionView: UICollectionView!
     
     override func awakeFromNib() {
@@ -21,6 +24,16 @@ class CastingTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColle
         
         castingCollectionView.dataSource = self
         castingCollectionView.delegate = self
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            if UIDevice.current.orientation == .portrait {
+                castingCollectionViewHeight.constant    = 241
+                castingCollectionViewTop.constant       = 88
+            } else {
+                castingCollectionViewHeight.constant    = 241
+                castingCollectionViewTop.constant       = 108
+            }
+        }
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -36,6 +49,17 @@ class CastingTableViewCell: UITableViewCell, UICollectionViewDataSource, UIColle
         cell.actorName.text = cast[indexPath.item].actorName.uppercased()
         cell.characterName.text = cast[indexPath.item].characterName
         cell.actorPhoto.image = cast[indexPath.item].photo
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            if UIDevice.current.orientation == .portrait {
+                cell.actorNameLabelHeight.constant      = 26
+                cell.characterNameLabelHeight.constant  = 18
+            } else {
+                cell.actorNameLabelHeight.constant      = 26
+                cell.characterNameLabelHeight.constant  = 18
+            }
+        }
+        
         return cell
     }
 }

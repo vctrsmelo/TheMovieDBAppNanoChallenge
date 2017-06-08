@@ -12,6 +12,11 @@ class RecommendationsTableViewCell: UITableViewCell, UICollectionViewDataSource,
     
     let recommendedMovies: [Movie] = [Movie(id: "", title: "", originalTitle: "", genres: [], runtime: nil, releaseDateString: nil, overview: nil, poster: UIImage(named: "images")), Movie(id: "", title: "", originalTitle: "", genres: [], runtime: nil, releaseDateString: nil, overview: nil, poster: UIImage(named: "images")), Movie(id: "", title: "", originalTitle: "", genres: [], runtime: nil, releaseDateString: nil, overview: nil, poster: UIImage(named: "images"))]
     
+    @IBOutlet weak var recommendationsCollectionViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var recommendationsLabelLeading: NSLayoutConstraint!
+    @IBOutlet weak var recommendationsLabelTrailing: NSLayoutConstraint!
+    @IBOutlet weak var recommendationsLabelBottom: NSLayoutConstraint!
+    
     @IBOutlet weak var recommendationsCollectionView: UICollectionView!
     
     override func awakeFromNib() {
@@ -19,6 +24,20 @@ class RecommendationsTableViewCell: UITableViewCell, UICollectionViewDataSource,
         
         recommendationsCollectionView.dataSource = self
         recommendationsCollectionView.delegate = self
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            if UIDevice.current.orientation == .portrait {
+                recommendationsCollectionViewHeight.constant    = 258
+                recommendationsLabelLeading.constant            = 42 // Leading de todas as views
+                recommendationsLabelTrailing.constant           = 48 // Trailing de todas as views
+                recommendationsLabelBottom.constant             = 45
+            } else {
+                recommendationsCollectionViewHeight.constant    = 258
+                recommendationsLabelLeading.constant            = 57 // Leading de todas as views
+                recommendationsLabelTrailing.constant           = 63 // Trailing de todas as views
+                recommendationsLabelBottom.constant             = 62
+            }
+        }
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

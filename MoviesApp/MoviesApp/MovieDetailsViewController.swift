@@ -9,6 +9,11 @@
 import UIKit
 
 class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+    @IBOutlet weak var screenTitleTop: NSLayoutConstraint!
+    @IBOutlet weak var screenTitleHeight: NSLayoutConstraint!
+    @IBOutlet weak var tableViewLeading: NSLayoutConstraint!
+    @IBOutlet weak var tableViewTrailing: NSLayoutConstraint!
     
     @IBOutlet weak var tableView: UITableView!
     var selection: String = "videos"
@@ -36,26 +41,88 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
         super.didReceiveMemoryWarning()
     }
     
+    override func viewWillLayoutSubviews() {
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            if UIDevice.current.orientation == .portrait {
+                screenTitleTop.constant                         = 30
+                screenTitleHeight.constant                      = 25
+                tableViewLeading.constant                       = 46
+                tableViewTrailing.constant                      = 46
+            } else {
+                screenTitleTop.constant                         = 47
+                screenTitleHeight.constant                      = 25
+                tableViewLeading.constant                       = 73
+                tableViewTrailing.constant                      = 73
+            }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 6
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.row {
-        case 0:
-            return 113
-        case 1:
-            return 237
-        case 2:
-            return 132
-        case 3:
-            return 63
-        case 4:
-            return 268
-        case 5:
-            return 258
-        default:
-            return 0
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            if UIDevice.current.orientation == .portrait {
+                switch indexPath.row {
+                case 0:
+                    return 176
+                case 1:
+                    return 456
+                case 2:
+                    return 200 // TODO
+                case 3:
+                    return 122
+                case 4:
+                    if selection == "videos" {
+                        return 470
+                    } else {
+                        return 432
+                    }
+                case 5:
+                    return 359
+                default:
+                    return 0
+                }
+            } else {
+                switch indexPath.row {
+                case 0:
+                    return 209
+                case 1:
+                    return 594
+                case 2:
+                    return 212 // TODO
+                case 3:
+                    return 133
+                case 4:
+                    if selection == "videos" {
+                        return 652
+                    } else {
+                        return 432
+                    }
+                case 5:
+                    return 406
+                default:
+                    return 0
+                }
+            }
+        } else {
+            switch indexPath.row {
+            case 0:
+                return 113
+            case 1:
+                return 237
+            case 2:
+                return 132 // TODO
+            case 3:
+                return 63
+            case 4:
+                return 268
+            case 5:
+                return 258
+            default:
+                return 0
+            }
         }
     }
     

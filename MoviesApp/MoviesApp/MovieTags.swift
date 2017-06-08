@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 public struct MovieTags {
-	let movieID: Int
+	let movieID: String
 	var isFavorite: Bool
 	var isOnWatchlist: Bool
 	var userRating: Float
