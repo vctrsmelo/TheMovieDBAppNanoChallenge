@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var screenTitleTop: NSLayoutConstraint!
     @IBOutlet weak var screenTitleHeight: NSLayoutConstraint!
