@@ -39,6 +39,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var characterNameLabelHeight: NSLayoutConstraint!
     
     // Recommendations
+    @IBOutlet weak var recommendationsCollectionViewHeight: NSLayoutConstraint!
     @IBOutlet weak var recommendationsLabelLeading: NSLayoutConstraint!
     @IBOutlet weak var recommendationsLabelTrailing: NSLayoutConstraint!
     @IBOutlet weak var recommendationsLabelBottom: NSLayoutConstraint!
@@ -74,73 +75,75 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
         if UIDevice.current.userInterfaceIdiom == .pad {
             if UIDevice.current.orientation == .portrait {
                 // Main view
-                screenTitleTop.constant                 = 30
-                screenTitleHeight.constant              = 25
-                tableViewLeading.constant               = 46
-                tableViewTrailing.constant              = 46
+                screenTitleTop.constant                         = 30
+                screenTitleHeight.constant                      = 25
+                tableViewLeading.constant                       = 46
+                tableViewTrailing.constant                      = 46
                 
                 // Main Informations
                 
                 // Overview
-                overviewLabelHeight.constant            = 25
-                overviewLabelTop.constant               = 42
-                overviewLabelLeading.constant           = 42 // Leading de todas as views
-                overviewLabelTrailing.constant          = 48 // Trailing ''
-                movieOverviewTop.constant               = 30
-                movieOverviewBottom.constant            = 40
+                overviewLabelHeight.constant                    = 25
+                overviewLabelTop.constant                       = 42
+                overviewLabelLeading.constant                   = 42 // Leading de todas as views
+                overviewLabelTrailing.constant                  = 48 // Trailing ''
+                movieOverviewTop.constant                       = 30
+                movieOverviewBottom.constant                    = 40
                 
                 // Selection
-                selectionButtonsHeight.constant         = 4
-                selectionButtonsTop.constant            = 17
+                selectionButtonsHeight.constant                 = 4
+                selectionButtonsTop.constant                    = 17
                 
                 // Videos
-                videosCellHeight.constant               = 346
-                videosCellTop.constant                  = 84
+                videosCellHeight.constant                       = 346
+                videosCellTop.constant                          = 84
                 
                 // Casting
-                castingCollectionViewHeight.constant    = 241
-                actorNameLabelHeight.constant           = 26
-                characterNameLabelHeight.constant       = 18
+                castingCollectionViewHeight.constant            = 241
+                actorNameLabelHeight.constant                   = 26
+                characterNameLabelHeight.constant               = 18
                 
                 // Recommendations
-                recommendationsLabelLeading.constant    = 42 // Leading de todas as views
-                recommendationsLabelTrailing.constant   = 48 // Trailing de todas as views
-                recommendationsLabelBottom.constant     = 45
+                recommendationsCollectionViewHeight.constant    = 258
+                recommendationsLabelLeading.constant            = 42 // Leading de todas as views
+                recommendationsLabelTrailing.constant           = 48 // Trailing de todas as views
+                recommendationsLabelBottom.constant             = 45
                 
             } else {
                 // Main view
-                screenTitleTop.constant                 = 47
-                screenTitleHeight.constant              = 25
-                tableViewLeading.constant               = 73
-                tableViewTrailing.constant              = 73
+                screenTitleTop.constant                         = 47
+                screenTitleHeight.constant                      = 25
+                tableViewLeading.constant                       = 73
+                tableViewTrailing.constant                      = 73
                 
                 // Main Informations
                 
                 // Overview
-                overviewLabelHeight.constant            = 25
-                overviewLabelTop.constant               = 50
-                overviewLabelLeading.constant           = 57 // Leading de todas as views
-                overviewLabelTrailing.constant          = 63 // Trailing de todas as views
-                movieOverviewTop.constant               = 25
-                movieOverviewBottom.constant            = 43
+                overviewLabelHeight.constant                    = 25
+                overviewLabelTop.constant                       = 50
+                overviewLabelLeading.constant                   = 57 // Leading de todas as views
+                overviewLabelTrailing.constant                  = 63 // Trailing de todas as views
+                movieOverviewTop.constant                       = 25
+                movieOverviewBottom.constant                    = 43
                 
                 // Selection
-                selectionButtonsHeight.constant         = 5
-                selectionButtonsTop.constant            = 2
+                selectionButtonsHeight.constant                 = 5
+                selectionButtonsTop.constant                    = 2
                 
                 // Videos
-                videosCellHeight.constant               = 450
-                videosCellTop.constant                  = 109
+                videosCellHeight.constant                       = 450
+                videosCellTop.constant                          = 109
                 
                 // Casting
-                castingCollectionViewHeight.constant    = 241
-                actorNameLabelHeight.constant           = 26
-                characterNameLabelHeight.constant       = 18
+                castingCollectionViewHeight.constant            = 241
+                actorNameLabelHeight.constant                   = 26
+                characterNameLabelHeight.constant               = 18
                 
                 // Recommendations
-                recommendationsLabelLeading.constant    = 57 // Leading de todas as views
-                recommendationsLabelTrailing.constant   = 63 // Trailing de todas as views
-                recommendationsLabelBottom.constant     = 62
+                recommendationsCollectionViewHeight.constant    = 258
+                recommendationsLabelLeading.constant            = 57 // Leading de todas as views
+                recommendationsLabelTrailing.constant           = 63 // Trailing de todas as views
+                recommendationsLabelBottom.constant             = 62
             }
         }
     }
@@ -150,21 +153,67 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.row {
-        case 0:
-            return 113
-        case 1:
-            return 237
-        case 2:
-            return 132
-        case 3:
-            return 63
-        case 4:
-            return 268
-        case 5:
-            return 258
-        default:
-            return 0
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            if UIDevice.current.orientation == .portrait {
+                switch indexPath.row {
+                case 0:
+                    return 176
+                case 1:
+                    return 456
+                case 2:
+                    return 200 // TODO
+                case 3:
+                    return 122
+                case 4:
+                    if selection == "videos" {
+                        return 470
+                    } else {
+                        return 432
+                    }
+                case 5:
+                    return 359
+                default:
+                    return 0
+                }
+            } else {
+                switch indexPath.row {
+                case 0:
+                    return 209
+                case 1:
+                    return 594
+                case 2:
+                    return 212 // TODO
+                case 3:
+                    return 133
+                case 4:
+                    if selection == "videos" {
+                        return 652
+                    } else {
+                        return 432
+                    }
+                case 5:
+                    return 406
+                default:
+                    return 0
+                }
+            }
+        } else {
+            switch indexPath.row {
+            case 0:
+                return 113
+            case 1:
+                return 237
+            case 2:
+                return 132 // TODO
+            case 3:
+                return 63
+            case 4:
+                return 268
+            case 5:
+                return 258
+            default:
+                return 0
+            }
         }
     }
     
