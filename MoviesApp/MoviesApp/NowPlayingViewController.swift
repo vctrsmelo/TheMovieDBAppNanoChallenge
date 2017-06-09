@@ -56,7 +56,19 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
 
     private var viewModel : NowPlayingViewModel!
     
-    private let posterSize = CGSize(width: 215, height: 322)
+	private var posterSize: CGSize {
+		get {
+			if UIDevice.current.userInterfaceIdiom == .pad {
+				if !(UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight) {
+					return CGSize(width: 416, height: 616)
+				} else {
+					return CGSize(width: 252, height: 373)
+				}
+			} else {
+				return CGSize(width: 215, height: 322)
+			}
+		}
+	}
     private var posterOriginY : CGFloat?
     
     @IBOutlet weak var nowPlayingButton: UIButton!
@@ -72,9 +84,11 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
 
         nowPlayingCollectionView.delegate = self
         nowPlayingCollectionView.dataSource = self
-        
+		nowPlayingCollectionView.layer.masksToBounds = false
+		
         alphabetCollectionView.delegate = self
         alphabetCollectionView.dataSource = self
+		
         
         let countryCode = (Locale.current.regionCode != nil) ? (Locale.current.regionCode!) : "US"
         
@@ -82,9 +96,7 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
         
         self.alphabetCollectionView.reloadData()
         self.alphabetCollectionView.setNeedsLayout()
-        
-        nowPlayingButton.layer.addBorder(edge: .bottom, border: self.nowPlayingBorder , color: .black, thickness: 2.0)
-        upcomingButton.layer.addBorder(edge: .bottom, border: self.upcomingBorder , color: .black, thickness: 2.0)
+		
         upcomingBorder.isHidden = true
         
         collectionLayout = UICollectionViewFlowLayout()
@@ -125,31 +137,34 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "nowPlayingMovieCell", for: indexPath) as! NowPlayingMovieCell
             
-            //first movie being added
-            if(posterOriginY == nil){
-                
-                posterOriginY = cell.frame.origin.y
 
-            }
-
-            var frame = cell.frame
-            
-            frame.size.width = posterSize.width
-            frame.size.height = posterSize.height
-            frame.origin.y = posterOriginY!
-            
-            
-            cell.frame = frame
-        
-            let cellFrame = nowPlayingCollectionView.convert(cell.frame, to: nowPlayingCollectionView.superview)
-            cell.updateSize(cellFrame: cellFrame, container: self.nowPlayingCollectionView.frame)
-            
-            if(cell.getFeaturedPerentage() > 50){
-                
-                currentSelectedMovie = isNowPlayingCurrentContent ? viewModel.nowPlayingMovies[indexPath.row] : viewModel.upcomingMovies[indexPath.row]
-                alphabetCollectionView.reloadData()
-            }
-            
+			
+			if (UIDevice.current.userInterfaceIdiom == .phone) {
+				//first movie being added
+				if(posterOriginY == nil){
+					
+					posterOriginY = cell.frame.origin.y
+					
+				}
+				
+				var frame = cell.frame
+				
+				frame.size.width = posterSize.width
+				frame.size.height = posterSize.height
+				frame.origin.y = posterOriginY!
+				
+				
+				cell.frame = frame
+				let cellFrame = nowPlayingCollectionView.convert(cell.frame, to: nowPlayingCollectionView.superview)
+				cell.updateSize(cellFrame: cellFrame, container: self.nowPlayingCollectionView.frame)
+				
+				if(cell.getFeaturedPerentage() > 50){
+					
+					currentSelectedMovie = isNowPlayingCurrentContent ? viewModel.nowPlayingMovies[indexPath.row] : viewModel.upcomingMovies[indexPath.row]
+					alphabetCollectionView.reloadData()
+				}
+			}
+			
             currentSelectedMovie = isNowPlayingCurrentContent ? viewModel.nowPlayingMovies[indexPath.row] : viewModel.upcomingMovies[indexPath.row]
             
             //rounded corners
@@ -196,37 +211,36 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
-        for cell in nowPlayingCollectionView.visibleCells{
-            
-            if let nowPlayingCell = cell as? NowPlayingMovieCell{
-                
-                let cellFrame = nowPlayingCollectionView.convert(nowPlayingCell.frame, to: nowPlayingCollectionView.superview)
-                nowPlayingCell.updateSize(cellFrame: cellFrame, container: nowPlayingCollectionView.frame)
-                
-                
-                if(nowPlayingCell.getFeaturedPerentage() > 50){
-                        
-                
-                    if let movieIndex = nowPlayingCollectionView.indexPath(for: nowPlayingCell) {
-                        
-                        
-                        currentSelectedMovie = isNowPlayingCurrentContent ? viewModel.nowPlayingMovies[movieIndex.row] : viewModel.upcomingMovies[movieIndex.row]
-                        alphabetCollectionView.reloadData()
+		if (UIDevice.current.userInterfaceIdiom == .phone) {
+		
+			for cell in nowPlayingCollectionView.visibleCells{
+				
+				if let nowPlayingCell = cell as? NowPlayingMovieCell{
+					
+					let cellFrame = nowPlayingCollectionView.convert(nowPlayingCell.frame, to: nowPlayingCollectionView.superview)
+					nowPlayingCell.updateSize(cellFrame: cellFrame, container: nowPlayingCollectionView.frame)
+					
+				   /* if(nowPlayingCell.getFeaturedPerentage() > 50){
+							
+					
+						if let movieIndex = nowPlayingCollectionView.indexPath(for: nowPlayingCell) {
+							
+							
+							currentSelectedMovie = isNowPlayingCurrentContent ? viewModel.nowPlayingMovies[movieIndex.row] : viewModel.upcomingMovies[movieIndex.row]
+							alphabetCollectionView.reloadData()
 
-                        alphabetCollectionView.scrollToItem(at: currentSelectedAlphabetIndex!, at: UICollectionViewScrollPosition.right, animated: false)
-
-                        
-                    }
-
-                }
-                
-                //shadow adjustment
-                nowPlayingCell.adjustShadow()
-                
-            }
-            
-        }
-        
+							alphabetCollectionView.scrollToItem(at: currentSelectedAlphabetIndex!, at: UICollectionViewScrollPosition.right, animated: false)
+						}
+					}*/
+					
+					//shadow adjustment
+					nowPlayingCell.adjustShadow()
+					
+				}
+				
+			}
+		}
+		
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -272,12 +286,27 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
             viewModel.getUpcomingMovies(countryCode: countryCode)
             
         }else{
-        
             self.nowPlayingCollectionView.reloadData()
-        
         }
     
     }
+	
+	override func viewDidLayoutSubviews() {
+		super.viewWillLayoutSubviews()
+		//nowPlayingCollectionView.reloadData()
+		nowPlayingButton.layer.addBorder(edge: .bottom, border: self.nowPlayingBorder , color: .black, thickness: 2.0)
+		upcomingButton.layer.addBorder(edge: .bottom, border: self.upcomingBorder , color: .black, thickness: 2.0)
+	}
+	
+	override func viewWillLayoutSubviews() {
+		super.viewWillLayoutSubviews()
+		nowPlayingCollectionView.collectionViewLayout.invalidateLayout()
+		nowPlayingCollectionView.reloadData()
+	}
+	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+	}
     
     // MARK: Search
     override func viewWillAppear(_ animated: Bool) {
