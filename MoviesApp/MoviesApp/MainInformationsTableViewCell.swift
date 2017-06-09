@@ -117,6 +117,6 @@ class MainInformationsTableViewCell: UITableViewCell {
     }
     
     @IBAction func cancelPressed(_ sender: UIButton) {
-        movieTitle.text = "FOI AKEEE"
+
     }
 }

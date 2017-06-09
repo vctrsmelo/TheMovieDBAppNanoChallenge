@@ -151,7 +151,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
                 
                 let title = movie.title ?? "No Title"
                 
-                let attributes = cell.movieTitle.attributedText?.attributes(at: 0, longestEffectiveRange: nil, in: NSRange.init(location: 0, length: cell.movieTitle.text!.characters.count))
+                let attributes = cell.movieTitle.attributedText?.attributes(at: 0, effectiveRange: nil)
                 
                 let cellTitle = NSMutableAttributedString.init(string: title, attributes: attributes)
                 

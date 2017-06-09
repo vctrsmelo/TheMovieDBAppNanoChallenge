@@ -41,10 +41,12 @@ extension CALayer {
     
 }
 
-class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
 
     @IBOutlet weak var nowPlayingCollectionView: UICollectionView!
     private var collectionLayout : UICollectionViewFlowLayout!
+    
+    @IBOutlet weak var searchBarView: SearchBarView!
     
     @IBOutlet weak var alphabetCollectionView: UICollectionView!
     private var currentSelectedAlphabetIndex : IndexPath?
@@ -94,6 +96,7 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
         
         nowPlayingCollectionView.collectionViewLayout = collectionLayout
         
+        searchBarView.searchBarView.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -276,6 +279,23 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
     
     }
     
+    // MARK: Search
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.shared.statusBarView?.backgroundColor = .clear
+        searchBarView.isToggledOn = false
+        self.view.endEditing(true)
+    }
+    
+    @IBAction func searchButtonTouched(_ sender: UIButton) {
+        searchBarView.isToggledOn = true
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.view.endEditing(true)
+        searchBarView.isToggledOn = false
+    }
+    
     // MARK: Collection View Layout
     // DO NOT TOUCH
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -313,7 +333,7 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
 //    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        self.view.endEditing(true)
         if segue.identifier == "nowPlayingToDetails"{
          
             let mdvc : MovieDetailsViewController = segue.destination as! MovieDetailsViewController
