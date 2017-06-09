@@ -10,7 +10,7 @@ import UIKit
 
 class RecommendationsTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    let recommendedMovies: [Movie] = [Movie(id: "", title: "", originalTitle: "", genres: [], runtime: nil, releaseDateString: nil, overview: nil, poster: UIImage(named: "images")), Movie(id: "", title: "", originalTitle: "", genres: [], runtime: nil, releaseDateString: nil, overview: nil, poster: UIImage(named: "images")), Movie(id: "", title: "", originalTitle: "", genres: [], runtime: nil, releaseDateString: nil, overview: nil, poster: UIImage(named: "images"))]
+    var recommendedMovies: [Movie]!
     
     @IBOutlet weak var recommendationsCollectionViewHeight: NSLayoutConstraint!
     @IBOutlet weak var recommendationsLabelLeading: NSLayoutConstraint!

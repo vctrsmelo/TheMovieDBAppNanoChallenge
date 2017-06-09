@@ -41,24 +41,24 @@ class DataManager {
 	
 	static func movie(id : String, completion: @escaping (Movie?) -> Void) {
 		
-		if let movie : Movie = MovieDAO.load(id: id) {
-			completion(movie)
-		} else {
+//		if let movie : Movie = MovieDAO.load(id: id) {
+//			completion(movie)
+//		} else {
 			
 			TmdbAPIAccess.getMovieBy(id: id, completion: { (movie) in
 				var result : Movie? = movie
 				
-				if result != nil {
-					if !MovieDAO.save(result!) {
-						result = nil
-					}
-				}
+//				if result != nil {
+//					if !MovieDAO.save(result!) {
+//						result = nil
+//					}
+//				}
 				
 				completion(result)
 				
 			})
 			
-		}
+		//}
 
 	}
 	

@@ -15,6 +15,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var tableViewLeading: NSLayoutConstraint!
     @IBOutlet weak var tableViewTrailing: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
+//    var movie: Movie! = Movie(id: "166426", title: "Pirates of the Caribbean", originalTitle: "nenhum titulo original", genres: ["luz", "camera", "acao"], runtime: 145, releaseDateString: "2017-01-01", overview: "ooooi", poster: UIImage(named: "images"), videosURL: [], cast: [])
     var selection: String = "videos"
     var movie : Movie?
 	
@@ -37,6 +38,12 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
         navigationController?.isNavigationBarHidden = true
         UIApplication.shared.statusBarView?.backgroundColor = .white
         
+//        DataManager.movie(id: "166426") { (movie) in
+//            if let newMovie = movie {
+//                self.movie = newMovie
+//                self.tableView.reloadData()
+//            }
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,15 +65,15 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
     override func viewWillLayoutSubviews() {
         if UIDevice.current.userInterfaceIdiom == .pad {
             if UIDevice.current.orientation == .portrait {
-                screenTitleTop.constant                         = 30
-                screenTitleHeight.constant                      = 25
-                tableViewLeading.constant                       = 46
-                tableViewTrailing.constant                      = 46
+                screenTitleTop.constant     = 30
+                screenTitleHeight.constant  = 25
+                tableViewLeading.constant   = 46
+                tableViewTrailing.constant  = 46
             } else {
-                screenTitleTop.constant                         = 47
-                screenTitleHeight.constant                      = 25
-                tableViewLeading.constant                       = 73
-                tableViewTrailing.constant                      = 73
+                screenTitleTop.constant     = 47
+                screenTitleHeight.constant  = 25
+                tableViewLeading.constant   = 73
+                tableViewTrailing.constant  = 73
             }
         }
     }
@@ -84,7 +91,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
                 case 1:
                     return 456
                 case 2:
-                    return 200 // TODO
+                    return 200// 137 + TODO
                 case 3:
                     return 122
                 case 4:
@@ -105,7 +112,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
                 case 1:
                     return 594
                 case 2:
-                    return 212 // TODO
+                    return 220 // 149 + TODO
                 case 3:
                     return 133
                 case 4:
@@ -127,7 +134,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
             case 1:
                 return 237
             case 2:
-                return 132 // TODO
+                return 132 // 72 + TODO
             case 3:
                 return 63
             case 4:
@@ -155,12 +162,38 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
             if let movie = self.movie{
                 
                 let title = movie.title ?? "No Title"
-                
                 let attributes = cell.movieTitle.attributedText?.attributes(at: 0, effectiveRange: nil)
-                
                 let cellTitle = NSMutableAttributedString.init(string: title, attributes: attributes)
-                
                 cell.movieTitle.attributedText = cellTitle
+
+                cell.movieImage.image = movie.poster
+                
+                let index = movie.releaseDateString?.index((movie.releaseDateString?.startIndex)!, offsetBy: 4)
+                cell.movieYear.text = movie.releaseDateString?.substring(to: index!)
+                
+                cell.movieGenre.text = movie.genres?.joined(separator: ", ")
+                
+                cell.movieTime.text = movie.runtime != nil ? minutesToHoursString(minutes: movie.runtime!) : "Unknown"
+                
+                if let movieTags = DataManager.user.movieTags[movie.id] {
+                    cell.isFavorite = movieTags.isFavorite
+                    //cell.isWatched = movieTags.isOnWatchlist
+                    
+                    switch Int(movieTags.userRating) {
+                    case 1:
+                        cell.oneStarPressed(UIButton(type: .custom))
+                    case 2:
+                        cell.twoStarsPressed(UIButton(type: .custom))
+                    case 3:
+                        cell.threeStarsPressed(UIButton(type: .custom))
+                    case 4:
+                        cell.fourStarsPressed(UIButton(type: .custom))
+                    case 5:
+                        cell.fiveStarsPressed(UIButton(type: .custom))
+                    default:
+                        break
+                    }
+                }
                 
             }
             
@@ -169,26 +202,61 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
             return cell
             
         case 2:
-            return tableView.dequeueReusableCell(withIdentifier: "overviewCell", for: indexPath) as! OverviewTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "overviewCell", for: indexPath) as! OverviewTableViewCell
+            
+            if let movie = self.movie{
+            
+                let overview = movie.overview ?? "No overview"
+                let attributes = cell.movieOverview.attributedText?.attributes(at: 0, effectiveRange: nil)
+                let cellOverview = NSMutableAttributedString.init(string: overview, attributes: attributes)
+                cell.movieOverview.text = overview
+            
+            }
+            return cell
             
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "selectionCell", for: indexPath) as! SelectionTableViewCell
             cell.root = self
+            
             return cell
             
         case 4:
             if selection == "videos" {
-                return tableView.dequeueReusableCell(withIdentifier: "videosCell", for: indexPath) as! VideosTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "videosCell", for: indexPath) as! VideosTableViewCell
+                
+                if let mv = self.movie{
+                    if let url = mv.videosURL{
+
+                        cell.videosURL = url
+                    }
+
+                }
+
+                return cell
+
             } else {
-                return tableView.dequeueReusableCell(withIdentifier: "castingCell", for: indexPath) as! CastingTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "castingCell", for: indexPath) as! CastingTableViewCell
+
+                if let mv = self.movie{
+                    if let cast = mv.cast{
+                        cell.cast = cast
+
+                    }
+                }
+
+                return cell
+
             }
             
         case 5:
-            return tableView.dequeueReusableCell(withIdentifier: "recommendationsCell", for: indexPath) as! RecommendationsTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "recommendationsCell", for: indexPath) as! RecommendationsTableViewCell
+            
+            // TODO
+            cell.recommendedMovies = [Movie(id: "", title: "", originalTitle: "", genres: [], runtime: nil, releaseDateString: nil, overview: nil, poster: UIImage(named: "images")), Movie(id: "", title: "", originalTitle: "", genres: [], runtime: nil, releaseDateString: nil, overview: nil, poster: UIImage(named: "images")), Movie(id: "", title: "", originalTitle: "", genres: [], runtime: nil, releaseDateString: nil, overview: nil, poster: UIImage(named: "images"))]
+            return cell
             
         default:
-            return tableView.dequeueReusableCell(withIdentifier: "mainInformationsCell", for: indexPath) as! MainInformationsTableViewCell
-
+            return UITableViewCell(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         }
     }
 	
@@ -213,4 +281,10 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
 	public func presentImagePicker() {
 		present(imagePicker, animated: true, completion: nil)
 	}
+    
+    func minutesToHoursString(minutes: Int) -> String {
+        let h = minutes / 60
+        let m = minutes % 60
+        return "\(h)h \(m)min"
+    }
 }

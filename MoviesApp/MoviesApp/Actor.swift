@@ -8,8 +8,37 @@
 
 import UIKit
 
-struct Actor {
-    let actorName: String
-    let characterName: String
+
+protocol ActorDelegate: class{
+    
+    func updatedPhotoImage(_ photoImage: UIImage?)
+
+}
+
+class Actor {
+    var actorName: String = ""
+    var characterName: String = ""
     var photo: UIImage?
+    
+    weak var delegate: ActorDelegate?
+    
+    func set(photo: UIImage){
+        
+        self.photo = photo
+        delegate?.updatedPhotoImage(photo)
+        
+    }
+    
+    init() {
+        
+    }
+    
+    init(actorName: String, characterName: String, photo: UIImage?){
+        
+        self.actorName = actorName
+        self.characterName = characterName
+        self.photo = photo
+        
+    }
+    
 }

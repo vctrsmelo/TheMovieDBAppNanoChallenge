@@ -12,7 +12,7 @@ import UIKit.UIImage
 protocol MovieDelegate: class{
     
     func updatedPosterImage(_ posterImage: UIImage?)
-    
+    func updatedVideos(_ videoURL: [String])
 }
 
 public class Movie: Hashable, Equatable {
@@ -25,6 +25,7 @@ public class Movie: Hashable, Equatable {
     public let runtime: Int?
     public let overview: String?
     public let releaseDateString: String?
+    private(set) var videosURL: [String]?
     let cast: [Actor]?
     
 	public var hashValue: Int {
@@ -33,7 +34,7 @@ public class Movie: Hashable, Equatable {
     
     weak var delegate: MovieDelegate?
 
-	init(id: String, title: String?, originalTitle: String?, genres: [String]?, runtime: Int?, releaseDateString: String?, overview: String?, poster: UIImage? = nil, cast: [Actor]? = nil) {
+    init(id: String, title: String?, originalTitle: String?, genres: [String]?, runtime: Int?, releaseDateString: String?, overview: String?, poster: UIImage? = nil, videosURL: [String]? = nil, cast: [Actor]? = nil) {
 		self.id = id
 		self.title = title
 		self.genres = genres
@@ -42,6 +43,7 @@ public class Movie: Hashable, Equatable {
         self.releaseDateString = releaseDateString
         self.overview = overview
         self.originalTitle = originalTitle
+        self.videosURL = videosURL
         self.cast = cast
 	}
     
@@ -49,6 +51,13 @@ public class Movie: Hashable, Equatable {
         
         self.poster = poster
         delegate?.updatedPosterImage(self.poster)
+        
+    }
+    
+    public func set(videosUrl: [String]){
+        
+        videosURL = videosUrl
+        delegate?.updatedVideos(videosUrl)
         
     }
     

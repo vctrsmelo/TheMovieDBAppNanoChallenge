@@ -1287,7 +1287,7 @@
         <image name="tabbar_watchlist" width="26" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EDs-TS-HyK"/>
+        <segue reference="hMy-Qx-eZZ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0020610084759999999" green="0.82179480790000003" blue="0.46594417100000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
