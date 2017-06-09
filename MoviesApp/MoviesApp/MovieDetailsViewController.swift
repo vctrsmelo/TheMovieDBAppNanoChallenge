@@ -177,7 +177,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
                 
                 if let movieTags = DataManager.user.movieTags[movie.id] {
                     cell.isFavorite = movieTags.isFavorite
-                    cell.isWatched = movieTags.isOnWatchlist
+                    //cell.isWatched = movieTags.isOnWatchlist
                     
                     switch Int(movieTags.userRating) {
                     case 1:
