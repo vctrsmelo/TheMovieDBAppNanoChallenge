@@ -10,9 +10,9 @@ import UIKit
 
 class CastingTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    var cast: [Actor] = []//Actor(actorName: "Kakaroto", characterName: "Goku", photo: UIImage(named: "images")),
-                         //Actor(actorName: "Vegeta", characterName: "Sayajin King", photo: UIImage(named: "images")),
-                         //Actor(actorName: "Gohan", characterName: "Matou Cell", photo: UIImage(named: "images"))]
+    var cast: [Actor] = [Actor(actorName: "Fulana", characterName: "Wonder Woman", photo: UIImage(named: "images")),
+                         Actor(actorName: "Fulana", characterName: "Wonder Woman", photo: UIImage(named: "images")),
+                         Actor(actorName: "Fulana", characterName: "Wonder Woman", photo: UIImage(named: "images"))]
     
     @IBOutlet weak var castingCollectionViewHeight: NSLayoutConstraint!
     @IBOutlet weak var castingCollectionViewTop: NSLayoutConstraint!

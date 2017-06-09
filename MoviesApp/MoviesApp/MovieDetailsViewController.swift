@@ -209,7 +209,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
                 let overview = movie.overview ?? "No overview"
                 let attributes = cell.movieOverview.attributedText?.attributes(at: 0, effectiveRange: nil)
                 let cellOverview = NSMutableAttributedString.init(string: overview, attributes: attributes)
-                cell.movieOverview.text = overview
+                cell.movieOverview.attributedText = cellOverview
             
             }
             return cell
