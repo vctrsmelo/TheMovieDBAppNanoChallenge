@@ -244,6 +244,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
                 }
 
                 return cell
+
             }
             
         case 5:

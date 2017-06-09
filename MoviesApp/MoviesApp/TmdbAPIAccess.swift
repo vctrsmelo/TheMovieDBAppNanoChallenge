@@ -300,7 +300,6 @@ class TmdbAPIAccess {
                 }.resume()
             
         }
-
         
     }
     
@@ -352,31 +351,29 @@ class TmdbAPIAccess {
             
         }
         
-        if let idStr = id as? String{
             
-            self.getVideosUrl(id: idStr){ (trailersJson) in
-                
-                var videosUrl: [String] = []
-                
-                if let trailers = trailersJson["results"] as? [[String: AnyObject]]{
-                   
-                    for elem in trailers{
+        self.getVideosUrl(id: idString){ (trailersJson) in
+            
+            var videosUrl: [String] = []
+            
+            if let trailers = trailersJson["results"] as? [[String: AnyObject]]{
+               
+                for elem in trailers{
+                    
+                    if let key = elem["key"] as? String{
                         
-                        if let key = elem["key"] as? String{
-                            
-                            videosUrl.append(key)
-                            print("keyvideo \(key)")
-                            
-                        }
+                        videosUrl.append(key)
+//                            print("keyvideo \(key)")
                         
                     }
-                
+                    
                 }
-                
-                movie.set(videosUrl: videosUrl)
-                
-                
+            
             }
+            
+            movie.set(videosUrl: videosUrl)
+            
+            
             
         }
         
