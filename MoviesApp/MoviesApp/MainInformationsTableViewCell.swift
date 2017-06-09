@@ -109,7 +109,7 @@ class MainInformationsTableViewCell: UITableViewCell {
     
     @IBAction func watchedPressed(_ sender: UIButton) {
 		if self.isWatched {
-			DataManager.user.removeWatchedMovie(id: self.root.testID)
+			DataManager.user.removeWatchedMovie(id: self.root.movie!.id)
 			self.root.testBoolForPhoto = false
 		} else {
 			self.root.presentImagePicker()

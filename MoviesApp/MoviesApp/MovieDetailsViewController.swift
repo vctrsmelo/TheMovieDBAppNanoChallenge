@@ -19,7 +19,6 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
     var movie : Movie?
 	
 	var testBoolForPhoto = false
-	let testID = "123456"
 	private let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
@@ -47,7 +46,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        tableView.reloadData()
+        tableView.reloadData()
     
 
     }
@@ -202,8 +201,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
 	
 	internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
 		if let photo = info[UIImagePickerControllerOriginalImage] as? UIImage {
-			// TODO: Correct ID
-			DataManager.user.watchedMovie(id: self.testID, photo: photo)
+			DataManager.user.watchedMovie(id: self.movie!.id, photo: photo)
 			self.testBoolForPhoto = true
 		} else {
 			self.testBoolForPhoto = false
