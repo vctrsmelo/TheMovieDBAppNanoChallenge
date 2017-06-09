@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var screenTitleTop: NSLayoutConstraint!
     @IBOutlet weak var screenTitleHeight: NSLayoutConstraint!
@@ -17,6 +17,9 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var tableView: UITableView!
     var selection: String = "videos"
     var movie : Movie?
+	
+	//var testBoolForPhoto = false
+	private let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +31,8 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
         tableView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         tableView.layer.shadowOpacity = 0.95
         tableView.layer.shadowRadius = 6.0
+		
+		configureImagePicker()
         
         navigationController?.isNavigationBarHidden = true
         UIApplication.shared.statusBarView?.backgroundColor = .white
@@ -41,7 +46,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        tableView.reloadData()
+        tableView.reloadData()
     
 
     }
@@ -158,6 +163,8 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
                 cell.movieTitle.attributedText = cellTitle
                 
             }
+            
+            cell.root = self
     
             return cell
             
@@ -184,4 +191,26 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
 
         }
     }
+	
+	// MARK: Image Picker Methods
+	private func configureImagePicker() {
+		imagePicker.allowsEditing = false
+		imagePicker.sourceType = .camera
+		imagePicker.navigationController?.delegate = self
+	}
+	
+	internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+		if let photo = info[UIImagePickerControllerOriginalImage] as? UIImage {
+			DataManager.user.watchedMovie(id: self.movie!.id, photo: photo)
+			self.tableView.reloadData()
+			//self.testBoolForPhoto = true
+		}
+//		else {
+//			self.testBoolForPhoto = false
+//		}
+	}
+	
+	public func presentImagePicker() {
+		present(imagePicker, animated: true, completion: nil)
+	}
 }
