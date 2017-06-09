@@ -110,6 +110,13 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
         
         searchBarView.searchBarView.delegate = self
         // Do any additional setup after loading the view.
+
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        movieForSegue = nil
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -348,18 +355,6 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
     
     
     }
-
-//    func posterHasBeenTapped(_ cell: UICollectionViewCell, posterImage: UIImageView) {
-//        
-//        if let index = nowPlayingCollectionView.indexPath(for: cell){
-//    
-//            self.movieForSegue = isNowPlayingCurrentContent ? viewModel.nowPlayingMovies[index.row] : viewModel.upcomingMovies[index.row]
-//            performSegue(withIdentifier: "nowPlayingToDetails", sender: nil)
-//            
-//        }
-//        
-//        
-//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         self.view.endEditing(true)
@@ -367,11 +362,12 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
          
             let mdvc : MovieDetailsViewController = segue.destination as! MovieDetailsViewController
             
-            if let movie = movieForSegue{
-            
-                mdvc.movie = movie
-            
+            while movieForSegue == nil{
+                
+                
             }
+            
+            mdvc.movie = movieForSegue
         
         }
         
@@ -379,12 +375,19 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        print(indexPath)
-//		print(movieForSegue ?? nil)
-//		print(NowPlayingViewModel.)
-        self.movieForSegue = isNowPlayingCurrentContent ? viewModel.nowPlayingMovies[indexPath.item] : viewModel.upcomingMovies[indexPath.item]
-        performSegue(withIdentifier: "nowPlayingToDetails", sender: nil)
+
         
+        let movieId = isNowPlayingCurrentContent ? viewModel.nowPlayingMovies[indexPath.row].id : viewModel.upcomingMovies[indexPath.row].id
+        
+        TmdbAPIAccess.getMovieBy(id: movieId){(movie) in
+            
+            self.movieForSegue = movie
+
+            
+        }
+
+        self.performSegue(withIdentifier: "nowPlayingToDetails", sender: nil)
+    
     }
     
 }

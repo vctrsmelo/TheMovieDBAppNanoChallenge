@@ -272,6 +272,38 @@ class TmdbAPIAccess {
 		
 	}
 	
+    private static func getVideosUrl(id: String, completion: @escaping (_ videosJson: [String:AnyObject]) -> Void){
+    
+        if let url = URL(string:"https://api.themoviedb.org/3/movie/"+id+"/videos?api_key="+apiKey+"&language="+Locale.preferredLanguages[0]){
+            
+            let request = URLRequest(url: url)
+            let session = URLSession.shared
+            
+            session.dataTask(with: request) { (data, response, error) in
+                
+                do{
+                    let json = try JSONSerialization.jsonObject(with: data!, options: [])
+                    
+                    if let movieDic = json as? [String:AnyObject]{
+                        
+                        completion(movieDic)
+                        
+                    }
+                    
+                    
+                } catch let error{
+                    
+                    print(error)
+                    
+                }
+                
+                }.resume()
+            
+        }
+
+        
+    }
+    
     private static func getMovieFrom(movieDictionary movie: [String:AnyObject]) -> Movie?{
         
         var posterUrl: URL? = nil
@@ -319,6 +351,35 @@ class TmdbAPIAccess {
             }
             
         }
+        
+        if let idStr = id as? String{
+            
+            self.getVideosUrl(id: idStr){ (trailersJson) in
+                
+                var videosUrl: [String] = []
+                
+                if let trailers = trailersJson["results"] as? [[String: AnyObject]]{
+                   
+                    for elem in trailers{
+                        
+                        if let key = elem["key"] as? String{
+                            
+                            videosUrl.append(key)
+                            print("keyvideo \(key)")
+                            
+                        }
+                        
+                    }
+                
+                }
+                
+                movie.set(videosUrl: videosUrl)
+                
+                
+            }
+            
+        }
+        
         
         return movie
         
