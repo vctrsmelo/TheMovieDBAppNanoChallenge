@@ -15,7 +15,16 @@ class MainInformationsTableViewCell: UITableViewCell {
     
     var isFavorite: Bool! = false
     var isWatchlist: Bool! = false
-    var isWatched: Bool! = false
+    //var isWatched: Bool! = false
+	var isWatched: Bool {
+		if let movie = self.root.movie {
+			let movieID = movie.id
+			if let movieTags = DataManager.user.movieTags[movieID] {
+				return movieTags.isOnWatchlist
+			}
+		}
+		return false
+	}
     
     @IBOutlet weak var movieImage: UIImageView!
     @IBOutlet weak var yearLabel: UILabel!
@@ -110,22 +119,24 @@ class MainInformationsTableViewCell: UITableViewCell {
     @IBAction func watchedPressed(_ sender: UIButton) {
 		if self.isWatched {
 			DataManager.user.removeWatchedMovie(id: self.root.movie!.id)
-			self.root.testBoolForPhoto = false
+			//self.root.testBoolForPhoto = false
 		} else {
 			self.root.presentImagePicker()
 		}
-		
-		self.isWatched = self.root.testBoolForPhoto
-		
-        if isWatched {
-            watchedButton.setTitleColor(yearLabel.textColor, for: UIControlState.normal)
-            watchedButton.borderColor = yearLabel.textColor
-        } else {
-            watchedButton.setTitleColor(UIColor.white, for: UIControlState.normal)
-            watchedButton.borderColor = UIColor.white
-        }
     }
-    
+	
+	func updateButton() {
+		//self.isWatched = DataManager.user.movieTags[self.root.movie!.id]!.isOnWatchlist
+		
+		if self.isWatched {
+			self.watchedButton.setTitleColor(self.yearLabel.textColor, for: UIControlState.normal)
+			self.watchedButton.borderColor = self.yearLabel.textColor
+		} else {
+			self.watchedButton.setTitleColor(UIColor.white, for: UIControlState.normal)
+			self.watchedButton.borderColor = UIColor.white
+		}
+	}
+	
     @IBAction func cancelPressed(_ sender: UIButton) {
 
     }
