@@ -160,15 +160,15 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
 				
 				if(cell.getFeaturedPerentage() > 50){
 					
-					currentSelectedMovie = isNowPlayingCurrentContent ? viewModel.nowPlayingMovies[indexPath.row] : viewModel.upcomingMovies[indexPath.row]
+					currentSelectedMovie = isNowPlayingCurrentContent ? viewModel.nowPlayingMovies[indexPath.item] : viewModel.upcomingMovies[indexPath.item]
 					alphabetCollectionView.reloadData()
 				}
 			}
 			
-            currentSelectedMovie = isNowPlayingCurrentContent ? viewModel.nowPlayingMovies[indexPath.row] : viewModel.upcomingMovies[indexPath.row]
+            currentSelectedMovie = isNowPlayingCurrentContent ? viewModel.nowPlayingMovies[indexPath.item] : viewModel.upcomingMovies[indexPath.item]
             
             //rounded corners
-            cell.posterImageView.image = isNowPlayingCurrentContent ? viewModel.nowPlayingMovies[indexPath.row].poster :  viewModel.upcomingMovies[indexPath.row].poster
+            cell.posterImageView.image = isNowPlayingCurrentContent ? viewModel.nowPlayingMovies[indexPath.item].poster :  viewModel.upcomingMovies[indexPath.item].poster
             cell.posterImageView.layer.masksToBounds = true
             cell.posterImageView.layer.cornerRadius = 4
 
@@ -180,7 +180,7 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
             
             
             let alphabetCell = collectionView.dequeueReusableCell(withReuseIdentifier: "letterCell", for: indexPath) as! WatchlistAlphabetCollectionViewCell
-            alphabetCell.letterLabel.text = String(viewModel.alphabet[indexPath.row])
+            alphabetCell.letterLabel.text = String(viewModel.alphabet[indexPath.item])
             
             if let movieTitle = currentSelectedMovie?.title, let cellTitle = alphabetCell.letterLabel.text{
                 
@@ -379,8 +379,10 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        self.movieForSegue = isNowPlayingCurrentContent ? viewModel.nowPlayingMovies[indexPath.row] : viewModel.upcomingMovies[indexPath.row]
+//        print(indexPath)
+//		print(movieForSegue ?? nil)
+//		print(NowPlayingViewModel.)
+        self.movieForSegue = isNowPlayingCurrentContent ? viewModel.nowPlayingMovies[indexPath.item] : viewModel.upcomingMovies[indexPath.item]
         performSegue(withIdentifier: "nowPlayingToDetails", sender: nil)
         
     }
