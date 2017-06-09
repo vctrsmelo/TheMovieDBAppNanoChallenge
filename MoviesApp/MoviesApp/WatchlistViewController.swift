@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class WatchlistViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class WatchlistViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
 	
 	var viewModel: WatchlistViewModel!
 	
@@ -18,6 +18,12 @@ class WatchlistViewController: UIViewController, UICollectionViewDataSource, UIC
 	@IBOutlet weak var alphabetCollectionView: UICollectionView!
 	
 	@IBOutlet weak var distancePosterLetters: NSLayoutConstraint!
+	
+	@IBOutlet weak var searchBarView: SearchBarView!
+	
+	@IBOutlet weak var titleLabel: UILabel!
+	
+	@IBOutlet weak var searchButton: UIButton!
 	
 	// MARK: View
 	override func viewDidLoad() {
@@ -29,10 +35,15 @@ class WatchlistViewController: UIViewController, UICollectionViewDataSource, UIC
 		
 		self.alphabetCollectionView.dataSource = self
 		self.alphabetCollectionView.delegate = self
+		
+		searchBarView.searchBarView.delegate = self
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+		UIApplication.shared.statusBarView?.backgroundColor = .clear
+		searchBarView.isToggledOn = false
+		
 		watchlistCollectionView.reloadData()
 	}
 	
@@ -49,6 +60,25 @@ class WatchlistViewController: UIViewController, UICollectionViewDataSource, UIC
 		
 		// Update poster size on rotation
 		self.watchlistCollectionView.collectionViewLayout.invalidateLayout()
+	}
+	
+	// MARK: Search
+	@IBAction func touchUpInsideSearchButton(_ sender: UIButton) {
+		searchBarView.toggleBar(on: true, animated: true)
+		toggleFakeNavbar(false)
+	}
+	
+	func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+		toggleFakeNavbar(true)
+		searchBarView.isToggledOn = false
+		self.view.endEditing(true)
+	}
+	
+	private func toggleFakeNavbar(_ visible: Bool) {
+		UIView.animate(withDuration: 0.2) {
+			self.titleLabel.alpha = visible ? 1 : 0
+			self.searchButton.alpha = visible ? 1 : 0
+		}
 	}
 	
 	// MARK: Collection Views
