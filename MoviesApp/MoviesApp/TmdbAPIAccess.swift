@@ -26,7 +26,7 @@ class TmdbAPIAccess {
         var moviesArray : [Movie] = []
     
         //URL for the page 1 (most recent movies)        
-        if let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key="+apiKey+"&region="+countryCode) {
+        if let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key="+apiKey+"&region="+countryCode+"&append_to_response=credits") {
         
             let request = URLRequest(url: url)
             
@@ -75,7 +75,7 @@ class TmdbAPIAccess {
         var moviesArray : [Movie] = []
 
         //URL for the page 1 (most recent movies)
-        if let url = URL(string: "https://api.themoviedb.org/3/movie/upcoming?api_key="+apiKey+"&region="+countryCode) {
+        if let url = URL(string: "https://api.themoviedb.org/3/movie/upcoming?api_key="+apiKey+"&region="+countryCode+"&append_to_response=credits") {
         
             let request = URLRequest(url: url)
             
@@ -125,7 +125,7 @@ class TmdbAPIAccess {
         
         //URL for the page 1 (most recent movies)
         print("language: \(Locale.preferredLanguages[0])")
-        if let url = URL(string: "https://api.themoviedb.org/3/search/movie?api_key="+apiKey+"&language="+Locale.preferredLanguages[0]+"&query=+"+title) {
+        if let url = URL(string: "https://api.themoviedb.org/3/search/movie?api_key="+apiKey+"&language="+Locale.preferredLanguages[0]+"&query=+"+title+"&append_to_response=credits") {
             
             let request = URLRequest(url: url)
             
@@ -189,7 +189,7 @@ class TmdbAPIAccess {
     
     static func getMovieBy(id: String, completion: @escaping (Movie?) -> Void){
         
-        if let url = URL(string:"http://api.themoviedb.org/3/movie/"+id+"?api_key="+apiKey+"&language="+Locale.preferredLanguages[0]){
+        if let url = URL(string:"http://api.themoviedb.org/3/movie/"+id+"?api_key="+apiKey+"&append_to_response=credits&language="+Locale.preferredLanguages[0]){
 
             let request = URLRequest(url: url)
             let session = URLSession.shared
@@ -222,7 +222,7 @@ class TmdbAPIAccess {
 		
 		var moviesArray : [Movie] = []
 		
-		if let url = URL(string: "http://api.themoviedb.org/3/movie/"+id+"/recommendations?api_key="+apiKey+"&language="+Locale.preferredLanguages[0]+"&page=1") {
+		if let url = URL(string: "http://api.themoviedb.org/3/movie/"+id+"/recommendations?api_key="+apiKey+"&language="+Locale.preferredLanguages[0]+"&page=1"+"&append_to_response=credits") {
 			
 			let request = URLRequest(url: url)
 			let session = URLSession.shared
@@ -333,6 +333,49 @@ class TmdbAPIAccess {
             }
             
         }
+        
+        //get actors
+        if let creditsJson = movie["credits"] as? [[String:AnyObject]]{
+            
+            for currentCredit in creditsJson{
+                
+                if let cast = currentCredit["cast"] as? [[String:AnyObject]]{
+                    
+                    for actCast in cast{
+
+                        var actor = Actor()
+                        actor.actorName = actCast["name"] as! String
+                        actor.characterName = actCast["character"] as! String
+                        
+                        
+                        var actorImageUrl: URL? = nil
+                        if let actorImagePath = actCast["profile_path"] as? String{
+                            
+                            actorImageUrl = URL(string: imageStartingUrl+actorImagePath)
+                            
+                        }
+
+                        
+                        if let url = actorImageUrl{
+                            
+                            TmdbAPIAccess.getImageFromUrl(url: url){(imageData, response, error) in
+                                
+                                if let data = imageData, let actorImage = UIImage(data:data){
+                                    
+                                    actor.set(photo: actorImage)
+                                    
+                                }
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                }
+                
+            }
+            
+        }
 		
 		let idString = String((id as! Int))
 		
@@ -363,7 +406,6 @@ class TmdbAPIAccess {
                     if let key = elem["key"] as? String{
                         
                         videosUrl.append(key)
-//                            print("keyvideo \(key)")
                         
                     }
                     

@@ -310,10 +310,6 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
 		nowPlayingCollectionView.collectionViewLayout.invalidateLayout()
 		nowPlayingCollectionView.reloadData()
 	}
-	
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
-	}
     
     // MARK: Search
     override func viewWillAppear(_ animated: Bool) {

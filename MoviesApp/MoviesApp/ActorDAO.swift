@@ -40,5 +40,6 @@ class ActorDAO: Object {
 		}
 		
 		return Actor(actorName: self.actorName, characterName: self.characterName, photo: actorDAOPhoto)
+        
 	}
 }

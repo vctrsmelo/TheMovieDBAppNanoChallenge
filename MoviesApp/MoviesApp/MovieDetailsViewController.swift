@@ -240,6 +240,7 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
                 if let mv = self.movie{
                     if let cast = mv.cast{
                         cell.cast = cast
+
                     }
                 }
 
