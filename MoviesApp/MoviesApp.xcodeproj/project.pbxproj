@@ -12,6 +12,8 @@
 		294EC4B81EE5D87200528C40 /* WatchlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294EC4B71EE5D87200528C40 /* WatchlistViewModel.swift */; };
 		294EC4BA1EE5D9A000528C40 /* WatchlistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294EC4B91EE5D9A000528C40 /* WatchlistCollectionViewCell.swift */; };
 		294EC4BD1EE5DEC000528C40 /* WatchlistAlphabetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294EC4BC1EE5DEC000528C40 /* WatchlistAlphabetCollectionViewCell.swift */; };
+		299D8D801EE9BF49002B1FF3 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299D8D7F1EE9BF49002B1FF3 /* SearchBarView.swift */; };
+		299D8D831EEA4293002B1FF3 /* SearchBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 299D8D821EEA4293002B1FF3 /* SearchBarView.xib */; };
 		29DDC4F41EE73D5D003069CF /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DDC4F31EE73D5D003069CF /* CustomNavigationBar.swift */; };
 		571F16FC1EE880B500BD1742 /* RecommendationsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571F16FB1EE880B500BD1742 /* RecommendationsCollectionViewCell.swift */; };
 		5721A13C1EE1CF9300E1C95B /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5721A13B1EE1CF9300E1C95B /* UIViewExtension.swift */; };
@@ -50,6 +52,8 @@
 		294EC4B71EE5D87200528C40 /* WatchlistViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchlistViewModel.swift; sourceTree = "<group>"; };
 		294EC4B91EE5D9A000528C40 /* WatchlistCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchlistCollectionViewCell.swift; sourceTree = "<group>"; };
 		294EC4BC1EE5DEC000528C40 /* WatchlistAlphabetCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchlistAlphabetCollectionViewCell.swift; sourceTree = "<group>"; };
+		299D8D7F1EE9BF49002B1FF3 /* SearchBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		299D8D821EEA4293002B1FF3 /* SearchBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchBarView.xib; sourceTree = "<group>"; };
 		29DDC4F31EE73D5D003069CF /* CustomNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		571F16FB1EE880B500BD1742 /* RecommendationsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendationsCollectionViewCell.swift; sourceTree = "<group>"; };
 		5721A13B1EE1CF9300E1C95B /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 				577A01301EE09600005CC233 /* MovieDetailsViewController.swift */,
 				5721A13B1EE1CF9300E1C95B /* UIViewExtension.swift */,
 				29DDC4F31EE73D5D003069CF /* CustomNavigationBar.swift */,
+				299D8D811EE9BFAC002B1FF3 /* SearchBar */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -161,6 +166,15 @@
 				294EC4BC1EE5DEC000528C40 /* WatchlistAlphabetCollectionViewCell.swift */,
 			);
 			name = Watchlist;
+			sourceTree = "<group>";
+		};
+		299D8D811EE9BFAC002B1FF3 /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				299D8D7F1EE9BF49002B1FF3 /* SearchBarView.swift */,
+				299D8D821EEA4293002B1FF3 /* SearchBarView.xib */,
+			);
+			name = SearchBar;
 			sourceTree = "<group>";
 		};
 		5781C4671EE0881F0037C7CB = {
@@ -263,7 +277,7 @@
 				TargetAttributes = {
 					5781C46F1EE0881F0037C7CB = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = VXAGBDYAT9;
+						DevelopmentTeam = LY74HQDURM;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -291,6 +305,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				299D8D831EEA4293002B1FF3 /* SearchBarView.xib in Resources */,
 				5781C47E1EE0881F0037C7CB /* LaunchScreen.storyboard in Resources */,
 				5781C47B1EE0881F0037C7CB /* Assets.xcassets in Resources */,
 				5781C4791EE0881F0037C7CB /* Main.storyboard in Resources */,
@@ -340,6 +355,7 @@
 				FC3516B91EE0D4BB00E6A724 /* MovieDAO.swift in Sources */,
 				294EC4B61EE5D85100528C40 /* WatchlistViewController.swift in Sources */,
 				FC59E30F1EE0CAF600157142 /* UserDAO.swift in Sources */,
+				299D8D801EE9BF49002B1FF3 /* SearchBarView.swift in Sources */,
 				FCD79CB21EE87A18000B12F9 /* ActorDAO.swift in Sources */,
 				5781C4741EE0881F0037C7CB /* AppDelegate.swift in Sources */,
 				57C0736A1EE7158E007DDC0B /* VideosTableViewCell.swift in Sources */,
@@ -474,7 +490,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = VXAGBDYAT9;
+				DEVELOPMENT_TEAM = LY74HQDURM;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -491,7 +507,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = VXAGBDYAT9;
+				DEVELOPMENT_TEAM = LY74HQDURM;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
