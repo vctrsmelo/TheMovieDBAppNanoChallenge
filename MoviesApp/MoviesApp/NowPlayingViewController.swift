@@ -49,6 +49,8 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
     @IBOutlet weak var alphabetCollectionView: UICollectionView!
     private var currentSelectedAlphabetIndex : IndexPath?
     private var currentSelectedMovie: Movie?
+    
+    private var movieForSegue: Movie?
 
     private var viewModel : NowPlayingViewModel!
     
@@ -61,7 +63,7 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
     @IBOutlet weak var upcomingButton: UIButton!
     private var upcomingBorder = CALayer()
     
-    private var nowPlayingIsCurrentContent = true
+    private var isNowPlayingCurrentContent = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,11 +103,14 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        if (collectionView == nowPlayingCollectionView) {
+        if (collectionView == nowPlayingCollectionView && isNowPlayingCurrentContent) {
 
             return viewModel.nowPlayingMovies.count
             
-        } else {
+        } else if (collectionView == nowPlayingCollectionView && !isNowPlayingCurrentContent){
+            return viewModel.upcomingMovies.count
+            
+        }else{
             return viewModel.alphabet.count
         }
         
@@ -138,15 +143,14 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
             
             if(cell.getFeaturedPerentage() > 50){
                 
-                currentSelectedMovie = viewModel.nowPlayingMovies[indexPath.row]
+                currentSelectedMovie = isNowPlayingCurrentContent ? viewModel.nowPlayingMovies[indexPath.row] : viewModel.upcomingMovies[indexPath.row]
                 alphabetCollectionView.reloadData()
             }
             
-            
-            currentSelectedMovie = viewModel.nowPlayingMovies[indexPath.row]
+            currentSelectedMovie = isNowPlayingCurrentContent ? viewModel.nowPlayingMovies[indexPath.row] : viewModel.upcomingMovies[indexPath.row]
             
             //rounded corners
-            cell.posterImageView.image = viewModel.nowPlayingMovies[indexPath.row].poster
+            cell.posterImageView.image = isNowPlayingCurrentContent ? viewModel.nowPlayingMovies[indexPath.row].poster :  viewModel.upcomingMovies[indexPath.row].poster
             cell.posterImageView.layer.masksToBounds = true
             cell.posterImageView.layer.cornerRadius = 4
 
@@ -202,7 +206,8 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
                 
                     if let movieIndex = nowPlayingCollectionView.indexPath(for: nowPlayingCell) {
                         
-                        currentSelectedMovie = viewModel.nowPlayingMovies[movieIndex.row]
+                        
+                        currentSelectedMovie = isNowPlayingCurrentContent ? viewModel.nowPlayingMovies[movieIndex.row] : viewModel.upcomingMovies[movieIndex.row]
                         alphabetCollectionView.reloadData()
 
                         alphabetCollectionView.scrollToItem(at: currentSelectedAlphabetIndex!, at: UICollectionViewScrollPosition.right, animated: false)
@@ -231,28 +236,44 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
 
     @IBAction func nowPlayingButtonTouched(_ sender: UIButton) {
         
-        if nowPlayingIsCurrentContent { return }
+        if isNowPlayingCurrentContent { return }
+        isNowPlayingCurrentContent = true
         
         upcomingBorder.isHidden = true
         nowPlayingBorder.isHidden = false
-        
-        nowPlayingIsCurrentContent = true
+
+        if(viewModel.nowPlayingMovies.isEmpty){
+            
+            let countryCode = (Locale.current.regionCode != nil) ? (Locale.current.regionCode!) : "US"
+            viewModel.getNowPlayingMovies(countryCode: countryCode)
+
+        }else{
+
+            self.nowPlayingCollectionView.reloadData()
+            
+        }
 
     }
     
     
     @IBAction func upcomingButtonTouched(_ sender: UIButton) {
 
-        if !nowPlayingIsCurrentContent { return }
+        if !isNowPlayingCurrentContent { return }
+        isNowPlayingCurrentContent = false
         
         nowPlayingBorder.isHidden = true
         upcomingBorder.isHidden = false
         
-        let countryCode = (Locale.current.regionCode != nil) ? (Locale.current.regionCode!) : "US"
-        viewModel = NowPlayingViewModel(view: self, isNowPlayingList: false, countryCode: countryCode)
-        self.nowPlayingCollectionView.reloadData()
+        if viewModel.upcomingMovies.isEmpty{
+            let countryCode = (Locale.current.regionCode != nil) ? (Locale.current.regionCode!) : "US"
+            viewModel.getUpcomingMovies(countryCode: countryCode)
+            
+        }else{
         
-        nowPlayingIsCurrentContent = false
+            self.nowPlayingCollectionView.reloadData()
+        
+        }
+    
     }
     
     // MARK: Collection View Layout
@@ -279,4 +300,40 @@ class NowPlayingViewController: UIViewController, UICollectionViewDataSource, UI
     
     }
 
+//    func posterHasBeenTapped(_ cell: UICollectionViewCell, posterImage: UIImageView) {
+//        
+//        if let index = nowPlayingCollectionView.indexPath(for: cell){
+//    
+//            self.movieForSegue = isNowPlayingCurrentContent ? viewModel.nowPlayingMovies[index.row] : viewModel.upcomingMovies[index.row]
+//            performSegue(withIdentifier: "nowPlayingToDetails", sender: nil)
+//            
+//        }
+//        
+//        
+//    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "nowPlayingToDetails"{
+         
+            let mdvc : MovieDetailsViewController = segue.destination as! MovieDetailsViewController
+            
+            if let movie = movieForSegue{
+            
+                mdvc.movie = movie
+            
+            }
+        
+        }
+        
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        self.movieForSegue = isNowPlayingCurrentContent ? viewModel.nowPlayingMovies[indexPath.row] : viewModel.upcomingMovies[indexPath.row]
+        performSegue(withIdentifier: "nowPlayingToDetails", sender: nil)
+        
+    }
+    
 }

@@ -14,9 +14,9 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
     @IBOutlet weak var screenTitleHeight: NSLayoutConstraint!
     @IBOutlet weak var tableViewLeading: NSLayoutConstraint!
     @IBOutlet weak var tableViewTrailing: NSLayoutConstraint!
-    
     @IBOutlet weak var tableView: UITableView!
     var selection: String = "videos"
+    var movie : Movie?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +31,19 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
         
         navigationController?.isNavigationBarHidden = true
         UIApplication.shared.statusBarView?.backgroundColor = .white
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         tableView.reloadData()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        tableView.reloadData()
+    
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -136,28 +145,43 @@ class MovieDetailsViewController: UIViewController, UITableViewDataSource, UITab
             return cell
             
         case 1:
-            return tableView.dequeueReusableCell(withIdentifier: "mainInformationsCell") as! MainInformationsTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "mainInformationsCell", for: indexPath) as! MainInformationsTableViewCell
+
+            if let movie = self.movie{
+                
+                let title = movie.title ?? "No Title"
+                
+                let attributes = cell.movieTitle.attributedText?.attributes(at: 0, longestEffectiveRange: nil, in: NSRange.init(location: 0, length: cell.movieTitle.text!.characters.count))
+                
+                let cellTitle = NSMutableAttributedString.init(string: title, attributes: attributes)
+                
+                cell.movieTitle.attributedText = cellTitle
+                
+            }
+    
+            return cell
             
         case 2:
-            return tableView.dequeueReusableCell(withIdentifier: "overviewCell") as! OverviewTableViewCell
+            return tableView.dequeueReusableCell(withIdentifier: "overviewCell", for: indexPath) as! OverviewTableViewCell
             
         case 3:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "selectionCell") as! SelectionTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "selectionCell", for: indexPath) as! SelectionTableViewCell
             cell.root = self
             return cell
             
         case 4:
             if selection == "videos" {
-                return tableView.dequeueReusableCell(withIdentifier: "videosCell") as! VideosTableViewCell
+                return tableView.dequeueReusableCell(withIdentifier: "videosCell", for: indexPath) as! VideosTableViewCell
             } else {
-                return tableView.dequeueReusableCell(withIdentifier: "castingCell") as! CastingTableViewCell
+                return tableView.dequeueReusableCell(withIdentifier: "castingCell", for: indexPath) as! CastingTableViewCell
             }
             
         case 5:
-            return tableView.dequeueReusableCell(withIdentifier: "recommendationsCell") as! RecommendationsTableViewCell
+            return tableView.dequeueReusableCell(withIdentifier: "recommendationsCell", for: indexPath) as! RecommendationsTableViewCell
             
         default:
-            return tableView.dequeueReusableCell(withIdentifier: "mainInformationsCell") as! MainInformationsTableViewCell
+            return tableView.dequeueReusableCell(withIdentifier: "mainInformationsCell", for: indexPath) as! MainInformationsTableViewCell
+
         }
     }
 }

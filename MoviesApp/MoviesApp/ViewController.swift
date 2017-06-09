@@ -24,12 +24,12 @@ class ViewController: UIViewController {
         }
         
         
-        TmdbAPIAccess.getMovieBy(id: 123123){(movie) in
-            
-            
-            
-            
-        }
+//        TmdbAPIAccess.getMovieBy(id: "123123"){(movie) in
+//            
+//            
+//            
+//            
+//        }
         
         // Do any additional setup after loading the view, typically from a nib.
     }

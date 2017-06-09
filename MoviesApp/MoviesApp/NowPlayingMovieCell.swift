@@ -13,9 +13,7 @@ class NowPlayingMovieCell: UICollectionViewCell {
     @IBOutlet weak var posterImageView: UIImageView!
 
     private let heightIncreaseFactor : CGFloat = 80.0
-    
     private let originalSize = CGSize(width: 215, height: 322)
-    
     private var featuredPercentage: CGFloat?
     
     public func updateSize(cellFrame: CGRect, container: CGRect){
@@ -85,4 +83,5 @@ class NowPlayingMovieCell: UICollectionViewCell {
         return 0.0
         
     }
+    
 }

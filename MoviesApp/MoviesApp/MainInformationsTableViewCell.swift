@@ -31,6 +31,11 @@ class MainInformationsTableViewCell: UITableViewCell {
     @IBOutlet weak var watchedButton: UIButton!
     @IBOutlet weak var viewPhotoButton: UIButton!
     
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+     
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -112,6 +117,6 @@ class MainInformationsTableViewCell: UITableViewCell {
     }
     
     @IBAction func cancelPressed(_ sender: UIButton) {
-        
+        movieTitle.text = "FOI AKEEE"
     }
 }
