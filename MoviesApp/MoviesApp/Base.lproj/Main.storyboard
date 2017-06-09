@@ -135,7 +135,7 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MY WATCHLIST" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgi-RN-sx9">
-                                <rect key="frame" x="132" y="48" width="151" height="24"/>
+                                <rect key="frame" x="132" y="38" width="151" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -144,7 +144,7 @@
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REH-AI-C5V">
-                                <rect key="frame" x="368" y="47" width="26" height="26"/>
+                                <rect key="frame" x="368" y="37" width="26" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="26" id="Pmy-sK-w3d">
                                         <variation key="heightClass=regular-widthClass=regular" constant="35.299999999999997"/>
@@ -153,16 +153,28 @@
                                         <variation key="heightClass=regular-widthClass=regular" constant="35.299999999999997"/>
                                     </constraint>
                                 </constraints>
-                                <state key="normal" title="Search" image="ic_search"/>
+                                <state key="normal" image="ic_search"/>
+                                <connections>
+                                    <action selector="touchUpInsideSearchButton:" destination="TUJ-uW-mFd" eventType="touchUpInside" id="fCV-uf-Ows"/>
+                                </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ks-Ft-Atc" customClass="SearchBarView" customModule="MoviesApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="akp-3O-veW"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="3ks-Ft-Atc" secondAttribute="trailing" id="3N5-z2-lsc"/>
+                            <constraint firstItem="3ks-Ft-Atc" firstAttribute="top" secondItem="OGS-ik-vzy" secondAttribute="top" id="6Em-x0-rAM"/>
                             <constraint firstItem="KtZ-Ox-3To" firstAttribute="leading" secondItem="OGS-ik-vzy" secondAttribute="leading" id="JDL-mH-6o1"/>
                             <constraint firstItem="sLt-vu-Ej0" firstAttribute="top" secondItem="KtZ-Ox-3To" secondAttribute="bottom" constant="27" id="PeF-0g-ahv">
                                 <variation key="heightClass=regular-widthClass=regular" constant="72"/>
                             </constraint>
                             <constraint firstAttribute="trailing" secondItem="KtZ-Ox-3To" secondAttribute="trailing" id="Txi-SM-98F"/>
+                            <constraint firstItem="3ks-Ft-Atc" firstAttribute="leading" secondItem="KtZ-Ox-3To" secondAttribute="leading" id="XG3-H9-b3i"/>
                             <constraint firstItem="sLt-vu-Ej0" firstAttribute="leading" secondItem="OGS-ik-vzy" secondAttribute="leading" constant="47" id="cnz-HP-OVS">
                                 <variation key="heightClass=regular-widthClass=regular" constant="79"/>
                             </constraint>
@@ -176,7 +188,9 @@
                             <constraint firstAttribute="trailing" secondItem="REH-AI-C5V" secondAttribute="trailing" constant="20" id="lhg-5R-9f8">
                                 <variation key="heightClass=regular-widthClass=regular" constant="42"/>
                             </constraint>
-                            <constraint firstItem="jgi-RN-sx9" firstAttribute="top" secondItem="R2b-qo-XhG" secondAttribute="bottom" constant="28" id="oaN-S9-1o4"/>
+                            <constraint firstItem="jgi-RN-sx9" firstAttribute="top" secondItem="R2b-qo-XhG" secondAttribute="bottom" constant="18" id="oaN-S9-1o4">
+                                <variation key="heightClass=regular-widthClass=regular" constant="28"/>
+                            </constraint>
                             <constraint firstItem="REH-AI-C5V" firstAttribute="centerY" secondItem="jgi-RN-sx9" secondAttribute="centerY" id="rTX-dR-rGN"/>
                             <constraint firstItem="KtZ-Ox-3To" firstAttribute="top" secondItem="R2b-qo-XhG" secondAttribute="bottom" constant="69" id="tpt-Yr-Bik">
                                 <variation key="heightClass=regular-widthClass=regular" constant="107"/>
@@ -191,11 +205,23 @@
                     <connections>
                         <outlet property="alphabetCollectionView" destination="sLt-vu-Ej0" id="yOU-Nm-DIk"/>
                         <outlet property="distancePosterLetters" destination="PeF-0g-ahv" id="7eb-6L-L5F"/>
+                        <outlet property="searchBarView" destination="3ks-Ft-Atc" id="EHp-Ij-Obl"/>
+                        <outlet property="searchButton" destination="REH-AI-C5V" id="EJA-Jd-kUm"/>
+                        <outlet property="searchDisplayController" destination="TO4-hh-uQ8" id="v1B-Yp-lpz"/>
+                        <outlet property="titleLabel" destination="jgi-RN-sx9" id="Czk-Wf-6y1"/>
                         <outlet property="watchlistCollectionView" destination="KtZ-Ox-3To" id="bGD-K5-dce"/>
                         <segue destination="XVY-IF-9bw" kind="show" identifier="myWatchlistToDetails" id="hMy-Qx-eZZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0SZ-wf-t8Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="TO4-hh-uQ8">
+                    <connections>
+                        <outlet property="delegate" destination="TUJ-uW-mFd" id="kAf-m4-Bmy"/>
+                        <outlet property="searchContentsController" destination="TUJ-uW-mFd" id="PUP-9Q-tBJ"/>
+                        <outlet property="searchResultsDataSource" destination="TUJ-uW-mFd" id="8e7-Yv-GeI"/>
+                        <outlet property="searchResultsDelegate" destination="TUJ-uW-mFd" id="8G8-bl-JPK"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1879.7101449275365" y="-142.66304347826087"/>
         </scene>
@@ -286,7 +312,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WGr-z7-27X" userLabel="Background View">
-                                                    <rect key="frame" x="0.0" y="10" width="390" height="227"/>
+                                                    <rect key="frame" x="0.0" y="10" width="390" height="226.66666666666666"/>
                                                     <color key="backgroundColor" red="0.10110349208116531" green="0.12944775819778442" blue="0.13375258445739746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_saved-1" translatesAutoresizingMaskIntoConstraints="NO" id="nb8-pF-Z2h">
@@ -877,7 +903,7 @@
                                                     </variation>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxr-Z2-EoY">
-                                                    <rect key="frame" x="23" y="52" width="342" height="8"/>
+                                                    <rect key="frame" x="23" y="52" width="342" height="7.6666666666666643"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     <variation key="heightClass=regular-widthClass=compact">
@@ -956,7 +982,7 @@
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P59-hz-TsU" userLabel="Videos Selected">
-                                                    <rect key="frame" x="0.0" y="61" width="195" height="2"/>
+                                                    <rect key="frame" x="0.0" y="60.666666666666664" width="195" height="2"/>
                                                     <color key="backgroundColor" red="0.0020610084759999999" green="0.82179480790000003" blue="0.46594417100000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="2" id="sjW-HJ-T9I"/>
@@ -972,7 +998,7 @@
                                                     </connections>
                                                 </button>
                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A8l-p7-ig8" userLabel="Casting Selected">
-                                                    <rect key="frame" x="195" y="61" width="195" height="2"/>
+                                                    <rect key="frame" x="195" y="60.666666666666664" width="195" height="2"/>
                                                     <color key="backgroundColor" red="0.0020610084759999999" green="0.82179480790000003" blue="0.46594417100000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="2" id="7To-ib-Ifi"/>
@@ -1361,4 +1387,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="hMy-Qx-eZZ"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.0020610084759999999" green="0.82179480790000003" blue="0.46594417100000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
